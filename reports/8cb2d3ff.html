@@ -1,0 +1,475 @@
+<!doctype html><html><head><!-- frame-runtime --><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.C12lZ9DL.js","assets":"assets.8Gk803W0.js","comments":"comments.vw5vQdGA.js","db":"db.h-3sndFg.js","downloads":"downloads.Cqv48mdo.js","embed":"embed.eqL6deQM.js","endpoints":"endpoints.CfzSv5nM.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","permissions":"permissions.BNySkLV5.js","room":"room.VSdFwTE9.js","sample":"sample.BW2Uysoh.js","self":"artifact.C12lZ9DL.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.DSB5x63f.js","comments":"_comments.lsIZQbAK.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var te=["light","dark","system"],re=/^[A-Za-z0-9_-]{1,64}$/,$=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ne=new Set(["class","hidden","value","checked","style","title","alt","placeholder","lang","dir","role","tabindex","disabled","readonly","contenteditable","open","colspan","rowspan"]);function oe(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ne.has(t)}var Be="http://www.w3.org/1999/xhtml",se="http://www.w3.org/2000/svg",ae=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),ie=new Set(["script","style"]);function ce(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ae.has(t):e.namespaceURI===se?!ie.has(t):!1}function M(e,t){return e===t||(e===160||e===32)&&(t===160||t===32)}function le(e,t){const r=e.length,n=t.length;let s=0;for(;s<r&&s<n&&M(e.charCodeAt(s),t.charCodeAt(s));)s++;let o=0;for(;o<r-s&&o<n-s&&M(e.charCodeAt(r-1-o),t.charCodeAt(n-1-o));)o++;return{p:s,s:o}}function ue(e,t){const r=e.firstChild;if(e.childNodes.length!==1||r===null||r.nodeType!==Node.TEXT_NODE){e.textContent=t;return}const n=r.data,s=n.length,o=t.length,{p:i,s:c}=le(n,t);i===s&&c===0&&s===o||r.replaceData(i,s-i-c,t.slice(i,o-c));const h=r.data,p=e.ownerDocument.getSelection?.()??null,w=p!==null&&p.rangeCount>0&&(p.anchorNode===r||p.focusNode===r)?{anchor:p.anchorNode,anchorOffset:p.anchorOffset,focus:p.focusNode,focusOffset:p.focusOffset}:null;let m=-1,g=-1;for(let f=0;f<h.length&&f<t.length;f++){const v=h.charCodeAt(f),b=t.charCodeAt(f);v!==b&&M(v,b)&&(m<0&&(m=f),g=f)}const a=m>=0;if(a&&r.replaceData(m,g-m+1,t.slice(m,g+1)),a&&w!==null&&w.anchor!==null&&w.focus!==null)try{p.setBaseAndExtent(w.anchor,w.anchorOffset,w.focus,w.focusOffset)}catch{}}var fe=new Set(["html","head","body","frameset"]);function de(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&fe.has(e.localName)}function pe(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!re.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!$.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!$.test(r))return!1}return!0}function me(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function he(e){return e===null||typeof e!="object"?!1:me(e.__frame_patch,pe)}function _e(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function ve(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function ye(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&te.includes(r)}var A=/^[\w.-]+\.js$/;function we(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function ge(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin,r.isTrusted)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function be(){return{post:()=>{},on:()=>()=>{}}}var j="__frame_scroll",Ee=150,Ae=310,Se=160,Te=3e4;function ke(){let e=0,t=!1,r=!1,n=!1,s=0,o=null;const i=l=>{try{sessionStorage.setItem(j,JSON.stringify({y:l}))}catch{}},c=()=>{if(clearTimeout(e),o===null)return;const l=o;o=null,i(l)},h=()=>{if(t){t=!1;return}r=!0,o=scrollY,clearTimeout(e),e=setTimeout(c,Ee)};try{addEventListener("scroll",h,{passive:!0}),addEventListener("pagehide",c)}catch{}const p=()=>{let l;try{l=sessionStorage.getItem(j)}catch{return null}if(l===null)return null;let _;try{_=JSON.parse(l)}catch{_=null}const d=_?.y;if(!(typeof d=="number"&&Number.isFinite(d)&&d>=0)){try{sessionStorage.removeItem(j)}catch{}return null}return d};let w=!1;const m=l=>{try{const _=scrollY;scrollTo({top:l,left:0,behavior:"instant"}),s=l,n=!0,clearTimeout(e),o=null,i(l);const d=scrollY;d!==_&&(t=!0),d!==l&&!w&&(w=!0,addEventListener("load",()=>{try{if(scrollY===d){const T=p();m(T!==null?T:s)}}catch{}},{once:!0}))}catch{}},g=()=>{try{return!!location.hash}catch{return!0}};let a=!1;const f=()=>{try{if(a||innerWidth>Ae||innerHeight>Se)return;a=!0;const l=Date.now(),_=()=>{try{removeEventListener("resize",_)}catch{}if(Date.now()-l>Te||r||g())return;const d=p();m(d!==null?d:s)};addEventListener("resize",_)}catch{}};let v=!1,b=!1;return{restore(){if(v||(v=!0,g()))return;const l=p();l!==null&&(m(l),f())},promoted(){if(b||(b=!0,g()))return;const l=p();l!==null?(m(l),f()):n&&m(s)}}}function Re(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:h=>h})??null}catch{}const o=window.Worker,i=o?.prototype,c=Object.freeze({Worker:o,workerOn:i?.addEventListener,workerPost:i?.postMessage,workerTerminate:i?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(h=>h?.bootTopLevel?h.bootTopLevel(c,n):n.settle()).catch(()=>n.settle())}var De="modulepreload",Ie=function(e){return"/"+e},Ue={},Le=function(t,r,n){let s=Promise.resolve();function o(i){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=i,window.dispatchEvent(c),!c.defaultPrevented)throw i}return s.then(i=>{for(const c of i||[])c.status==="rejected"&&o(c.reason);return t().catch(o)})},Oe=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),k=we(Oe,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),N=typeof k=="object"&&k[0],y=N?be():ge();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const o=r[s];try{e(t,o,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[o]}catch{}try{e(t,o,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[o]=="function"&&n++}if(n&&k==="framed")try{y.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Pe=1e4,Y=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function X(e){for(const t of Y)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var R=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),B=window.__FRAME_PREAMBLE?.transforms,D=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function S(e){return Le(()=>import("/_runtime/"+e),void 0)}function G(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:x,hooks:O,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(o){return Promise.reject(o)}}})}}var L=null,E=null;function V(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var U=!1,O={editBefore:null,edit:null};function Ce(e,t,r=!1){const n=[];let s;if(r)try{O.editBefore?.(e)}catch{}for(const o of e.elements){const i=document.querySelector(`[data-id="${o.target}"]`);if(!i){s=o.target;break}if([...Object.keys(o.attrsSet??{}),...o.attrsRemoved??[]].some(c=>!oe(c))){s=o.target;break}if(o.text!==void 0&&(!ce(i)||de(i))){s=o.target;break}for(const[c,h]of Object.entries(o.attrsSet??{}))if(!J(i,c)){try{i.setAttribute(c,h)}catch{}Z(i,c,h)}for(const c of o.attrsRemoved??[])J(i,c)||(i.removeAttribute(c),Z(i,c,null));typeof o.text=="string"&&ue(i,o.text),n.push(o.target)}if(r)try{O.edit?.(e.seq,n,s)}catch{}if(s!==void 0){y.post({__frame_patch_miss:{seq:e.seq}},t);return}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:n}}))}catch{}}function Z(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function J(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,U=!0):U&&(delete t.dataset.theme,t.style.colorScheme="",U=!1)}var P=new Map;function Me(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function F(){for(const e of P.values())e.done||(e.nulled=!0,e.r(null))}var je=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),x=(e,t)=>{const r=P.get(e);if(!r||r.done){r?.nulled&&E&&y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,je):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function ee(){const e=q?.value??{};V(window,"claude",e);for(const t of Object.keys(R)){if(e[t]!==void 0){V(e,t,e[t]);continue}P.set(t,Me())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(R,r))return Promise.resolve(null);const n=P.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(k==="framed"){const e=B&&A.test(B)?S(B).catch(()=>{}):Promise.resolve(void 0),t=a=>{if(a.type==="auxclick"&&a.button!==1)return;const f=a.target,v=f&&f.closest?f.closest("a[href],area[href]"):null;if(!v)return;const b=v.getAttribute("href");if(!b)return;let l;try{l=new URL(b,document.baseURI)}catch{return}if((l.protocol==="http:"||l.protocol==="https:")&&l.origin!==location.origin){a.preventDefault();const _=(v.getAttribute("target")??"").toLowerCase(),d=a.type==="auxclick"||a.metaKey||a.ctrlKey||a.shiftKey||a.altKey||!["","_self","_top","_parent"].includes(_);y.post({__frame_nav:!0,url:l.href,newTab:d},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=a=>{a.isTrusted&&(r.pointer=!0)},s=a=>{a.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(a=>{a?.wireNav&&(a.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),a.wireEngagement?.(r))});let o=null;try{o=ke()}catch{}ee();let i=null,c=null,h=0;const p=y.on((a,f)=>{X(f)&&_e(a)&&(i=a.__frame_init,E=f,p(),clearTimeout(h),c?.())});y.post({__frame_connect:!0},"*");const w=new Promise(a=>{c=a,h=setTimeout(()=>{p(),a()},Pe)}),m=document.readyState==="loading"?new Promise(a=>document.addEventListener("DOMContentLoaded",()=>a(),{once:!0})):Promise.resolve();m.then(()=>{try{o?.restore()}catch{}});const g={cb:null};y.on((a,f)=>{if(X(f)&&ve(a)){try{o?.promoted()}catch{}g.cb?.()}}),w.then(async()=>{if(!i||!E){F();return}Q(i.theme);const a=E;let f=!1,v=!1;y.on((u,z,C)=>{if(z!==a)return;ye(u)&&Q(u.__frame_theme.theme),he(u)&&Ce(u.__frame_patch,a,C);const H=u?.__fc_mode;H&&typeof H=="object"&&!f&&D&&A.test(D)&&(f=!0,S(D).then(K=>K.install?.(a,H.on===!0)).catch(()=>{}));const W=u?.__ft_cmd;W&&typeof W=="object"&&!v&&I&&A.test(I)&&(v=!0,S(I).then(K=>K.install?.(a,W)).catch(()=>{}))});const b=Object.keys(i.capabilities??{}).filter(u=>Object.hasOwn(R,u)).map(u=>[u,R[u]]).filter(u=>typeof u[1]=="string"&&A.test(u[1])),l=await Promise.allSettled(b.map(([,u])=>S(u))),_=await e,d=E;if(_?.buildBoot||y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),_?.buildBoot)try{L=_.buildBoot(i,_.TRANSFORMS??{},{shellOrigin:d,mount:x,hooks:O},u=>y.post({__frame_cap_telemetry:u},d))}catch{y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),L=G(i,d)}else L=G(i,d);const T=u=>y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:u}},d),Ne=L;l.forEach((u,z)=>{const C=b[z][0];if(u.status!=="fulfilled"){T(C);return}try{u.value?.install?.(Ne)}catch{T(C)}}),F(),await m,y.post({__frame_ready:!0},E),e.then(u=>u?.installSizeReporter?.(d,g))})}else N&&(ee(),Re(N,Y,S,{settle:F,mount:x}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<!doctype html>
+<title>笑傲江河法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a;
+      --surface: #1a2225;
+      --surface-2: #212b2e;
+      --ink: #e7edea;
+      --ink-soft: #a9b8b4;
+      --ink-faint: #7c8c91;
+      --line: #2b3639;
+      --line-strong: #3b4a4d;
+      --accent: #4fa88f;
+      --accent-soft: #1c2e29;
+      --gold: #d6ad6b;
+      --gold-soft: #2b2418;
+      --good: #6cbf8d;
+      --good-soft: #1b2b21;
+      --warn: #d9ab5a;
+      --warn-soft: #2c2416;
+      --bad: #e08282;
+      --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a;
+    --surface: #1a2225;
+    --surface-2: #212b2e;
+    --ink: #e7edea;
+    --ink-soft: #a9b8b4;
+    --ink-faint: #7c8c91;
+    --line: #2b3639;
+    --line-strong: #3b4a4d;
+    --accent: #4fa88f;
+    --accent-soft: #1c2e29;
+    --gold: #d6ad6b;
+    --gold-soft: #2b2418;
+    --good: #6cbf8d;
+    --good-soft: #1b2b21;
+    --warn: #d9ab5a;
+    --warn-soft: #2c2416;
+    --bad: #e08282;
+    --bad-soft: #2e1c1c;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+    font-size: 15.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  /* ---------- Header ---------- */
+  .doc-head {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-bottom: 28px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .doc-kicker {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .doc-title {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: clamp(26px, 4vw, 34px);
+    text-wrap: balance;
+    margin: 2px 0 4px;
+  }
+  .doc-sub {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+  }
+  .doc-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 22px;
+    margin-top: 14px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Verdict callout ---------- */
+  .verdict {
+    margin-top: 28px;
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 24px 26px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+  .verdict-price {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .verdict-price small { font-family: var(--font-sans); font-weight: 500; font-size: 14px; color: var(--ink-soft); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; }
+  .verdict-round { display: flex; align-items: flex-start; gap: 10px; }
+  .round-pill {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--warn);
+    background: var(--warn-soft);
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    padding: 6px 12px;
+    white-space: nowrap;
+  }
+
+  /* ---------- Sections ---------- */
+  section { margin-top: 46px; }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+  .sec-num {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .sec-title {
+    font-family: var(--font-serif);
+    font-size: 21px;
+    font-weight: 700;
+    text-wrap: balance;
+  }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  /* ---------- Tables ---------- */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 560px; }
+  thead th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    background: var(--surface-2);
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line-strong);
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    background: var(--surface);
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.highlight td { background: var(--accent-soft); font-weight: 600; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+  }
+  .tag-same { background: var(--gold-soft); color: var(--gold); }
+
+  /* ---------- Two-col info grid ---------- */
+  .infogrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  @media (max-width: 640px) { .infogrid { grid-template-columns: repeat(2, 1fr); } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 15px; margin-top: 3px; font-variant-numeric: tabular-nums; }
+
+  /* ---------- Reasoning callouts ---------- */
+  .note-block {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--ink-faint);
+    border-radius: 4px;
+    padding: 14px 18px;
+    font-size: 13.8px;
+    color: var(--ink-soft);
+    margin: 16px 0;
+  }
+  .note-block b { color: var(--ink); }
+  .math { font-family: var(--font-mono); font-size: 13px; color: var(--ink); background: var(--surface-2); padding: 10px 14px; border-radius: 4px; margin: 10px 0; overflow-x: auto; }
+
+  /* ---------- Risk checklist ---------- */
+  .risk-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .risk-item { background: var(--surface); display: grid; grid-template-columns: 90px 1fr; gap: 14px; padding: 13px 16px; align-items: start; }
+  @media (max-width: 640px) { .risk-item { grid-template-columns: 70px 1fr; } }
+  .risk-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-align: center;
+    padding: 3px 0;
+    border-radius: 4px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .risk-high { background: var(--bad-soft); color: var(--bad); }
+  .risk-mid { background: var(--warn-soft); color: var(--warn); }
+  .risk-low { background: var(--good-soft); color: var(--good); }
+  .risk-body b { display: block; font-size: 14px; margin-bottom: 2px; }
+  .risk-body span { font-size: 13.3px; color: var(--ink-soft); }
+
+  /* ---------- Price scale visual ---------- */
+  .scale-wrap { margin: 22px 0 8px; }
+  .scale-track { position: relative; height: 54px; }
+  .scale-base { position: absolute; left: 0; right: 0; top: 24px; height: 6px; background: var(--surface-2); border-radius: 3px; }
+  .scale-band { position: absolute; top: 20px; height: 14px; border-radius: 7px; background: var(--accent-soft); border: 1px solid var(--accent); opacity: 0.85; }
+  .scale-mark { position: absolute; top: 0; width: 2px; height: 27px; background: var(--ink); }
+  .scale-mark.dim { background: var(--ink-faint); }
+  .scale-label { position: absolute; top: 30px; font-size: 11.5px; font-family: var(--font-mono); white-space: nowrap; color: var(--ink-soft); transform: translateX(-50%); }
+  .scale-label b { display: block; color: var(--ink); font-size: 12.5px; font-family: var(--font-sans); font-weight: 700; }
+  .scale-axis { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); margin-top: 46px; padding-top: 8px; border-top: 1px dashed var(--line); }
+
+  /* ---------- Conclusion cards ---------- */
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--accent); background: var(--accent-soft); }
+  .concl-card.primary h4 { color: var(--accent); }
+
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    color: var(--ink-faint);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+
+  <div class="doc-head">
+    <div class="doc-kicker">法拍物件行情估價 · 個案分析</div>
+    <h1 class="doc-title">正德國中笑傲江河（近淡金北新站）</h1>
+    <div class="doc-sub">新北市淡水區北新路169巷87號5樓｜臺灣士林地方法院 114年度司執字第31883號</div>
+    <div class="doc-meta">
+      <span>查詢日期 <b>2026-08-16</b></span>
+      <span>資料來源 <b>uhomes 法拍公告 · 591售屋網 · 591實價登錄（同步內政部）</b></span>
+      <span>開標日 <b>2026-09-22 14:30</b></span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <div class="verdict-label">建議合理得標價區間</div>
+      <div class="verdict-price">650 – 730 <small>萬元（不含車位）</small></div>
+      <div class="verdict-note">對應單價約 21.1 – 23.7 萬/坪，相對市場合理價值（同棟實價登錄743萬、富邦鑑價759–799萬）折讓約9–19%，反映法拍屋無法事前完整看屋、欠費狀況不明等固有風險折讓。</div>
+    </div>
+    <div class="verdict-round">
+      <div class="round-pill">2拍</div>
+      <div>
+        <div class="verdict-label">拍次判斷</div>
+        <div style="font-size:14px;">公告底價694萬已含20%流標折讓，但仍貼近市場行情下緣，<b>本輪流標、進入3拍的機率不低</b>；風險承受度高者可考慮等3拍（預估約555萬起）再出手。</div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">一</span><span class="sec-title">物件基本資料</span></div>
+    <div class="infogrid">
+      <div class="infocell"><div class="k">公告坪數</div><div class="v">30.76 坪</div></div>
+      <div class="infocell"><div class="k">主建坪</div><div class="v">24.33 坪</div></div>
+      <div class="infocell"><div class="k">土地坪數</div><div class="v">4.77 坪</div></div>
+      <div class="infocell"><div class="k">屋齡 / 樓層</div><div class="v">31年・5F / 15F</div></div>
+      <div class="infocell"><div class="k">型態</div><div class="v">電梯大樓・RC</div></div>
+      <div class="infocell"><div class="k">車位</div><div class="v">無配附車位</div></div>
+      <div class="infocell"><div class="k">拍賣原因</div><div class="v">清償票款</div></div>
+      <div class="infocell"><div class="k">點交情形</div><div class="v">點交</div></div>
+      <div class="infocell"><div class="k">保證金</div><div class="v">139萬</div></div>
+    </div>
+    <div class="note-block">
+      本案為建物＋2筆土地應有部分（883、884地號）合併拍賣，<b>需分別出價</b>，底價合計694萬。建物點交，土地應有部分依法拍常態不點交（屬合建/共有物拍賣的一般結構，非本案特有風險）。<b>投標人須自行查明是否積欠管理費</b>。
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">二</span><span class="sec-title">拍賣現況與隱含市場基準</span></div>
+    <p class="lede">法拍每流標一次，下一拍底價通常以前次八折公告。用此反推，可估出法院囑託鑑價當時的市場基準，並與現在的實價登錄互相驗證。</p>
+    <div class="math">2拍底價 694萬 ÷ 0.8 ≈ <b>隱含1拍底價 867.5萬</b>（單價≈28.2萬/坪）</div>
+    <div class="note-block">
+      這個反推出的1拍基準（28.2萬/坪）與社區近2年實價登錄均價（28.5萬/坪）幾乎一致 —— 代表1拍當時的公告價其實已貼近市場正常行情，這也解釋了為何會流標：買家在公開市場已能用類似價格買到條件更單純（可完整看屋、產權清楚）的物件，法拍的風險折讓不夠、誘因不足。
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">三</span><span class="sec-title">591同社區在售行情比對</span></div>
+    <p class="lede">「笑傲江河」社區目前在售18件，同坪數區間（30–34坪，3–4房）多落在 24–29 萬/坪；另有一筆規格與本物件幾乎完全相同（同棟、同樓層5F、31年、31坪）的物件，開價已明顯低於社區行情，推測與本次法拍招標宣傳有關。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>物件</th><th>格局</th><th class="num">坪數</th><th>樓層</th><th class="num">開價(萬)</th><th class="num">單價(萬/坪)</th></tr></thead>
+        <tbody>
+          <tr class="highlight"><td>正德國中笑傲江河近淡金北新站 <span class="tag tag-same">規格相同</span></td><td>4房2廳</td><td class="num">31.00</td><td>5F/15F</td><td class="num">554</td><td class="num">17.87</td></tr>
+          <tr><td>笑傲江河三房｜北新淡大商圈</td><td>3房2廳</td><td class="num">34.20</td><td>3F/15F</td><td class="num">960</td><td class="num">28.07</td></tr>
+          <tr><td>溫馨家庭3房平面車位</td><td>3房2廳</td><td class="num">43.94</td><td>4F/15F</td><td class="num">1,078</td><td class="num">24.53</td></tr>
+          <tr><td>面溪大四房平車</td><td>4房2廳</td><td class="num">56.45</td><td>12F/15F</td><td class="num">1,380</td><td class="num">28.50</td></tr>
+          <tr><td>百萬裝潢2房＋車（滿租投報）</td><td>2房2廳</td><td class="num">24.25</td><td>6F/15F</td><td class="num">798</td><td class="num">32.91</td></tr>
+          <tr><td>高樓景觀大戶・雙車位</td><td>4房3廳</td><td class="num">82.14</td><td>15F/15F</td><td class="num">1,768</td><td class="num">21.52</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-block">
+      「規格相同」那筆的開價（554萬／17.87萬坪）明顯低於同社區其餘物件，且聯絡人顯示「代理人」而非一般屋主／房仲，高度疑似是招標公司或代標業者為本次法拍案件在591同步曝光、吸引潛在買家的行銷貼文，<b>應視為法拍招標訊息，而非獨立的市場成交依據</b>。
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">四</span><span class="sec-title">內政部實價登錄比對</span></div>
+    <p class="lede">社區近2年共登錄108筆成交，均價28.5萬/坪；其中<b>同一棟「北新路169巷87號」</b>近兩年有3筆與本物件坪數幾乎相同（30.8坪）的實際成交紀錄，是目前可取得最直接的比較基準。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>成交年月</th><th>地址</th><th>樓層</th><th class="num">坪數</th><th class="num">單價(萬/坪)</th><th class="num">總價不含車位(萬)</th><th class="num">車位(萬)</th></tr></thead>
+        <tbody>
+          <tr class="highlight"><td>113-08</td><td>北新路169巷87號</td><td>7F</td><td class="num">30.8</td><td class="num">24.3</td><td class="num">748</td><td class="num">70</td></tr>
+          <tr class="highlight"><td>113-06</td><td>北新路169巷87號</td><td>9F</td><td class="num">30.8</td><td class="num">25.7</td><td class="num">790</td><td class="num">無</td></tr>
+          <tr class="highlight"><td>112-08</td><td>北新路169巷87號</td><td>6F</td><td class="num">30.8</td><td class="num">22.4</td><td class="num">690</td><td class="num">110</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="infogrid" style="margin-top:14px;">
+      <div class="infocell"><div class="k">社區均價（近2年）</div><div class="v">28.5 萬/坪</div></div>
+      <div class="infocell"><div class="k">同棟同坪數均價</div><div class="v">24.1 萬/坪</div></div>
+      <div class="infocell"><div class="k">最新／最高／最低單價</div><div class="v">25.6／35.9／11.4 萬/坪</div></div>
+    </div>
+    <div class="note-block">
+      同棟同坪數三筆成交（不含車位）落在 <b>690–790萬</b>，均值約743萬。社區整體均價28.5萬/坪明顯偏高，是因為含大量9–13坪小套房（單價可達31–36萬/坪）拉高平均——這類小坪數溢價不適用於本物件，<b>應以同棟大坪數成交（22.4–25.7萬/坪）作為市場基準</b>，本物件坪數與這三筆幾乎一致，可視為近乎同物件的直接比較。
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">五</span><span class="sec-title">銀行鑑價（富邦房貸實測）</span></div>
+    <p class="lede">改用<a href="https://www.fubon.com/banking/personal/mortgage/evaluate/evaluate.htm" target="_blank" rel="noopener">富邦房貸「房價行情查詢」</a>實測取得，取代市價打折模擬。輸入條件：新北市淡水區北新路169巷87號5樓、電梯大廈、總樓層15、所在樓層5、屋齡約31年、坪數30.76、無車位。</p>
+    <div class="infogrid">
+      <div class="infocell"><div class="k">房屋總價初估（不含車位）</div><div class="v">759 – 799 萬</div></div>
+      <div class="infocell"><div class="k">對應單價</div><div class="v">24.7 – 26.0 萬/坪</div></div>
+      <div class="infocell"><div class="k">與同棟實價登錄比較</div><div class="v">高於690–790萬區間上緣</div></div>
+    </div>
+    <div class="note-block">
+      富邦估出的759–799萬，比同棟實價登錄均值743萬略高，兩個獨立來源互相印證：本物件的市場合理價值應落在<b>740–800萬</b>這個區間，而非單一數字。2拍公告底價694萬相對這個區間，折讓幅度約13–15%。
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">六</span><span class="sec-title">風險因子檢核</span></div>
+    <div class="risk-list">
+      <div class="risk-item"><div class="risk-badge risk-mid">中</div><div class="risk-body"><b>管理費／欠費未知</b><span>投標前無法確認是否積欠管理費，得標後可能需承接欠費（依民法826條之1相關規定注意）。</span></div></div>
+      <div class="risk-item"><div class="risk-badge risk-mid">中</div><div class="risk-body"><b>無法事前完整看屋</b><span>僅能參考公告資料與外觀勘查，室內屋況、漏水、裝修狀態均無法在投標前確認。</span></div></div>
+      <div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>土地應有部分不點交</b><span>883、884地號拍定後不點交，屬法拍市場常見結構（建物點交、土地應有部分不點交），非本案特有風險，不列入折讓計算。</span></div></div>
+      <div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>建物本身點交</b><span>5774建號建物本體拍定後點交，法院公告載明「點交」即視為低風險，主要居住權利可正常取得。</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">七</span><span class="sec-title">估價結論與建議</span></div>
+
+    <div class="scale-wrap">
+      <div class="scale-track" style="height:64px;">
+        <div class="scale-base"></div>
+        <div class="scale-band" style="left:37.5%; width:20%;"></div>
+        <div class="scale-mark" style="left:13.75%;"></div>
+        <div class="scale-mark" style="left:48.5%;"></div>
+        <div class="scale-mark dim" style="left:60.75%;"></div>
+        <div class="scale-mark dim" style="left:64.75%; height:40px;"></div>
+        <div class="scale-mark dim" style="left:74.75%; height:40px;"></div>
+        <div class="scale-mark dim" style="left:92%;"></div>
+        <div class="scale-label" style="left:13.75%;"><b>555萬</b>預估3拍底價</div>
+        <div class="scale-label" style="left:48.5%;"><b>694萬</b>2拍公告底價</div>
+        <div class="scale-label" style="left:60.75%;"><b>743萬</b>同棟成交均值</div>
+        <div class="scale-label" style="left:69.75%; top:44px;"><b>759–799萬</b>富邦鑑價</div>
+        <div class="scale-label" style="left:92%;"><b>868萬</b>隱含1拍基準</div>
+      </div>
+      <div class="scale-axis" style="margin-top:58px;"><span>500萬</span><span>建議出價區間（650–730萬）</span><span>900萬</span></div>
+    </div>
+
+    <div class="concl-grid" style="margin-top:28px;">
+      <div class="concl-card primary">
+        <h4>穩健自住／一般投資者</h4>
+        <p>可於2拍鎖定 650–730萬 出手，此區間仍低於市場合理價值（743–799萬），保留約9–19%風險折讓，同時避免因等待3拍而多花數月時間成本、且屆時仍可能有其他買家搶標。</p>
+      </div>
+      <div class="concl-card">
+        <h4>專業法拍投資者</h4>
+        <p>若能接受無法事前完整看屋、欠費狀況待查等法拍固有風險，可考慮放棄2拍、靜候流標，於3拍（預估約555萬起）進場，取得更大的安全邊際與轉售利潤空間。土地應有部分不點交屬常態結構，不是額外扣分項。</p>
+      </div>
+    </div>
+
+    <div class="note-block" style="margin-top:16px;">
+      公告底價694萬本身並非「便宜價」——它只是法定流標折讓後的數字，實質上仍貼近市場行情下緣。<b>合理判斷不是「底價=撿便宜」，而是底價與同棟實際成交（690–790萬）的相對位置</b>：目前價位提供的風險緩衝有限，本輪流標、進入3拍的可能性不低。
+    </div>
+  </section>
+
+  <footer>
+    <span>資料擷取：uhomes 法拍屋公告（2026-08-16 查詢）、591售屋網「笑傲江河」在售物件、591實價登錄社區頁（與內政部不動產交易實價查詢服務網同步，更新至115年8月）、富邦房貸房價行情查詢。</span>
+    <span>本報告為初步估價參考，非正式鑑價報告；實際投標前請至法院現場查詢公告全文、確認欠費狀況，並諮詢地政士／代標專業意見。</span>
+  </footer>
+
+</div>
+
+</body></html>
