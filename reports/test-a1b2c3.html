@@ -1,0 +1,255 @@
+<!doctype html>
+<title>【豐原鎌村路透天厝】法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--bad); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .reco-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+  .reco-buy { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .reco-wait { background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn); }
+  .reco-avoid { background: var(--bad-soft); color: var(--bad); border: 1px solid var(--bad); }
+  .reco-review { background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--line-strong); }
+  .verdict-price { font-family: var(--font-serif); font-weight: 700; font-size: 22px; color: var(--bad); font-variant-numeric: tabular-nums; }
+  .verdict-price small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; }
+  .verdict-round { display: flex; align-items: flex-start; gap: 10px; }
+  .round-pill { font-family: var(--font-serif); font-weight: 700; font-size: 18px; color: var(--warn); background: var(--warn-soft); border: 1px solid var(--line-strong); border-radius: 6px; padding: 6px 12px; white-space: nowrap; }
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 560px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.highlight td { background: var(--accent-soft); font-weight: 600; }
+  tr.dim td { color: var(--ink-faint); }
+  .infogrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 640px) { .infogrid { grid-template-columns: repeat(2, 1fr); } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 15px; margin-top: 3px; font-variant-numeric: tabular-nums; }
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+  .note-block.bad { border-left-color: var(--bad); background: var(--bad-soft); }
+  .math { font-family: var(--font-mono); font-size: 13px; color: var(--ink); background: var(--surface-2); padding: 10px 14px; border-radius: 4px; margin: 10px 0; overflow-x: auto; }
+  .risk-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .risk-item { background: var(--surface); display: grid; grid-template-columns: 90px 1fr; gap: 14px; padding: 13px 16px; align-items: start; }
+  @media (max-width: 640px) { .risk-item { grid-template-columns: 70px 1fr; } }
+  .risk-badge { font-family: var(--font-mono); font-size: 11px; text-align: center; padding: 3px 0; border-radius: 4px; font-weight: 700; letter-spacing: 0.04em; }
+  .risk-high { background: var(--bad-soft); color: var(--bad); }
+  .risk-mid { background: var(--warn-soft); color: var(--warn); }
+  .risk-low { background: var(--good-soft); color: var(--good); }
+  .risk-body b { display: block; font-size: 14px; margin-bottom: 2px; }
+  .risk-body span { font-size: 13.3px; color: var(--ink-soft); }
+  .scale-wrap { margin: 22px 0 8px; }
+  .scale-track { position: relative; height: 54px; }
+  .scale-base { position: absolute; left: 0; right: 0; top: 24px; height: 6px; background: var(--surface-2); border-radius: 3px; }
+  .scale-band { position: absolute; top: 20px; height: 14px; border-radius: 7px; background: var(--accent-soft); border: 1px solid var(--accent); opacity: 0.9; }
+  .scale-mark { position: absolute; top: 0; width: 2px; height: 27px; background: var(--ink); }
+  .scale-mark.dim { background: var(--ink-faint); }
+  .scale-mark.warn { background: var(--warn); }
+  .scale-mark.bad { background: var(--bad); }
+  .scale-label { position: absolute; top: 30px; font-size: 11.5px; font-family: var(--font-mono); white-space: nowrap; color: var(--ink-soft); transform: translateX(-50%); }
+  .scale-label b { display: block; color: var(--ink); font-size: 12.5px; font-family: var(--font-sans); font-weight: 700; }
+  .scale-axis { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); margin-top: 46px; padding-top: 8px; border-top: 1px dashed var(--line); }
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--bad); background: var(--bad-soft); }
+  .concl-card.primary h4 { color: var(--bad); }
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+
+  <div class="doc-head">
+    <div class="doc-kicker">法拍物件行情估價 · 個案分析（國有財產署標售案件）</div>
+    <h1 class="doc-title">豐原鎌村路透天厝（近國道4號台中環線）</h1>
+    <div class="doc-sub">台中市豐原區鎌村路686巷7號｜金融拍賣中心 115年度第108批89標</div>
+    <div class="doc-meta">
+      <span>查詢日期 <b>2026-09-03</b></span>
+      <span>資料來源 <b>uhomes 法拍公告 · 內政部實價登錄</b></span>
+      <span>開標日 <b>2026/10/30 11:00</b></span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <div class="verdict-label-row">
+        <div class="verdict-label">估算結論</div>
+        <div class="reco-badge reco-wait">建議謹慎評估／人工複查</div>
+      </div>
+      <div class="verdict-price">底價162萬 vs 市場行情約645–678萬——價差異常，不是單純撿便宜</div>
+      <div class="verdict-note">底價162.0072萬換算單價僅6.02萬/坪，與富邦鑑價（645–678萬，單價約24–25萬/坪）以及鄰近成交comp（22–56萬/坪，鎌村一街同型透天30.57萬/坪）相比，價差高達4倍以上（約75%折讓）。這遠超過去25案累積下來的常態法拍折讓範圍，且公告為國產署標售案件、筆錄僅顯示「請洽詢專員」，完全查不到具體原因。這種等級的價差通常代表有投標人看不到的結構性問題（合併標售條件、土地持分複雜等），不宜僅因帳面價差大就樂觀建議投標。</div>
+    </div>
+    <div class="verdict-round">
+      <div class="round-pill">限通訊投標</div>
+      <div>
+        <div class="verdict-label">拍次判斷</div>
+        <div style="font-size:14px;">本案為國有財產署／金融拍賣中心「不動產標售」案件，非1拍/2拍/3拍編號輪次，<b>不適用底價÷0.8反推公式</b>。限通訊投標為國產署標售的常見形式，與一般法院公告輪次拍賣性質不同。</div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">一</span><span class="sec-title">物件基本資料</span></div>
+    <div class="infogrid">
+      <div class="infocell"><div class="k">公告坪數</div><div class="v">26.89 坪</div></div>
+      <div class="infocell"><div class="k">主建坪數</div><div class="v">26.89 坪</div></div>
+      <div class="infocell"><div class="k">附屬／公設／其他</div><div class="v">均為 0（無記載）</div></div>
+      <div class="infocell"><div class="k">增建坪數</div><div class="v">無（不涉違建）</div></div>
+      <div class="infocell"><div class="k">土地坪數</div><div class="v">24.34 坪</div></div>
+      <div class="infocell"><div class="k">屋齡 / 樓層</div><div class="v">45年・全棟/2樓</div></div>
+      <div class="infocell"><div class="k">型態 / 結構</div><div class="v">透天厝・加強磚造</div></div>
+      <div class="infocell"><div class="k">拍賣原因</div><div class="v">不動產標售</div></div>
+      <div class="infocell"><div class="k">點交情形</div><div class="v">不點交</div></div>
+      <div class="infocell"><div class="k">保證金</div><div class="v">16.3萬</div></div>
+      <div class="infocell"><div class="k">抵押權</div><div class="v">三信商銀設定55萬</div></div>
+      <div class="infocell"><div class="k">房屋用途</div><div class="v">住家用</div></div>
+    </div>
+    <div class="note-block">公告坪數＝主建坪數（26.89坪），無附屬、公設、其他、增建坪數記載，代表本案不涉違建／增建問題，<b>合法可比面積＝公告坪數＝26.89坪</b>，不需另外拆算。</div>
+    <div class="note-block bad"><b>公告資訊極簡</b>：筆錄欄位僅顯示「請洽詢專員」，沒有一般法院公告常見的使用情形調查、非自然死亡查詢等完整段落。這代表本案<b>不是「確認沒事」，而是「完全沒有資訊」</b>——包含點交細節、屋況、有無糾紛等，均無法從公告本身查證，是本案資訊不透明的一部分，詳見第六節風險檢核。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">二</span><span class="sec-title">拍賣現況與底價換算</span></div>
+    <div class="math">底價 162.0072萬 ÷ 合法面積 26.89坪 ≈ <b>單價 6.02 萬/坪</b></div>
+    <div class="note-block">本案沒有增建坪數，底價單價本身就是「合法面積」單價，不需要另外重新換算。這個單價本身已經明顯偏離豐原區一般透天行情，詳見第三、四節。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">三</span><span class="sec-title">內政部實價登錄比對</span></div>
+    <p class="lede">「鎌村路」本身查無成交紀錄。改查鄰近的「鎌村一街」（同屬鎌村地區）及豐原區整體透天成交行情（排除親友/特殊關係交易），作為地緣參考。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>成交年月/地址</th><th>樓層</th><th class="num">坪數</th><th class="num">單價(萬/坪)</th><th class="num">總價(萬)</th></tr></thead>
+        <tbody>
+          <tr class="highlight"><td>2026-03・鎌村一街6巷6號（同鎌村地區）</td><td>全/3層</td><td class="num">44.49</td><td class="num">30.57</td><td class="num">1,360</td></tr>
+          <tr><td>2026-04・東陽路69巷3號</td><td>全/2層</td><td class="num">56.62</td><td class="num">26.49</td><td class="num">1,500</td></tr>
+          <tr><td>2026-04・中正路737巷55弄69號</td><td>全/2層</td><td class="num">27.10</td><td class="num">27.68</td><td class="num">790</td></tr>
+          <tr><td>2026-03・圓環南路141巷22號</td><td>全/2層</td><td class="num">31.42</td><td class="num">22.60</td><td class="num">710</td></tr>
+          <tr><td>2026-04・圓環東路312巷13弄6號</td><td>全/2層</td><td class="num">31.46</td><td class="num">44.12</td><td class="num">1,388</td></tr>
+          <tr class="dim"><td>本案：鎌村路686巷7號（底價換算）</td><td>全/2層</td><td class="num">26.89</td><td class="num">6.02</td><td class="num">162.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-block">豐原區一般老透天（2層、無電梯、排除親友交易）成交單價大致落在<b>22–56萬/坪</b>，中位數約26–30萬/坪；地緣最接近的「鎌村一街」同型透天成交單價為30.57萬/坪。本案底價單價6.02萬/坪遠低於這個區間，且不是差一點點，是差了4–5倍。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">四</span><span class="sec-title">市場合理價值估算</span></div>
+    <div class="math">合法面積 26.89坪 × 區域行情約 24–30 萬/坪 ≈ <b>645–807萬</b>（與富邦鑑價相互印證，見下節）</div>
+    <div class="note-block">Comp與富邦鑑價兩個獨立來源的估值區間高度重疊（詳見第五節），互相印證了「這個物件本身的市場價值大約落在600–700萬區間」，並不是富邦AVM模型單方面的誤判。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">五</span><span class="sec-title">銀行鑑價（富邦房貸，沿用批次快篩結果）</span></div>
+    <p class="lede">沿用批次快篩階段已查得的富邦鑑價結果，本次分析不重新操作查詢。</p>
+    <div class="infogrid">
+      <div class="infocell"><div class="k">房屋總價初估</div><div class="v">645 – 678 萬</div></div>
+      <div class="infocell"><div class="k">對應單價</div><div class="v">約 23.99 – 25.21 萬/坪</div></div>
+      <div class="infocell"><div class="k">與底價比較</div><div class="v">底價僅為富邦估值的 24–25%</div></div>
+    </div>
+    <div class="note-block bad"><b>特殊情況：底價換算單價異常過低，與富邦估值差距逾4倍</b>。依 SKILL.md 特殊情況(j)判斷原則，富邦此案其實查得到明確估值（非「查無資料」），且與內政部實價登錄comp（22–30萬/坪）高度吻合，代表富邦估值本身可信度高。真正異常的是底價本身——底價6.02萬/坪與市場行情（comp、富邦雙重印證的24–30萬/坪）差距達4倍，遠超過去25個案例累積下來的常態法拍折讓區間（多數案例折讓在20–50%之間）。公告筆錄僅顯示「請洽詢專員」，無法查明底價偏低的具體原因，可能與國產署合併標售的土地持分結構、多戶合併條件、或其他公告未揭露的產權限制有關。<b>這種規模的價差通常代表「有投標人看不到的坑」，不應僅因帳面折讓大就樂觀建議投標。</b></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">六</span><span class="sec-title">風險因子檢核</span></div>
+    <div class="risk-list">
+      <div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>底價與市場行情價差異常（逾4倍，約75%折讓），且公告未揭露具體原因</b><span>富邦鑑價與內政部實價登錄comp兩個獨立來源互相印證，市場行情約600–700萬，底價僅162萬。這個折讓幅度遠超本系列過去25案的常態範圍，公告筆錄僅「請洽詢專員」，無法查明是否涉及合併標售條件、土地持分複雜、或其他產權限制。強烈建議投標前先向國有財產署專員洽詢查明實際標售條件，不宜僅因帳面價差大就直接投標。</span></div></div>
+      <div class="risk-item"><div class="risk-badge risk-mid">中</div><div class="risk-body"><b>不點交，且公告簡略無法查證具體原因</b><span>點交情形欄位寫「不點交」，但因筆錄僅「請洽詢專員」，無法像一般法院公告一樣查證現場使用情形、有無占有爭議等細節。建議投標前另行向國產署專員查證。</span></div></div>
+      <div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>抵押權金額遠低於底價</b><span>三信商銀設定抵押權55萬，遠低於底價162萬，抵押權本身非異常項目，且拍定後通常隨程序處理，不構成額外風險。</span></div></div>
+      <div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>屋齡45年，未列入都更/危老評估</b><span>本次分析範圍僅限行情估價，都更/危老潛力評估非本報告涵蓋範圍，如有需要可另外申請 urban-renewal-assessment 分析。</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">七</span><span class="sec-title">估價結論與建議</span></div>
+
+    <div class="scale-wrap">
+      <div class="scale-track" style="height:64px;">
+        <div class="scale-base"></div>
+        <div class="scale-band" style="left:86%; width:4.4%;"></div>
+        <div class="scale-mark bad" style="left:21.6%;"></div>
+        <div class="scale-label" style="left:21.6%;"><b>162萬</b>公告底價</div>
+        <div class="scale-mark dim" style="left:86%;"></div>
+        <div class="scale-label" style="left:86%;"><b>645–678萬</b>市場行情區間</div>
+      </div>
+      <div class="scale-axis" style="margin-top:58px;"><span>0萬</span><span>市場合理價值區間（右側綠帶）</span><span>750萬</span></div>
+    </div>
+
+    <div class="concl-grid" style="margin-top:28px;">
+      <div class="concl-card primary"><h4>價差異常，不代表撿到便宜</h4><p>底價162萬對比市場行情645–678萬，帳面折讓高達75%，遠超常態法拍折讓範圍。國產署案件公告簡略、筆錄僅「請洽詢專員」，無法查明原因，這種規模的價差通常反映合併標售、土地持分、或其他產權結構上的複雜性，建議投標前務必先人工洽詢國有財產署專員確認實際條件。</p></div>
+      <div class="concl-card"><h4>下一步行動建議</h4><p>1. 直接聯繫國產署／金融拍賣中心承辦專員，查明底價偏低的具體原因、是否為合併標售、土地持分狀況。2. 確認是否有其他隱藏的產權限制或使用限制。3. 查證完畢、風險排除後，再評估底價162萬是否仍具投標價值——若確認無結構性問題，屆時的價差空間會非常可觀；但在查明之前不建議貿然投標。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>資料擷取：uhomes 法拍屋公告（2026-09-03）、內政部不動產交易實價查詢服務網（豐原區近期成交資料）、富邦房貸房價行情查詢（沿用批次快篩結果，未重新查詢）。</span>
+    <span>本報告為初步估價參考，非正式鑑價報告；本案為國有財產署標售案件，公告資訊較一般法院拍賣簡略，實際投標前務必洽詢國有財產署承辦專員確認完整標售條件，並諮詢地政士／代標專業意見。</span>
+  </footer>
+
+</div>

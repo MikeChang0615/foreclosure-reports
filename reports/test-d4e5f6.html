@@ -1,0 +1,258 @@
+<!doctype html>
+<title>【文山下崙路公寓一樓】法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--warn); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .reco-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+  .reco-buy { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .reco-wait { background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn); }
+  .reco-avoid { background: var(--bad-soft); color: var(--bad); border: 1px solid var(--bad); }
+  .reco-review { background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--line-strong); }
+  .verdict-price { font-family: var(--font-serif); font-weight: 700; font-size: 22px; color: var(--warn); font-variant-numeric: tabular-nums; }
+  .verdict-price small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; }
+  .verdict-round { display: flex; align-items: flex-start; gap: 10px; }
+  .round-pill { font-family: var(--font-serif); font-weight: 700; font-size: 20px; color: var(--warn); background: var(--warn-soft); border: 1px solid var(--line-strong); border-radius: 6px; padding: 6px 12px; white-space: nowrap; }
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 560px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.highlight td { background: var(--accent-soft); font-weight: 600; }
+  tr.dim td { color: var(--ink-faint); }
+  .infogrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 640px) { .infogrid { grid-template-columns: repeat(2, 1fr); } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 15px; margin-top: 3px; font-variant-numeric: tabular-nums; }
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+  .math { font-family: var(--font-mono); font-size: 13px; color: var(--ink); background: var(--surface-2); padding: 10px 14px; border-radius: 4px; margin: 10px 0; overflow-x: auto; }
+  .risk-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .risk-item { background: var(--surface); display: grid; grid-template-columns: 90px 1fr; gap: 14px; padding: 13px 16px; align-items: start; }
+  @media (max-width: 640px) { .risk-item { grid-template-columns: 70px 1fr; } }
+  .risk-badge { font-family: var(--font-mono); font-size: 11px; text-align: center; padding: 3px 0; border-radius: 4px; font-weight: 700; letter-spacing: 0.04em; }
+  .risk-high { background: var(--bad-soft); color: var(--bad); }
+  .risk-mid { background: var(--warn-soft); color: var(--warn); }
+  .risk-low { background: var(--good-soft); color: var(--good); }
+  .risk-body b { display: block; font-size: 14px; margin-bottom: 2px; }
+  .risk-body span { font-size: 13.3px; color: var(--ink-soft); }
+  .scale-wrap { margin: 22px 0 8px; }
+  .scale-track { position: relative; height: 54px; }
+  .scale-base { position: absolute; left: 0; right: 0; top: 24px; height: 6px; background: var(--surface-2); border-radius: 3px; }
+  .scale-band { position: absolute; top: 20px; height: 14px; border-radius: 7px; background: var(--accent-soft); border: 1px solid var(--accent); opacity: 0.9; }
+  .scale-mark { position: absolute; top: 0; width: 2px; height: 27px; background: var(--ink); }
+  .scale-mark.dim { background: var(--ink-faint); }
+  .scale-mark.warn { background: var(--warn); }
+  .scale-mark.bad { background: var(--bad); }
+  .scale-label { position: absolute; top: 30px; font-size: 11.5px; font-family: var(--font-mono); white-space: nowrap; color: var(--ink-soft); transform: translateX(-50%); }
+  .scale-label b { display: block; color: var(--ink); font-size: 12.5px; font-family: var(--font-sans); font-weight: 700; }
+  .scale-axis { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); margin-top: 46px; padding-top: 8px; border-top: 1px dashed var(--line); }
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--warn); background: var(--warn-soft); }
+  .concl-card.primary h4 { color: var(--warn); }
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+
+  <div class="doc-head">
+    <div class="doc-kicker">法拍物件行情估價 · 個案分析</div>
+    <h1 class="doc-title">木柵公園一樓公寓（近環狀線南環段Y3站）</h1>
+    <div class="doc-sub">台北市文山區下崙路33巷17號1樓｜臺灣臺北地方法院 114年度司執字第57455號</div>
+    <div class="doc-meta">
+      <span>查詢日期 <b>2026-09-03</b></span>
+      <span>資料來源 <b>uhomes 法拍公告 · 內政部實價登錄</b></span>
+      <span>開標日 <b>2026/09/22 09:30</b></span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <div class="verdict-label-row">
+        <div class="verdict-label">估算結論</div>
+        <div class="reco-badge reco-wait">建議觀望，等3拍進場評估</div>
+      </div>
+      <div class="verdict-price">2拍底價已貼近甚至略高於市場行情，目前沒有真正利潤空間</div>
+      <div class="verdict-note">2拍底價2150萬（單價72.24萬/坪）與富邦鑑價（2007–2112萬，單價約67.4–71.0萬/坪）、鄰近同型1樓公寓comp（單價約59–83萬/坪）高度吻合，換算含6%不點交服務費的總成本約2,279萬，反而比一般買賣同類房屋的總成本（約2,037–2,144萬）貴約135–240萬。風險檢核本身相對乾淨，主要問題是價格沒有折讓空間，不是風險嚇退買家。</div>
+    </div>
+    <div class="verdict-round">
+      <div class="round-pill">2拍</div>
+      <div>
+        <div class="verdict-label">拍次判斷</div>
+        <div style="font-size:14px;">隱含1拍底價 = 2150萬 ÷ 0.8 ≈ 2,687.5萬（單價約90.31萬/坪），明顯高於市場行情上限（約83萬/坪），可合理解釋1拍為何流標——起標價定得偏高，不是風險嚇退買家。</div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">一</span><span class="sec-title">物件基本資料</span></div>
+    <div class="infogrid">
+      <div class="infocell"><div class="k">公告坪數</div><div class="v">29.76 坪</div></div>
+      <div class="infocell"><div class="k">主建坪</div><div class="v">22.31 坪</div></div>
+      <div class="infocell"><div class="k">附屬坪</div><div class="v">3.13 坪</div></div>
+      <div class="infocell"><div class="k">公設坪</div><div class="v">4.32 坪</div></div>
+      <div class="infocell"><div class="k">土地坪數</div><div class="v">8.33 坪</div></div>
+      <div class="infocell"><div class="k">屋齡 / 樓層</div><div class="v">33年・1F/共5層</div></div>
+      <div class="infocell"><div class="k">型態 / 結構</div><div class="v">公寓（無電梯）・RC</div></div>
+      <div class="infocell"><div class="k">拍賣原因</div><div class="v">拍賣抵押物</div></div>
+      <div class="infocell"><div class="k">點交情形</div><div class="v">不點交</div></div>
+      <div class="infocell"><div class="k">保證金</div><div class="v">430萬</div></div>
+    </div>
+    <div class="note-block">主建22.31 + 附屬3.13 + 公設4.32 = 29.76坪，恰等於公告坪數，<b>無增建坪數，合法可比面積＝公告坪數＝29.76坪</b>，不涉違建問題。</div>
+    <div class="note-block">公告主動聲明：「經查相關主管機關後，並無發生非自然死亡情形，亦無發生過火災事件，亦非屬列管之海砂屋、地震受損屋」——屬常態正面揭露。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">二</span><span class="sec-title">拍賣現況與隱含市場基準</span></div>
+    <div class="math">2拍底價 2,150萬 ÷ 0.8 ≈ <b>隱含1拍底價 2,687.5萬</b>（單價≈90.31萬/坪）</div>
+    <div class="note-block">隱含1拍單價90.31萬/坪明顯高於本區同型1樓公寓的市場行情上限（約83萬/坪），這代表1拍流標很可能單純是起標價偏高，而不是公告揭露了什麼嚇退買家的風險——本案筆錄與備註內容相對乾淨（詳見第六節）。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">三</span><span class="sec-title">內政部實價登錄比對</span></div>
+    <p class="lede">「下崙路」本身僅查到1筆成交（型態為華廈有電梯，與本案公寓無電梯不同型態）。改以鄰近木柵路一帶（同環狀線Y3站生活圈）「公寓(5樓含以下無電梯)」型態的成交案例作為主要comp，並區分1樓與2樓以上樓層（1樓通常有較高溢價）。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>成交年月/地址</th><th>樓層</th><th class="num">坪數</th><th class="num">單價(萬/坪)</th><th class="num">總價(萬)</th></tr></thead>
+        <tbody>
+          <tr class="highlight"><td>2026-01・木柵路一段71號（1樓，騎樓露台）</td><td>1F/4層</td><td class="num">25.29</td><td class="num">83.04</td><td class="num">2,100</td></tr>
+          <tr class="highlight"><td>2026-04・木柵路二段7巷7號（1樓）</td><td>1F/3層</td><td class="num">28.94</td><td class="num">59.09</td><td class="num">1,710</td></tr>
+          <tr><td>2026-04・木柵路一段328號</td><td>4F/4層</td><td class="num">20.80</td><td class="num">42.31</td><td class="num">880</td></tr>
+          <tr><td>2026-04・木柵路四段159巷170弄6之1號</td><td>2F/5層</td><td class="num">26.14</td><td class="num">42.08</td><td class="num">1,100</td></tr>
+          <tr><td>2026-01・木柵路一段59巷7弄3號</td><td>4F/5層</td><td class="num">44.78</td><td class="num">37.74</td><td class="num">1,690</td></tr>
+          <tr class="dim"><td>2026-03・下崙路11巷6號（華廈有電梯，型態不符，僅供參考）</td><td>3F/10層</td><td class="num">43.88</td><td class="num">46.72</td><td class="num">2,050</td></tr>
+          <tr class="dim"><td>本案：下崙路33巷17號（底價換算）</td><td>1F/5層</td><td class="num">29.76</td><td class="num">72.24</td><td class="num">2,150.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note-block">同型（公寓無電梯）2樓以上單位成交單價約37–45萬/坪；<b>1樓單位因出入方便、店面/使用彈性溢價，成交單價明顯較高，約59–83萬/坪</b>，中值約71萬/坪，與本案底價單價72.24萬/坪非常接近。下崙路11巷的華廈comp因型態（有電梯）與樓層（3F）不同，僅列為地緣參考，不直接用於估單價。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">四</span><span class="sec-title">市場合理價值估算</span></div>
+    <div class="math">合法面積 29.76坪 × 1樓comp單價區間 59–83 萬/坪 ≈ <b>1,756–2,470萬</b>（中值約2,113萬，與富邦鑑價高度吻合）</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">五</span><span class="sec-title">銀行鑑價（富邦房貸，沿用批次快篩結果）</span></div>
+    <p class="lede">沿用批次快篩階段已查得的富邦鑑價結果，本次分析不重新操作查詢。</p>
+    <div class="infogrid">
+      <div class="infocell"><div class="k">房屋總價初估</div><div class="v">2,007 – 2,112 萬</div></div>
+      <div class="infocell"><div class="k">對應單價</div><div class="v">約 67.4 – 71.0 萬/坪</div></div>
+      <div class="infocell"><div class="k">與comp估算比較</div><div class="v">吻合（comp中值約71萬/坪）</div></div>
+    </div>
+    <div class="note-block">富邦鑑價區間與comp（1樓公寓）估算高度吻合，兩個獨立來源互相印證：本案市場合理單價約落在67–83萬/坪。<b>2拍底價單價72.24萬/坪落在這個區間中段，代表底價已經貼近市場行情，沒有明顯折讓空間</b>——這跟過去多數案例「底價明顯低於市場行情」的情況不同。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">六</span><span class="sec-title">風險因子檢核</span></div>
+    <div class="risk-list">
+      <div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>不點交，但筆錄描述屬相對乾淨的常態情況</b><span>筆錄明確記載：現場由關係人許九升自行居住使用，無出租、無增建。法拍後不點交是既有事實陳述，沒有現場占有爭議、分管糾紛等額外不確定性描述，屬相對乾淨的不點交案例。</span></div></div>
+      <div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>3宗合併拍賣（土地＋主建＋防空避難室）</b><span>備註「上開不動產3宗合併拍賣」，屬土地/主建/附屬建號（3238建號為防空避難室）的常見正常拆分結構，非共有人數量複雜案件，不構成額外風險。</span></div></div>
+      <div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>查無非自然死亡、火災、海砂屋、地震受損</b><span>公告主動聲明查詢相關主管機關後均無記載，屬常態正面揭露。</span></div></div>
+      <div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>無優先承買權疑慮</b><span>拍賣原因為「拍賣抵押物」，非分割共有物／分割遺產案件，不適用民法824條共有人優先承買權風險。</span></div></div>
+    </div>
+    <div class="note-block warn">本案風險檢核本身相對乾淨，<b>真正的問題不是風險，而是價格已經沒有折讓空間</b>（詳見第七節總成本比較）。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">七</span><span class="sec-title">估價結論與建議</span></div>
+
+    <div class="math">2拍總成本 = 2,150萬 × 1.06（不點交）≈ <b>2,279萬</b>　vs　市場一般買賣總成本 ≈ 2,059.5萬（富邦中值）× 1.015 ≈ <b>2,090萬</b>　→　目前拿下反而貴約 <b>189萬</b>，沒有折讓空間</div>
+    <div class="math">若流標進3拍：預估底價 2,150萬 × 0.8 = 1,720萬；總成本 1,720萬 × 1.06 ≈ <b>1,823萬</b>　vs　市場總成本約2,090萬　→　屆時價差約 <b>267萬（約13%）</b>，扣掉服務費後仍有明顯利潤空間</div>
+
+    <div class="scale-wrap">
+      <div class="scale-track" style="height:64px;">
+        <div class="scale-base"></div>
+        <div class="scale-band" style="left:74.3%; width:5.1%;"></div>
+        <div class="scale-mark warn" style="left:79.6%;"></div>
+        <div class="scale-label" style="left:79.6%;"><b>2,150萬</b>2拍底價</div>
+        <div class="scale-mark dim" style="left:63.7%;"></div>
+        <div class="scale-label" style="left:63.7%;"><b>1,720萬</b>預估3拍</div>
+        <div class="scale-mark bad" style="left:99.5%;"></div>
+        <div class="scale-label" style="left:92%;"><b>2,687.5萬</b>隱含1拍</div>
+      </div>
+      <div class="scale-axis" style="margin-top:58px;"><span>0萬</span><span>市場合理價值區間（綠帶，約2,007–2,144萬）</span><span>2,700萬</span></div>
+    </div>
+
+    <div class="concl-grid" style="margin-top:28px;">
+      <div class="concl-card primary"><h4>2拍不建議進場，等3拍再評估</h4><p>2拍底價已經貼近甚至略高於市場行情與富邦鑑價，扣掉法拍服務費後總成本反而比市場買賣貴，目前沒有真正利潤空間。風險檢核相對乾淨，不是這次觀望的理由——單純是價格還沒有折讓到位。</p></div>
+      <div class="concl-card"><h4>後續追蹤建議</h4><p>若本次2拍流標，預估3拍底價約1,720萬（單價約57.8萬/坪），屆時與市場行情相比約有13%折讓空間，值得屆時重新查一次最新comp與筆錄（筆錄內容可能微調），再評估進場。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>資料擷取：uhomes 法拍屋公告（2026-09-03）、內政部不動產交易實價查詢服務網（文山區木柵路一帶近期成交資料）、富邦房貸房價行情查詢（沿用批次快篩結果，未重新查詢）。</span>
+    <span>本報告為初步估價參考，非正式鑑價報告；實際投標前請至臺灣臺北地方法院查詢公告全文，並諮詢地政士／代標專業意見。</span>
+  </footer>
+
+</div>
