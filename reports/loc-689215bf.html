@@ -1,0 +1,147 @@
+<!doctype html>
+<title>新竹縣竹北市國光街6巷9號5樓 地段分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--accent); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .scenario-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .verdict-headline { font-family: var(--font-serif); font-weight: 700; font-size: 22px; color: var(--ink); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+  .verdict-score { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .score-total { font-family: var(--font-serif); font-weight: 700; font-size: 34px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .score-total small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .stars { font-size: 18px; letter-spacing: 2px; color: var(--gold); }
+  .stars .empty { color: var(--line-strong); }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .score-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; margin-bottom: 16px; }
+  .score-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .score-card-title { font-family: var(--font-serif); font-size: 17px; font-weight: 700; }
+  .score-card-verdict { font-size: 13.6px; color: var(--ink-soft); margin: 0 0 14px; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 480px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+  .tag-warn { background: var(--warn-soft); color: var(--warn); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 560px) { .infogrid { grid-template-columns: 1fr; } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 14px; margin-top: 4px; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 760px) { .summary-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+  .summary-cell { background: var(--surface); padding: 16px 14px; text-align: center; }
+  .summary-cell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .summary-cell .stars { display: block; margin-top: 6px; font-size: 16px; }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--accent); background: var(--accent-soft); }
+  .concl-card.primary h4 { color: var(--accent); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+
+  <div class="doc-head"><div class="doc-kicker">不動產地段生活機能分析</div><h1 class="doc-title">新竹縣竹北市國光街6巷9號5樓</h1><div class="doc-sub">四季花園超值華廈・華廈5樓/6樓・屋齡34年・鄰近新社國小</div><div class="doc-meta"><span>查詢日期 <b>2026-09-04</b></span><span>資料來源 <b>Google 地圖 Static API・OSM POI 資料庫（新竹縣竹北市）・新竹縣115學年度國中小學區劃分表・內政部戶政司村里門牌定位・591/永慶/樂居等社區資訊網站</b></span><span>物件來源 <b><a href="https://uhomes.com.tw/foreclosure/detail/14312" target="_blank" rel="noopener">uhomes 法拍屋案件 #14312</a></b></span></div></div>
+  <div class="verdict" style="border-left-color: var(--warn)"><div><div class="verdict-label-row"><div class="verdict-label">分析情境</div><div class="scenario-badge">自住評估</div></div><div class="verdict-headline">生活機能齊全的新社里巷弄住宅，缺點是巷弄較窄、需仰賴市民公車或自駕</div><div class="verdict-note">以自住評估來看，最關鍵的是採買與公園機能（皆在5-8分鐘內、選擇多），以及學區確定性（國中已官方確認，國小依多方資料研判但未逐戶查證）；生活環境（路寬/棟距）是本案相對弱項，建議親自現場確認。</div></div><div class="verdict-score"><div class="verdict-label">綜合評分</div><div class="score-total" style="color: var(--warn)">3.8<small>/ 5</small></div><div class="stars">★★★★<span class="empty">☆</span></div></div></div>
+  <section><div class="sec-head"><span class="sec-num">一</span><span class="sec-title">商圈生活機能</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜商圈生活機能</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">巷弄型住宅，5-8分鐘內有多間便利商店與中正西路生活圈可用，日常機能齊全但非熱鬧商圈。</p><div class="table-wrap"><table><thead><tr><th>店家/地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>7-Eleven</td><td>便利商店</td><td class="num">約349公尺・4分鐘</td></tr><tr><td>全家便利商店</td><td>便利商店</td><td class="num">約407公尺・5分鐘</td></tr><tr><td>萊爾富</td><td>便利商店</td><td class="num">約498公尺・6分鐘</td></tr><tr><td>中正西路生活圈</td><td>主要生活幹道（藥局/診所/餐飲）</td><td class="num">約9分鐘步行可達</td></tr></tbody></table></div><div class="note-block">本區沒有老街/夜市等地標型商圈，屬純住宅巷弄，日常瑣事以便利商店＋中正西路沿線店家為主，不算熱鬧但機能齊全。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">二</span><span class="sec-title">採買（市場/賣場）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">5 星｜採買機能</div><div class="stars">★★★★★</div></div><p class="score-card-verdict">10分鐘內同時有連鎖超市與傳統市場可選，採買機能佳。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>美廉社</td><td>超市</td><td class="num">約435公尺・5分鐘</td></tr><tr><td>家樂福超市</td><td>超市</td><td class="num">約596公尺・7分鐘</td></tr><tr><td>新社公有零售市場</td><td>傳統市場</td><td class="num">約600公尺・8分鐘（實測路線步行）</td></tr></tbody></table></div></div></section>
+  <section><div class="sec-head"><span class="sec-num">三</span><span class="sec-title">學區（小學/國中）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜學區</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">國中學區已官方確認、步行可達；國小依多方資料研判為新社國小，但官方學區表按「鄰」細分，本物件確切門牌所屬鄰別未能逐戶查證。</p><div class="table-wrap"><table><thead><tr><th>學校</th><th>類型</th><th class="num">步行距離</th><th>資料確定性</th></tr></thead><tbody><tr><td>竹北國中</td><td>國中</td><td class="num">約650公尺・9分鐘</td><td><span class="tag tag-gold">官方學區確認（新竹縣115學年度國中學區劃分表：新社里全里皆屬竹北國中學區，不受鄰別限制）</span></td></tr><tr><td>新社國小</td><td>國小（研判最可能）</td><td class="num">約240公尺・3分鐘</td><td><span class="tag tag-warn">非官方逐戶確認：官方學區表將新社里依鄰別分屬「竹北國小」（1-6鄰）與「新社國小」（7-18、19、20-35鄰）兩校，本物件確切鄰別待查；永慶房屋、樂居、台灣房屋等多個獨立社區資料網站，以及uhomes物件標題本身，均一致標示鄰近學校為新社國小</span></td></tr><tr><td>竹北國小</td><td>國小（官方學區表另一可能選項）</td><td class="num">約1.1公里（新社里1-6鄰範圍推估）</td><td><span class="tag tag-warn">官方學區表顯示新社里1-6鄰屬此校，若物件門牌落在此鄰別範圍則應為竹北國小，非新社國小；建議向竹北市戶政事務所或竹北國小教務處確認實際鄰別後再以正式學區為準</span></td></tr></tbody></table></div><div class="note-block warn">查證方式：已用內政部戶政司門牌定位API確認物件行政區劃為「新竹縣竹北市新社里」，並取得新竹縣115學年度官方學區劃分表（PDF）逐頁核對；但學區表對新社里是按「鄰」（門牌所屬鄰別）而非街巷名稱細分，本物件所屬鄰別需查詢內政部「村里街路門牌查詢」系統的圖形驗證碼頁面，礙於系統要求輸入圖形驗證碼、AI不進行CAPTCHA驗證，故無法完成逐戶查證。實際學區請以戶籍地及竹北市戶政事務所最新公告為準，建議入住前撥打新社國小或竹北國小教務處確認。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">四</span><span class="sec-title">公共交通</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜公共交通</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">無捷運/輕軌，最近的竹北火車站步行稍遠；日常通勤仰賴市民公車、幹道公車與自駕，上國道1號竹北交流道約13分鐘車程尚屬方便。</p><div class="table-wrap"><table><thead><tr><th>站點/路線</th><th>類型</th><th class="num">距離</th></tr></thead><tbody><tr><td>竹北火車站（台鐵）</td><td>火車站</td><td class="num">約1.3公里・18分鐘步行（略遠）</td></tr><tr><td>竹北國中站</td><td>公車站（一般路線＋竹北市民公車）</td><td class="num">約350公尺・4-5分鐘</td></tr><tr><td>國道1號竹北交流道（北）</td><td>國道交流道</td><td class="num">約4.6公里・13分鐘車程</td></tr></tbody></table></div><div class="note-block">竹北市提供免費「市民公車」，社區內部接駁尚可，但班次密度不如市區幹線公車，日常通勤建議以自駕/機車為主，公車與台鐵作為輔助選項。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">五</span><span class="sec-title">公園/休憩</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">5 星｜公園/休憩</div><div class="stars">★★★★★</div></div><p class="score-card-verdict">5分鐘內有多座社區公園可選，其中兒15公園幾乎就在巷口，休憩機能佳。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th class="num">步行距離</th><th>備註</th></tr></thead><tbody><tr><td>兒15公園（樹網公園）</td><td class="num">約76公尺・1分鐘</td><td>社區型公園，含遊具與運動空間，社區住戶反映對面即是此公園，親子及運動需求方便</td></tr><tr><td>公2公園（旗杆厝公園）</td><td class="num">約195公尺・2-3分鐘</td><td>中小型社區公園</td></tr><tr><td>兒8公園（新社公園）</td><td class="num">約444公尺・6分鐘</td><td>中小型社區公園</td></tr></tbody></table></div></div></section>
+  <section><div class="sec-head"><span class="sec-num">六</span><span class="sec-title">生活環境</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜生活環境</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">巷弄型集合住宅，路寬有限、與鄰棟距離較近，但北側緊鄰空地/綠地稍有緩衝；未查到明顯嫌惡設施。</p><div class="infogrid"><div class="infocell"><div class="k">面前道路路寬</div><div class="v">門牌屬「國光街6巷」巷弄地址，依衛星圖目測屬社區內部巷道，非幹道，推估路寬有限（約4-6米級），僅供會車與消防通道，非官方測量數字，實際請現場確認。</div></div><div class="infocell"><div class="k">棟距與視野</div><div class="v">依衛星圖判讀，建物與周邊建築物緊密相鄰、棟距普遍不大，部分側邊視野受鄰棟遮蔽；北側緊鄰一塊大面積空地/疑似操場用地，該側視野與採光相對開闊。街景鏡頭在此位置拍到的是後側鐵皮建物、非物件正面，故無法以街景進一步確認棟距細節，以衛星圖判斷為主。</div></div><div class="infocell"><div class="k">座向與採光</div><div class="v">物件所附建物測量成果圖（權狀測量圖）未標示指北針/方位角，僅能看出建物臨路側與陽台位置，無法據此確認確切座向；依地圖研判建物長軸略呈東北—西南走向，實際座向與是否西曬請以現場勘查或地政測量圖為準，不做臆測。</div></div><div class="infocell"><div class="k">嫌惡設施</div><div class="v">物件周邊500公尺內查無明顯高壓電塔、垃圾焚化廠、殯儀館等嫌惡設施；查得的資源回收場（宏田鋼鐵等）距離較遠，非緊鄰關係。法院公告亦載明現場勘查時無火災受損或非自然死亡等情事記錄。</div></div></div><div class="note-block warn">路寬、棟距、座向皆依Google地圖衛星圖與物件測量成果圖推估，非現場實測或官方登記資料，請以權狀、地政測量圖或現場勘查結果為準。</div><div class="note-block">社區條件（華廈）：「四季花園」社區約141戶、地上6樓/地下1樓，屬自主管理（無專職管理員）之開放式社區。網路住戶心得普遍反映社區前方即公園、遠離大馬路、安靜好停車；亦有看屋心得提及開放式管理、步行至主要商圈中正西路稍有距離、通勤仰賴自駕/機車。目前查無關於本社區的負面新聞或重大爭議事件。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">七</span><span class="sec-title">總評與建議</span></div><div class="summary-grid"><div class="summary-cell"><div class="k">生活機能</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">採買</div><div class="stars">★★★★★</div></div><div class="summary-cell"><div class="k">學區</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">交通</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">公園</div><div class="stars">★★★★★</div></div><div class="summary-cell"><div class="k">生活環境</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div></div><div class="concl-grid"><div class="concl-card primary"><h4>主要優勢</h4><p>採買（超市＋傳統市場皆10分鐘內）與公園休憩（巷口即有公園）是本案最明顯的優勢，日常生活機能齊全；國中學區已官方確認為竹北國中，通勤步行9分鐘尚可接受。</p></div><div class="concl-card"><h4>需要留意的地方</h4><p>國小學區僅能依多方資料研判為新社國小、未能逐戶查證官方鄰別，建議入住前向竹北市戶政或學校確認；生活環境屬巷弄型集合住宅，路寬與棟距有限，且無捷運/輕軌，日常通勤仰賴市民公車或自駕，介意這兩點的自住買方應現場評估。</p></div></div></section>
+  
+  <footer><span>資料擷取：Google 地圖路線規劃與街景/衛星圖（2026-09-04查詢）・OSM POI資料庫（新竹縣竹北市，2026-09-02建置）・新竹縣115學年度國中小學區劃分表（新竹縣政府教育局公告PDF）・內政部戶政司單點座標回傳行政區API・uhomes法拍屋案件#14312公告資料・永慶房屋/樂居/台灣房屋等社區資訊網站。</span><span>本報告為地段生活機能初步分析，非正式不動產估價；學區請以官方最新公告為準，實際生活機能建議親自走訪確認。</span></footer>
+
+</div>
