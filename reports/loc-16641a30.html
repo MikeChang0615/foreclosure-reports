@@ -1,0 +1,147 @@
+<!doctype html>
+<title>新竹市東區柴橋路59巷70號9樓 地段分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--accent); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .scenario-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .verdict-headline { font-family: var(--font-serif); font-weight: 700; font-size: 22px; color: var(--ink); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+  .verdict-score { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .score-total { font-family: var(--font-serif); font-weight: 700; font-size: 34px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .score-total small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .stars { font-size: 18px; letter-spacing: 2px; color: var(--gold); }
+  .stars .empty { color: var(--line-strong); }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .score-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; margin-bottom: 16px; }
+  .score-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .score-card-title { font-family: var(--font-serif); font-size: 17px; font-weight: 700; }
+  .score-card-verdict { font-size: 13.6px; color: var(--ink-soft); margin: 0 0 14px; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 480px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+  .tag-warn { background: var(--warn-soft); color: var(--warn); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 560px) { .infogrid { grid-template-columns: 1fr; } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 14px; margin-top: 4px; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 760px) { .summary-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+  .summary-cell { background: var(--surface); padding: 16px 14px; text-align: center; }
+  .summary-cell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .summary-cell .stars { display: block; margin-top: 6px; font-size: 16px; }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--accent); background: var(--accent-soft); }
+  .concl-card.primary h4 { color: var(--accent); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+
+  <div class="doc-head"><div class="doc-kicker">不動產地段生活機能分析</div><h1 class="doc-title">新竹市東區柴橋路59巷70號9樓</h1><div class="doc-sub">煙波儷舍社區・電梯大樓（9/11樓）・屋齡31年</div><div class="doc-meta"><span>查詢日期 <b>2026-09-04</b></span><span>資料來源 <b>Google 地圖 Places/Directions/Static API・OSM POI 資料庫・新竹市政府教育處115學年度學區劃分表・WebSearch</b></span><span>物件來源 <b><a href="https://uhomes.com.tw/foreclosure/detail/14110" target="_blank" rel="noopener">uhomes 法拍屋案件 #14110</a></b></span></div></div>
+  <div class="verdict" style="border-left-color: var(--warn)"><div><div class="verdict-label-row"><div class="verdict-label">分析情境</div><div class="scenario-badge">自住評估</div></div><div class="verdict-headline">山坡社區型大樓，日常採買便利、綠意環繞，但學區與市區交通都偏遠，高度仰賴自行開車</div><div class="verdict-note">位於新竹市東區青草湖風景區旁的山坡型社區，生活機能集中在明湖路一小段（全聯、超商、藥局、餐飲），但公立學校學區確認的學校距離都在27分鐘以上步行，市區/火車站也有一段距離，比較適合有車代步、重視生活品質與綠覆蓋率的自住家庭，不建議完全依賴步行或大眾運輸的家庭。</div></div><div class="verdict-score"><div class="verdict-label">綜合評分</div><div class="score-total" style="color: var(--warn)">3.5<small>/ 5</small></div><div class="stars">★★★<span style="position:relative;display:inline-block"><span class="empty">☆</span><span style="position:absolute;left:0;top:0;width:50%;overflow:hidden">★</span></span><span class="empty">☆</span></div></div></div>
+  <section><div class="sec-head"><span class="sec-num">一</span><span class="sec-title">商圈生活機能</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜商圈生活機能</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">明湖路一帶聚集超商、藥局與多間特色餐飲咖啡廳，5-8分鐘步行內可解決大部分日常需求，但銀行、完整郵局據點都要再往外走。</p><div class="table-wrap"><table><thead><tr><th>店家/地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>萊爾富</td><td>便利商店</td><td class="num">約3分鐘（247m）</td></tr><tr><td>7-Eleven</td><td>便利商店</td><td class="num">約4分鐘（325m）</td></tr><tr><td>心柚藥局／婷婷藥局</td><td>藥局</td><td class="num">約2-4分鐘</td></tr><tr><td>上野庵旬彩壽喜燒／七藝鍋／上野村燒肉／藝繪咖啡／726 Coffee 等</td><td>餐飲／咖啡廳（明湖路聚落，共8家左右）</td><td class="num">約2-5分鐘</td></tr><tr><td>柴橋郵政代辦所</td><td>郵局代辦所</td><td class="num">約18分鐘（1.4km，較遠）</td></tr></tbody></table></div><div class="note-block">此區沒有傳統意義上「有名字的商圈／老街」，生活機能是依附在明湖路口全聯周邊自然形成的小型日常聚落，餐飲選擇比想像中豐富（含日式壽喜燒、燒肉、寵物友善餐廳、咖啡廳），但屬於社區型規模，不是熱鬧商圈，銀行未查到500m內據點，需另外規劃。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">二</span><span class="sec-title">採買（市場/賣場）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜採買機能</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">全聯就在社區旁2分鐘內，日常採買非常方便；但最近的傳統市場（竹蓮市場）步行要49分鐘，等於沒有傳統市場可用，生鮮選擇會比較單一。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>全聯福利中心 明湖店</td><td>連鎖超市</td><td class="num">約2分鐘（141m）</td></tr><tr><td>美廉社</td><td>連鎖超市（次選）</td><td class="num">約16分鐘（1.3km）</td></tr><tr><td>竹蓮市場</td><td>傳統市場</td><td class="num">約49分鐘（3.6km，需開車或騎車）</td></tr><tr><td>好市多 Costco 新竹店</td><td>大賣場</td><td class="num">約15-20分鐘車程（4.7km）</td></tr></tbody></table></div><div class="note-block">日常採買高度仰賴全聯，生鮮選擇不如傳統市場多元，如果重視傳統市場買菜的家庭要留意這一點，建議開車採買時一次買齊。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">三</span><span class="sec-title">學區（小學/國中）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜學區</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">官方學區已明確查證：國小為新竹／陽光／青草湖三校共同學區（家長可選），國中為育賢國中單一學區；但三所國小最近的青草湖國小仍要走27分鐘，育賢國中約35分鐘，都超過可接受步行距離，需要接送或校車。</p><div class="table-wrap"><table><thead><tr><th>學校</th><th>類型</th><th class="num">步行距離</th><th>資料確定性</th></tr></thead><tbody><tr><td>青草湖國小（共同學區，含新竹國小／陽光國小）</td><td>國小</td><td class="num">約27分鐘（2.0km，三校中最近）</td><td><span class="tag tag-gold">官方學區劃分表確認（柴橋里・新竹／陽光／青草湖共同學區）</span></td></tr><tr><td>陽光國小（共同學區）</td><td>國小</td><td class="num">約36分鐘（2.6km）</td><td><span class="tag tag-gold">官方學區劃分表確認</span></td></tr><tr><td>新竹國小（共同學區）</td><td>國小</td><td class="num">約49分鐘（3.6km）</td><td><span class="tag tag-gold">官方學區劃分表確認</span></td></tr><tr><td>育賢國中</td><td>國中</td><td class="num">約35分鐘（2.6km）</td><td><span class="tag tag-gold">官方學區劃分表確認（柴橋里單一學區，非共同學區）</span></td></tr></tbody></table></div><div class="note-block warn">已下載新竹市政府教育處「115學年度國民小學／國民中學學區劃分表」官方PDF逐項核對柴橋里對應學校，確定性高；但柴橋里本身地處山坡社區，離三所共同學區國小及育賢國中的實際直線距離都偏遠，低年級學童不適合自行步行上下學，需要家長接送、校車或步行+接駁的安排。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">四</span><span class="sec-title">公共交通</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜公共交通</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">沒有捷運／輕軌，最近的新竹火車站要走3.5公里；公車有柴橋站（8分鐘可達，5602、5603、72、73等多條路線經過），但多屬景區/接駁性質，班次不算密集；優勢是距離國道3號茄苳交流道車程只要5分鐘，自行開車聯外非常方便。</p><div class="table-wrap"><table><thead><tr><th>站點/路線</th><th>類型</th><th class="num">距離</th></tr></thead><tbody><tr><td>柴橋（公車站）</td><td>公車站（5602、5603、72、73等路線）</td><td class="num">約8分鐘（600m）</td></tr><tr><td>新竹火車站</td><td>台鐵</td><td class="num">約49分鐘步行（3.5km，需轉乘公車或開車）</td></tr><tr><td>國道3號茄苳交流道</td><td>國道交流道</td><td class="num">約5分鐘車程（2.0km）</td></tr></tbody></table></div><div class="note-block">這一帶明顯是仰賴自行開車的近郊山坡社區，公車班次以服務在地居民與青草湖風景區遊客為主，尖峰時段外班距可能拉長；如果家中有自駕代步，距離國道3號交流道很近，往竹科、市區或外縣市都算方便，通勤方式建議以自駕/公車混合規劃，不要預期能單靠步行公車生活。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">五</span><span class="sec-title">公園/休憩</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜公園/休憩</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">社區本身緊鄰保育山坡林地、內部即有籃球場與兒童遊戲區、涼亭等休憩設施，加上明湖公園、同濟公園、靈隱寺公園都在10分鐘內，綠覆蓋率明顯優於一般市區大樓。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th class="num">步行距離</th><th>備註</th></tr></thead><tbody><tr><td>煙波儷舍社區內部（籃球場／兒童遊戲區／涼亭）</td><td class="num">社區內</td><td>依法院拍賣公告記載，社區境內設有籃球場、兒童遊戲區及涼亭</td></tr><tr><td>明湖公園</td><td class="num">約6分鐘（460m）</td><td>社區型公園</td></tr><tr><td>同濟公園</td><td class="num">約8分鐘（597m）</td><td>社區型公園</td></tr><tr><td>靈隱寺公園</td><td class="num">約9分鐘（716m）</td><td>鄰近靈隱寺，環境清幽</td></tr><tr><td>青草湖風景區</td><td class="num">約19分鐘（1.4km，可開車或騎車較省時）</td><td>腹地大、有環湖步道，非日常步行範圍但假日休閒選擇佳</td></tr></tbody></table></div><div class="note-block">衛星圖可見社區背倚整片保育山坡林地，社區本身也採梯田式配置、留有中庭綠帶，居住環境的綠意與一般市區大樓相比是明顯優勢。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">六</span><span class="sec-title">生活環境</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜生活環境</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">社區規劃寬敞、背山面綠、棟距尚屬開闊，但物件座向因資料不足暫時無法確認，西曬與實際視野建議現場勘查後再判斷。</p><div class="infogrid"><div class="infocell"><div class="k">面前道路路寬</div><div class="v">柴橋路為社區聯外道路，依衛星圖目測約6-8米，屬社區道路等級，非市區主要幹道；社區內部另有連通各棟的步行廣場。</div></div><div class="infocell"><div class="k">棟距與視野</div><div class="v">依衛星圖判讀，煙波儷舍社區採梯田式配置在山坡地上，多棟建物圍繞中庭廣場興建，棟距尚屬寬敞、留有植栽綠帶，整體視野壓迫感不明顯；惟社區規模較大（多棟＋多地號合併），無法從衛星圖精確判讀9樓本戶實際面向的棟距細節，建議現場確認。</div></div><div class="infocell"><div class="k">座向與採光</div><div class="v">本戶建物測量成果圖（84年测量，1995）僅標示樓層平面與陽台配置，未標示指北針；Google 街景在此定位點抓到的是鄰棟屋頂畫面、非本戶正面，無法用畫面判斷座向。座向與是否西曬本報告無法確認，建議調閱最新權狀平面圖或現場確認採光方向。</div></div><div class="infocell"><div class="k">嫌惡設施</div><div class="v">查詢物件周邊800公尺內未發現加油站、變電所、殯儀館、垃圾/資源回收場等明顯嫌惡設施；緊鄰保育山坡地與林地，環境安靜、無高架橋或快速道路噪音疑慮，但山區型社區需留意潮濕與蚊蟲等自然環境因素。</div></div></div><div class="note-block warn">路寬與棟距為依 Google 地圖衛星圖估算，非官方測量數據；座向未能確認是本報告在生活環境面向的主要資料缺口，如西曬與否是自住的重要考量，強烈建議正式簽約前實地看屋確認。</div><div class="note-block">社區風評：Google 地圖上「煙波儷舍社區」評分 4.1 顆星（74則評論），標示為「設有保安閘的社區」；WebSearch 查詢 dcard／mobile01／PTT 及新聞未查到針對本社區的漏水、管委會糾紛或其他負面爭議報導，也沒有火災、輻射屋、海砂屋等重大瑕疵消息。惟法院拍賣公告載明本戶所屬地號範圍內，另有一個機械式車位（B1，168號）因謄本未記載，產權與使用權歸屬不明，拍定後可能需與管委會或現有使用人協商，這屬於產權/點交層面的風險，非本報告地段評估範圍，僅在此提醒使用者留意，詳細判斷請以 foreclosure-valuation 估價分析為準。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">七</span><span class="sec-title">總評與建議</span></div><div class="summary-grid"><div class="summary-cell"><div class="k">生活機能</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">採買</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">學區</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">交通</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">公園</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">生活環境</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div></div><div class="concl-grid"><div class="concl-card primary"><h4>主要優勢</h4><p>生活機能與居住環境是本物件的強項：全聯、超商、藥局、多家特色餐飲都在5分鐘內，社區本身背山面綠、留有中庭與休憩設施，加上鄰近青草湖風景區，適合重視居住品質、有代步車輛的自住家庭。</p></div><div class="concl-card"><h4>需要留意的地方</h4><p>最大的取捨在於「郊區山坡社區」的通勤與教育代價：最近的公立國小/國中都要27-35分鐘步行，火車站要3.5公里，日常生活與接送小孩都建議以自行開車為主（好在鄰近國道3號茄苳交流道，車程只要5分鐘）；另外本戶實際座向與是否西曬，本次分析受限於資料無法確認，建議正式出價前現場勘查一次。</p></div></div></section>
+  
+  <footer><span>資料擷取：Google 地圖 Places API／Directions API／Static Map API（2026-09-04）、OSM POI 資料庫（新竹市東區，2026-09-02建置）、新竹市政府教育處115學年度國民小學／國民中學學區劃分表（114.12公告）、uhomes 法拍屋案件頁面（含建物測量成果圖）、WebSearch 社區風評與新聞查證。</span><span>本報告為地段生活機能初步分析，非正式不動產估價；學區請以官方最新公告為準，實際生活機能建議親自走訪確認。</span></footer>
+
+</div>
