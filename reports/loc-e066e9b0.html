@@ -1,0 +1,147 @@
+<!doctype html>
+<title>桃園市新屋區中興路1436巷17號 地段分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--accent); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .scenario-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .verdict-headline { font-family: var(--font-serif); font-weight: 700; font-size: 22px; color: var(--ink); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+  .verdict-score { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .score-total { font-family: var(--font-serif); font-weight: 700; font-size: 34px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .score-total small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .stars { font-size: 18px; letter-spacing: 2px; color: var(--gold); }
+  .stars .empty { color: var(--line-strong); }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .score-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; margin-bottom: 16px; }
+  .score-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .score-card-title { font-family: var(--font-serif); font-size: 17px; font-weight: 700; }
+  .score-card-verdict { font-size: 13.6px; color: var(--ink-soft); margin: 0 0 14px; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 480px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+  .tag-warn { background: var(--warn-soft); color: var(--warn); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 560px) { .infogrid { grid-template-columns: 1fr; } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 14px; margin-top: 4px; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 760px) { .summary-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+  .summary-cell { background: var(--surface); padding: 16px 14px; text-align: center; }
+  .summary-cell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .summary-cell .stars { display: block; margin-top: 6px; font-size: 16px; }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--accent); background: var(--accent-soft); }
+  .concl-card.primary h4 { color: var(--accent); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+
+  <div class="doc-head"><div class="doc-kicker">不動產地段生活機能分析</div><h1 class="doc-title">桃園市新屋區中興路1436巷17號</h1><div class="doc-sub">透天／集合住宅（全棟2層）・鋼骨造・屋齡5年・部分建物由台安宮占用</div><div class="doc-meta"><span>查詢日期 <b>2026-09-04</b></span><span>資料來源 <b>Google 地圖 Static/Directions API・OSM POI 資料庫（桃園市新屋區）・桃園市政府教育局115學年度學區公告・Nominatim 地址反查・WebSearch</b></span><span>物件來源 <b><a href="https://uhomes.com.tw/foreclosure/detail/14495" target="_blank" rel="noopener">uhomes 法拍屋案件 #14495</a></b></span></div></div>
+  <div class="verdict" style="border-left-color: var(--warn)"><div><div class="verdict-label-row"><div class="verdict-label">分析情境</div><div class="scenario-badge">自住評估</div></div><div class="verdict-headline">田園型透天，生活機能仰賴自駕，但緊鄰台66線交流道對外聯絡快速</div><div class="verdict-note">這是一處位於新屋區社子里、緊鄰桃園埤塘與農地的獨棟建物，附近有埤塘阻隔造成繞路，日常採買、公共運輸都偏不便，需高度仰賴自用車；但距離台66線快速道路富岡交流道僅約2公里、車程4分鐘，對外通勤反而相對快速，是典型「宜自駕、不宜依賴步行」的近郊田園型物件。</div></div><div class="verdict-score"><div class="verdict-label">綜合評分</div><div class="score-total" style="color: var(--warn)">2.3<small>/ 5</small></div><div class="stars">★★<span style="position:relative;display:inline-block"><span class="empty">☆</span><span style="position:absolute;left:0;top:0;width:50%;overflow:hidden">★</span></span><span class="empty">☆</span><span class="empty">☆</span></div></div></div>
+  <section><div class="sec-head"><span class="sec-num">一</span><span class="sec-title">商圈生活機能</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">2 星｜商圈生活機能</div><div class="stars">★★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">步行範圍內無便利商店／商圈，最近的富岡老街商圈約需步行39分鐘，日常生活高度仰賴自用車。</p><div class="table-wrap"><table><thead><tr><th>店家/地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>富岡老街（商圈/老街）</td><td>地標型商圈</td><td class="num">約2.7公里，步行39分鐘</td></tr><tr><td>萊爾富（中興路）</td><td>便利商店</td><td class="num">約1.8公里，步行27分鐘</td></tr><tr><td>7-ELEVEN（中興路）</td><td>便利商店</td><td class="num">約1.9公里，步行27分鐘</td></tr></tbody></table></div><div class="note-block">物件位於埤塘（灌溉水塘）西側的獨棟建物聚落，因埤塘與農地阻隔，實際路網繞行距離明顯大於直線距離，這是本區步行生活機能偏弱的主因，不是單純的郊區稀疏。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">二</span><span class="sec-title">採買（市場/賣場）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">2 星｜採買機能</div><div class="stars">★★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">最近的連鎖超市與傳統市場皆需步行25分鐘以上，查無鄰近傳統市場，採買建議以開車為主。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>自由聯盟生鮮超市</td><td>超市</td><td class="num">約1.6公里，步行22分鐘</td></tr><tr><td>三喜超市</td><td>超市</td><td class="num">約1.8公里，步行26分鐘</td></tr><tr><td>新屋第一市場</td><td>傳統市場（新屋區公所旁）</td><td class="num">約5公里以上，需開車</td></tr></tbody></table></div><div class="note-block warn">本區周邊查無明確的傳統市場，OSM 資料庫與 WebSearch 均未找到比新屋區公所旁「新屋第一市場」更近的傳統市場，日常生鮮採買建議規劃固定開車採買行程。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">三</span><span class="sec-title">學區（小學/國中）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜學區</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">官方學區公告已確認至「社子里」層級，國小可望對應社子國小，國中因末端門牌鄰別無法百分之百確認，但新屋高中（國中部）在社子里各鄰別皆保底可選；兩者步行距離都偏遠，需要接送或校車。</p><div class="table-wrap"><table><thead><tr><th>學校</th><th>類型</th><th class="num">步行距離</th><th>資料確定性</th></tr></thead><tbody><tr><td>社子國小</td><td>國小</td><td class="num">約1.5公里，步行19分鐘</td><td><span class="tag tag-gold">官方學區公告確認（社子里1-3、5、7-10鄰為指定學區；4、6鄰為社子/東明自由學區，本址鄰別未逐一核對）</span></td></tr><tr><td>新屋高中（國中部）</td><td>國中</td><td class="num">約2.9公里，步行40分鐘</td><td><span class="tag tag-warn">官方學區公告確認至社子里層級——社子里1-3鄰為指定學區，4-6、7-10鄰則為新屋高中/大坡國中/富岡國中（4-6鄰另含永安實中）自由學區之一，本址確切鄰別未查證，新屋高中國中部在各鄰別情境下都在可選範圍內</span></td></tr><tr><td>富岡國中（楊梅區）</td><td>國中（可能的自由學區選項）</td><td class="num">約2.8公里，步行40分鐘</td><td><span class="tag tag-warn">若本址鄰別屬社子里4-6或7-10鄰，依公告為自由學區選項之一，非唯一或必然指定，僅供參考</span></td></tr></tbody></table></div><div class="note-block warn">地址門牌（中興路1436巷）位於中興路末段延伸命名路段，經 Nominatim 地址反查確認行政區為「新屋區社子里」，但官方學區公告是以「鄰」為單位再細分，本次未能查證確切鄰別，建議入學前致電新屋區戶政事務所或社子國小、新屋高中國中部確認鄰別與實際學區。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">四</span><span class="sec-title">公共交通</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">1 星｜公共交通</div><div class="stars">★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">步行可達範圍內無公車路線，最近的台鐵富岡車站步行也要30分鐘，出門高度仰賴自用車，但緊鄰台66線快速道路交流道，開車對外交通其實相當便利。</p><div class="table-wrap"><table><thead><tr><th>站點/路線</th><th>類型</th><th class="num">距離</th></tr></thead><tbody><tr><td>台鐵富岡車站</td><td>火車站</td><td class="num">約2.0公里，步行30分鐘</td></tr><tr><td>台66線快速道路　富岡交流道</td><td>國道/快速道路交流道</td><td class="num">約2.0公里，開車約4分鐘</td></tr><tr><td>國道1號　楊梅交流道</td><td>國道交流道</td><td class="num">約13公里，開車約19分鐘</td></tr></tbody></table></div><div class="note-block warn">Google 地圖大眾運輸路線規劃查無由此地直達富岡車站的公車路線（僅提供步行建議），研判本路段公車班次極少或無設站，通勤／通學建議以自用車或機車為主。</div><div class="note-block">雖然大眾運輸不便，但距離台66線快速道路富岡交流道僅車程4分鐘，開車銜接國道1號、往中壢/楊梅市區或桃園機場方向都算快速，是本物件對外交通的主要優勢。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">五</span><span class="sec-title">公園/休憩</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">2 星｜公園/休憩</div><div class="stars">★★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">步行範圍內查無中大型公園，最近的兒童公園步行約20分鐘，但物件正對桃園埤塘（灌溉水塘）與大片農地，有非正式的開闊景觀與散步空間可用。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th class="num">步行距離</th><th>備註</th></tr></thead><tbody><tr><td>豐野兒童公園</td><td class="num">約1.4公里，步行20分鐘</td><td>小型社區兒童公園</td></tr><tr><td>伯公岡公園</td><td class="num">約1.5公里，步行22分鐘</td><td>小型公園</td></tr><tr><td>富岡運動公園</td><td class="num">約1.7公里，步行25分鐘</td><td>腹地較大，含運動設施</td></tr></tbody></table></div><div class="note-block">物件面前即為一座桃園埤塘（灌溉水塘）與周邊大片農地，雖非正式公園綠地，但提供了開闊的田園景觀與散步腹地，是本物件生活環境的加分特色，只是不計入正式公園步行時間評分。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">六</span><span class="sec-title">生活環境</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜生活環境</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">獨棟建物位於農地與埤塘旁，四周低密度、無棟距壓迫感，面前道路為中興路雙向鄉道，方圓500公尺內無明顯嫌惡設施，唯一特殊之處是部分建物由台安宮占用使用。</p><div class="infogrid"><div class="infocell"><div class="k">面前道路路寬</div><div class="v">面前為中興路（鄉道），依街景圖判讀為雙向雙車道、路面鋪裝完整、無標準人行道，路寬粗估約6-7公尺，屬一般鄉間道路等級，非壅塞窄巷但也非寬闊幹道。</div></div><div class="infocell"><div class="k">棟距與視野</div><div class="v">依衛星圖判讀，建物周邊為低密度農地與零星建物群聚（含台安宮及附屬建物），東側緊鄰埤塘與行道樹，無其他高樓棟距壓迫，視野開闊；建物本身與同院內台安宮及增建部分距離較近，需留意共同使用動線。</div></div><div class="infocell"><div class="k">座向與採光</div><div class="v">依衛星圖建物配置推估，建物主要臨路面朝東側（面向中興路及埤塘），西側及後方為農地，非正對西方；惟本案查無平面圖或官方座向資料，僅依地圖推估，實際座向請以權狀或現場為準。</div></div><div class="infocell"><div class="k">嫌惡設施</div><div class="v">方圓500公尺內以農地、埤塘、零星鐵工/建材行為主，未查得高壓電塔、垃圾焚化廠、殯儀館、加油站等明顯嫌惡設施；面前中興路車流量不大，噪音疑慮低。</div></div></div><div class="note-block warn">本物件無法拍公告平面圖可參考，路寬／棟距／座向均為依 Google 衛星圖與街景圖推估之結果，非現場實測或官方測量，僅供初步參考。</div><div class="note-block warn">案件公告記載本建物有部分（27-9、27-39、27-54地號上的增建，暫編171建號）由宮廟「台安宮」承租使用至117年1月1日，且該增建為未辦保存登記建物，拍定後不點交、無法逕以權利移轉證書辦理保存登記——這是產權與使用權層面的重大特殊狀況，非地段本身的生活環境缺陷，但會直接影響實際可使用範圍與點交時程，建議與行情估價報告的風險評估合併參考。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">七</span><span class="sec-title">總評與建議</span></div><div class="summary-grid"><div class="summary-cell"><div class="k">生活機能</div><div class="stars">★★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">採買</div><div class="stars">★★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">學區</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">交通</div><div class="stars">★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">公園</div><div class="stars">★★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">生活環境</div><div class="stars">★★★★<span class="empty">☆</span></div></div></div><div class="concl-grid"><div class="concl-card primary"><h4>主要優勢</h4><p>最大優勢是低密度田園環境與快速的道路聯外性——緊鄰桃園埤塘、農地環繞，視野開闊無壓迫感，且距離台66線快速道路富岡交流道僅4分鐘車程，開車通勤或往返市區都相當方便。</p></div><div class="concl-card"><h4>需要留意的地方</h4><p>最大留意點是步行生活機能薄弱（採買、公共運輸都在25分鐘以上步行距離）與部分建物由台安宮長期占用使用的產權特殊狀況，這兩者都需要買方評估自己是否能接受高度自駕依賴的生活型態，並在投標前進一步查證增建與占用部分的實際處理方式。</p></div></div></section>
+  
+  <footer><span>資料擷取：Google 地圖 Static Maps／Street View／Directions API（2026-09-04 查詢）、OpenStreetMap POI 資料庫（桃園市新屋區，2026-09-02 下載）、桃園市政府教育局新屋區115學年度國民中小學學區一覽表（114-12-31上版）、Nominatim OpenStreetMap 地址反查、WebSearch 交叉比對。</span><span>本報告為地段生活機能初步分析，非正式不動產估價；學區請以官方最新公告為準，實際生活機能建議親自走訪確認。</span></footer>
+
+</div>
