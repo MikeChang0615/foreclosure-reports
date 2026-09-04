@@ -1,0 +1,147 @@
+<!doctype html>
+<title>台中市大雅區雅潭路四段600巷37弄2號4樓 地段分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--accent); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .scenario-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .verdict-headline { font-family: var(--font-serif); font-weight: 700; font-size: 22px; color: var(--ink); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+  .verdict-score { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .score-total { font-family: var(--font-serif); font-weight: 700; font-size: 34px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .score-total small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .stars { font-size: 18px; letter-spacing: 2px; color: var(--gold); }
+  .stars .empty { color: var(--line-strong); }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .score-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; margin-bottom: 16px; }
+  .score-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .score-card-title { font-family: var(--font-serif); font-size: 17px; font-weight: 700; }
+  .score-card-verdict { font-size: 13.6px; color: var(--ink-soft); margin: 0 0 14px; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 480px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+  .tag-warn { background: var(--warn-soft); color: var(--warn); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 560px) { .infogrid { grid-template-columns: 1fr; } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 14px; margin-top: 4px; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 760px) { .summary-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+  .summary-cell { background: var(--surface); padding: 16px 14px; text-align: center; }
+  .summary-cell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .summary-cell .stars { display: block; margin-top: 6px; font-size: 16px; }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--accent); background: var(--accent-soft); }
+  .concl-card.primary h4 { color: var(--accent); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+
+  <div class="doc-head"><div class="doc-kicker">不動產地段生活機能分析</div><h1 class="doc-title">台中市大雅區雅潭路四段600巷37弄2號4樓</h1><div class="doc-sub">華廈4樓（4/6）・屋齡34年・雅典世家社區・鄰近大雅夜市（雅潭夜市）</div><div class="doc-meta"><span>查詢日期 <b>2026-09-04</b></span><span>資料來源 <b>Google 地圖 Static/Street View/Places/Directions API・OSM POI 資料庫（台中市大雅區）・臺中市政府教育局學區查詢系統・uhomes 物件公告與建物測量成果圖</b></span><span>物件來源 <b><a href="https://uhomes.com.tw/foreclosure/detail/13734" target="_blank" rel="noopener">uhomes 法拍屋案件 #13734</a></b></span></div></div>
+  <div class="verdict" style="border-left-color: var(--warn)"><div><div class="verdict-label-row"><div class="verdict-label">分析情境</div><div class="scenario-badge">自住評估</div></div><div class="verdict-headline">大雅成熟巷弄住宅，生活機能與學區明確，公共運輸仰賴公車接國道</div><div class="verdict-note">以自住評估來看，日常生活機能、學區、公園綠地都在步行可達範圍內，交通則以自行開車經國道1號大雅交流道為主；巷弄型社區的棟距與確切座向建議現場複核。</div></div><div class="verdict-score"><div class="verdict-label">綜合評分</div><div class="score-total" style="color: var(--warn)">3.7<small>/ 5</small></div><div class="stars">★★★<span style="position:relative;display:inline-block"><span class="empty">☆</span><span style="position:absolute;left:0;top:0;width:50%;overflow:hidden">★</span></span><span class="empty">☆</span></div></div></div>
+  <section><div class="sec-head"><span class="sec-num">一</span><span class="sec-title">商圈生活機能</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜商圈生活機能</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">巷口4分鐘內就有超商，步行約11分鐘可達雅潭夜市（大雅夜市），日常機能齊全。</p><div class="table-wrap"><table><thead><tr><th>店家/地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>7-Eleven</td><td>超商</td><td class="num">約4分鐘（191m）</td></tr><tr><td>萊爾富</td><td>超商</td><td class="num">約4分鐘（273m）</td></tr><tr><td>全家便利商店</td><td>超商</td><td class="num">約7分鐘（556m）</td></tr><tr><td>雅潭夜市（大雅夜市）</td><td>觀光夜市/地標商圈</td><td class="num">約11分鐘（0.8km）</td></tr><tr><td>三信商業銀行大雅分行等</td><td>銀行</td><td class="num">約9-10分鐘</td></tr><tr><td>炘星藥局／大雅藥局</td><td>藥局</td><td class="num">約8-10分鐘</td></tr></tbody></table></div><div class="note-block">雅潭夜市（又稱大雅夜市）就位於雅潭路四段上，每週三、五、六、日營業，攤位約200攤，是本地最具代表性的地標型生活機能來源；但非每日營業，日常採買仍以超商/超市為主軸。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">二</span><span class="sec-title">採買（市場/賣場）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜採買機能</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">全聯步行約9分鐘可達，大雅第一公有零售市場（傳統市場）步行約13分鐘，兩者搭配可滿足日常採買需求。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>全聯福利中心</td><td>連鎖超市</td><td class="num">約9分鐘（507m）</td></tr><tr><td>大雅第一公有零售市場</td><td>傳統市場</td><td class="num">約13分鐘（0.9km）</td></tr><tr><td>台灣楓康超市</td><td>連鎖超市</td><td class="num">約14分鐘（801m）</td></tr><tr><td>家樂福超市</td><td>大賣場</td><td class="num">約17分鐘（936m）</td></tr></tbody></table></div></div></section>
+  <section><div class="sec-head"><span class="sec-num">三</span><span class="sec-title">學區（小學/國中）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜學區</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">國小學區已官方確認為大雅國小（二和里全里）；國中依戶籍所在「鄰」別分屬大雅國中或大華國中，兩校步行皆在15分鐘內、口碑均正向。</p><div class="table-wrap"><table><thead><tr><th>學校</th><th>類型</th><th class="num">步行距離</th><th>資料確定性</th></tr></thead><tbody><tr><td>大雅國民小學</td><td>國小</td><td class="num">約9分鐘（0.6km）</td><td><span class="tag tag-gold">官方學區確認（二和里全里）</span></td></tr><tr><td>大雅國民中學</td><td>國中</td><td class="num">約12分鐘（0.9km）</td><td><span class="tag tag-warn">官方學區確認（限二和里4-17、19、20、23鄰）</span></td></tr><tr><td>大華國民中學</td><td>國中</td><td class="num">約14分鐘（1.0km）</td><td><span class="tag tag-warn">官方學區確認（限二和里1-3、18、21-22鄰）</span></td></tr></tbody></table></div><div class="note-block warn">臺中市政府教育局學區查詢系統確認：二和里全里屬大雅國小學區；但國中學區依「鄰」別一分為二（大雅國中／大華國中），無法僅憑門牌地址判斷本戶確切所屬鄰別，建議洽大雅區戶政事務所（臺中市大雅區上雅里13鄰雅環路二段299號2樓）或大雅區公所確認實際鄰別後對照學區。大雅國小為區內大型老校（在學生數逾1,700人），大雅國中114年國中教育會考5A比例達一成，兩校口碑均正向。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">四</span><span class="sec-title">公共交通</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜公共交通</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">無捷運/鐵路，最近公車站牌步行約4分鐘，另有國道1號大雅交流道車程約6分鐘，日常對外交通以公車接國道客運及自行開車為主。</p><div class="table-wrap"><table><thead><tr><th>站點/路線</th><th>類型</th><th class="num">距離</th></tr></thead><tbody><tr><td>雅潭雅環路口站（市區公車14副線，往臺中車站）</td><td>公車站</td><td class="num">約4分鐘（0.3km）</td></tr><tr><td>國道1號大雅交流道</td><td>國道交流道</td><td class="num">車程約6分鐘（1.9km）</td></tr><tr><td>台74線快速道路大雅系統交流道</td><td>快速道路交流道</td><td class="num">車程約13分鐘（5.7km）</td></tr></tbody></table></div><div class="note-block">大雅區目前無捷運/鐵路服務，最近的台中捷運車站距離過遠不列入計算；日常通勤高度仰賴公車銜接國道客運，或自行開車經大雅系統交流道上國道1號／台74線快速道路，交流道車程不遠是本區的主要交通利多。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">五</span><span class="sec-title">公園/休憩</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜公園/休憩</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">步行約8分鐘可達二和公園（特色主題遊戲場），周邊另有多座社區公園可選。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th class="num">步行距離</th><th>備註</th></tr></thead><tbody><tr><td>二和公園</td><td class="num">約8分鐘（0.6km）</td><td>蜂巢攀爬式特色遊戲場、大型沙池，腹地中大型，台中知名特色公園之一</td></tr><tr><td>大雅公園</td><td class="num">約11分鐘（0.85km）</td><td>社區型公園</td></tr><tr><td>大榮公園</td><td class="num">約16分鐘（1.1km）</td><td>腹地較大，距離稍遠</td></tr></tbody></table></div></div></section>
+  <section><div class="sec-head"><span class="sec-num">六</span><span class="sec-title">生活環境</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜生活環境</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">巷弄型社區，面前道路較窄、部分側棟距偏近；本戶為雙面採光的邊間格局，但確切座向與是否西曬需現場確認。</p><div class="infogrid"><div class="infocell"><div class="k">面前道路路寬</div><div class="v">面前道路為「雅潭路四段600巷37弄」，屬巷弄末端的社區內道路，依衛星圖目測寬度約4-6米，可供單輛車通行與路邊停車，非主要幹道。</div></div><div class="infocell"><div class="k">棟距與視野</div><div class="v">依衛星圖判讀，社區東側緊鄰另一棟較高的建築物，兩棟間距不寬，該側棟距、視野有一定壓迫感；社區內另有中庭與植栽緩衝空間，非全棟皆受影響。</div></div><div class="infocell"><div class="k">座向與採光</div><div class="v">依建物測量成果圖（平面圖）判讀，本戶（4樓）為邊間格局，陽台與花台分別設於相鄰的兩側，理論上有雙面採光通風的優勢；惟測量成果圖上的指北針標示於地籍位置圖，平面圖本身未另外標明方位角，且地籍圖上建物軸線與正北方向並未對齊，無法從圖面精確判斷東西南北朝向，是否西曬需現場確認（建議下午2-4點親自查看主要窗面日照情形）。</div></div><div class="infocell"><div class="k">嫌惡設施</div><div class="v">以 Google 地圖查詢方圓500公尺內未發現高壓電塔、變電所、殯儀館、垃圾/資源回收場等明顯嫌惡設施；最近的加油站距離約570公尺，非緊鄰，影響有限。</div></div></div><div class="note-block">路寬、棟距、座向為依衛星圖與建物測量成果圖推估，非現場實測，建議實地或查權狀確認。</div><div class="note-block">本戶所在「雅典世家」社區為1992年12月完工的華廈（地上6層/地下1層，RC結構），共51戶，金禾建設興建、勝記營造承造，採管理員管理方式。網路查詢（好房網社區頁）未見住戶負評或漏水/管理糾紛等具體爭議記載；另外查詢社區/建案名稱是否有相關新聞爭議，亦未查獲與「雅典世家」本身直接相關的負面新聞（查到的大雅區2024年4月透天厝點交糾紛縱火命案位於雅楓街，與本社區地址、建物均無關聯，不予採計）。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">七</span><span class="sec-title">總評與建議</span></div><div class="summary-grid"><div class="summary-cell"><div class="k">生活機能</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">採買</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">學區</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">交通</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">公園</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">生活環境</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div></div><div class="concl-grid"><div class="concl-card primary"><h4>主要優勢</h4><p>生活機能扎實、國小學區明確（大雅國小已100%確認）、鄰近特色公園「二和公園」與地標型雅潭夜市，且距離國道1號大雅交流道僅約6分鐘車程，適合重視生活便利、且能接受自行開車通勤的自住家庭。</p></div><div class="concl-card"><h4>需要留意的地方</h4><p>位於巷弄末端的社區，面前道路較窄、部分棟距偏近；公共運輸仰賴公車銜接國道客運，沒有捷運/鐵路；國中學區依「鄰」別可能落在大雅國中或大華國中兩校之一，建議先向戶政/區公所確認實際鄰別；座向與是否西曬也建議現場複核。</p></div></div></section>
+  
+  <footer><span>資料擷取：Google 地圖 Static Maps／Street View／Places／Directions API（查詢於2026-09-04）、OSM POI 資料庫（台中市大雅區，下載於2026-09-02）、臺中市政府教育局學區查詢系統、uhomes 法拍屋案件 #13734 物件公告與建物測量成果圖、好房網社區頁面。</span><span>本報告為地段生活機能初步分析，非正式不動產估價；學區請以官方最新公告為準，實際生活機能建議親自走訪確認。</span></footer>
+
+</div>
