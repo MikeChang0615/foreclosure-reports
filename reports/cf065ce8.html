@@ -1,0 +1,249 @@
+<!doctype html>
+<title>新竹北區東大路三段338之26號（東大豐象別墅社區） 法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style> 區塊和下面的元件範例，換成當次物件的內容。
+
+  色彩語意（依結論調整 verdict / round-pill / concl-card.primary 的顏色變數）：
+    --accent（綠）  = 底價低於市場行情、風險可控、整體正向的結論（案1、案6風格）
+    --warn（琥珀）  = 有溢價或風險需要權衡、結論中性偏謹慎（案3、案5、修正後案2/4風格）
+    --bad（紅）     = 底價明顯高於市場行情、或風險嚴重到不建議進場（很少用到，六案中沒有純紅結論，
+                      案2修正前一度誤判用了紅色，後來發現是comp選錯型態，改回warn）
+
+  不要把這份範本當成必須逐字套用的表單——每個案子的風險組成不同（有的沒有違建、有的沒有優先承買權、
+  有的comp資料很薄弱），該省略的區塊就省略，該新增的風險項就新增。
+-->
+<!doctype html>
+<title>【物件簡稱】法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  /* verdict：報告頂端的結論摘要框。border-left 顏色 = accent/warn/bad 三選一，見檔案頂端說明 */
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--warn); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  /* reco-badge：每份報告都要有的明確建議標籤，跟 verdict-label「估算結論」同一行、靠右對齊。
+     reco-buy(accent) = 建議投標／建議N拍進場；reco-wait(warn) = 建議觀望／等下一拍；
+     reco-avoid(bad) = 不建議投標；reco-review(ink-faint邊框) = 已拍定案例的回顧評級，沒有「投不投標」的行動可言 */
+  .reco-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+  .reco-buy { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .reco-wait { background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn); }
+  .reco-avoid { background: var(--bad-soft); color: var(--bad); border: 1px solid var(--bad); }
+  .reco-review { background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--line-strong); }
+  .verdict-price { font-family: var(--font-serif); font-weight: 700; font-size: 24px; color: var(--warn); font-variant-numeric: tabular-nums; }
+  .verdict-price small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; }
+  .verdict-round { display: flex; align-items: flex-start; gap: 10px; }
+  .round-pill { font-family: var(--font-serif); font-weight: 700; font-size: 20px; color: var(--warn); background: var(--warn-soft); border: 1px solid var(--line-strong); border-radius: 6px; padding: 6px 12px; white-space: nowrap; }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 560px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.highlight td { background: var(--accent-soft); font-weight: 600; }
+  tr.dim td { color: var(--ink-faint); }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 640px) { .infogrid { grid-template-columns: repeat(2, 1fr); } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 15px; margin-top: 3px; font-variant-numeric: tabular-nums; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+  .math { font-family: var(--font-mono); font-size: 13px; color: var(--ink); background: var(--surface-2); padding: 10px 14px; border-radius: 4px; margin: 10px 0; overflow-x: auto; }
+
+  /* risk-list：風險檢核清單。risk-high(紅)/risk-mid(琥珀)/risk-low(綠) 三種badge，只用在真正異常的項目——
+     常態性條款（土地不點交、查無海砂屋、欠費自行協商等）一律 risk-low 或乾脆不列，見 references/risk-rules.md */
+  .risk-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .risk-item { background: var(--surface); display: grid; grid-template-columns: 90px 1fr; gap: 14px; padding: 13px 16px; align-items: start; }
+  @media (max-width: 640px) { .risk-item { grid-template-columns: 70px 1fr; } }
+  .risk-badge { font-family: var(--font-mono); font-size: 11px; text-align: center; padding: 3px 0; border-radius: 4px; font-weight: 700; letter-spacing: 0.04em; }
+  .risk-high { background: var(--bad-soft); color: var(--bad); }
+  .risk-mid { background: var(--warn-soft); color: var(--warn); }
+  .risk-low { background: var(--good-soft); color: var(--good); }
+  .risk-body b { display: block; font-size: 14px; margin-bottom: 2px; }
+  .risk-body span { font-size: 13.3px; color: var(--ink-soft); }
+
+  /* pending-box：等使用者補富邦數字時用這個，取代已完成的 infogrid+note-block 銀行鑑價區塊 */
+  .pending-box { background: var(--warn-soft); border: 1px solid var(--line-strong); border-left: 3px solid var(--warn); border-radius: 4px; padding: 14px 18px; font-size: 13.6px; color: var(--ink); }
+
+  /* scale-wrap：價格區間視覺化橫軸，用在結論章節。scale-band 是「市場合理價值區間」的色塊，
+     scale-mark 是單一數字的直線標記（3拍底價、隱含1拍、富邦估值等）*/
+  .scale-wrap { margin: 22px 0 8px; }
+  .scale-track { position: relative; height: 54px; }
+  .scale-base { position: absolute; left: 0; right: 0; top: 24px; height: 6px; background: var(--surface-2); border-radius: 3px; }
+  .scale-band { position: absolute; top: 20px; height: 14px; border-radius: 7px; background: var(--accent-soft); border: 1px solid var(--accent); opacity: 0.9; }
+  .scale-mark { position: absolute; top: 0; width: 2px; height: 27px; background: var(--ink); }
+  .scale-mark.dim { background: var(--ink-faint); }
+  .scale-mark.warn { background: var(--warn); }
+  .scale-mark.bad { background: var(--bad); }
+  .scale-label { position: absolute; top: 30px; font-size: 11.5px; font-family: var(--font-mono); white-space: nowrap; color: var(--ink-soft); transform: translateX(-50%); }
+  .scale-label b { display: block; color: var(--ink); font-size: 12.5px; font-family: var(--font-sans); font-weight: 700; }
+  .scale-axis { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); margin-top: 46px; padding-top: 8px; border-top: 1px dashed var(--line); }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--warn); background: var(--warn-soft); }
+  .concl-card.primary h4 { color: var(--warn); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+<div class="page">
+  <div class="doc-head">
+    <div class="doc-kicker">法拍物件行情估價 · 個案分析</div>
+    <h1 class="doc-title">新竹北區東大路三段338之26號（東大豐象別墅社區）</h1>
+    <div class="doc-sub">新竹市北區東大路三段338之26號｜別墅（全棟／4宗合併拍賣）56.89坪｜屋齡2年</div>
+    <div class="doc-meta">
+      <span>查詢日期 <b>2026-09-04</b></span>
+      <span>資料來源 <b>uhomes 法拍公告 · 內政部實價登錄</b></span>
+      <span>開標日 <b>2026/09/17 14:30</b></span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <div class="verdict-label-row">
+        <div class="verdict-label">估算結論</div>
+        <div class="reco-badge reco-wait">建議觀望</div>
+      </div>
+      <div class="verdict-price">市場估值約 1,516萬 ~ 1,626萬｜底價 2,032萬（35.71萬/坪）</div>
+      <div class="verdict-note">3拍底價較同路段內政部實價登錄成交均價高出約25%~34%，加計不點交代標費用(6%)後總成本約2,154萬，仍高於市場估值區間；銀行鑑價雖顯示帳面薄利，但型態無法精確對應本案且與實際成交落差逾4成，可信度較低。建議本拍暫不進場，觀察是否流入下一輪（特拍／新一輪1拍）出現更貼近市場的底價。</div>
+    </div>
+    <div class="verdict-round">
+      <div class="round-pill">3拍</div>
+      <div>
+        <div class="verdict-label">拍次判斷</div>
+        <div style="font-size:14px;">底價2,032萬 ÷0.8 ÷0.8 反推隱含1拍底價約3,175萬（55.81萬/坪）。本拍若再流標，將進入應買期後的特拍，特拍底價不適用0.8遞減公式；特拍若仍流標，才會啟動新一輪1拍，屆時底價通常會明顯下修（量級上接近本輪2拍水準，非精確等式）。</div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">一</span><span class="sec-title">物件基本資料</span></div>
+    <div class="infogrid"><div class="infocell"><div class="k">地址</div><div class="v">新竹市北區東大路三段338之26號（東大豐象別墅社區，近南寮國小）</div></div><div class="infocell"><div class="k">房屋類型</div><div class="v">別墅（全棟出售，4宗合併拍賣）</div></div><div class="infocell"><div class="k">屋齡</div><div class="v">2年</div></div><div class="infocell"><div class="k">樓層別</div><div class="v">全棟/4層</div></div><div class="infocell"><div class="k">結構</div><div class="v">RC</div></div><div class="infocell"><div class="k">公告坪數</div><div class="v">56.89坪</div></div><div class="infocell"><div class="k">主建/附屬/公設坪數</div><div class="v">55.27坪／1.38坪／0.24坪</div></div><div class="infocell"><div class="k">增建坪數</div><div class="v">無（無違章列管問題）</div></div><div class="infocell"><div class="k">土地坪數</div><div class="v">25.69坪</div></div><div class="infocell"><div class="k">房屋用途</div><div class="v">集合住宅、停車空間、樓梯間</div></div><div class="infocell"><div class="k">點交情形</div><div class="v">不點交</div></div><div class="infocell"><div class="k">案號</div><div class="v">114年度司執字第54051號</div></div></div>
+    <div class="note-block">公告坪數＝主建+附屬+公設坪數，無增建坪數，代表本案無違章列管拆除疑慮，合法可比面積＝公告坪數56.89坪，全額列入後續估價計算。本物件由4宗地號/建號合併拍賣，投標人須分別出價，以4宗總價最高者得標。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">二</span><span class="sec-title">拍賣現況與隱含市場基準</span></div>
+    <div class="math">3拍底價 2,032萬（35.71萬/坪）<br>÷0.8 → 隱含2拍底價 2,540萬（44.65萬/坪）<br>÷0.8 → 隱含1拍底價 3,175萬（55.81萬/坪）</div>
+    <div class="note-block">隱含1拍鑑價高達55.81萬/坪，遠高於本路段近期實際成交行情（約26.65萬~28.58萬/坪，詳見第三節），顯示法院最初鑑價明顯偏離市場。即使歷經兩次流標各打8折，3拍底價35.71萬/坪仍比周邊實際成交高出約25%~34%，折讓幅度尚未貼近市場水準——目前底價還沒有把「法拍折讓」真正反映進去。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">三</span><span class="sec-title">內政部實價登錄比對</span></div>
+    <p class="lede">改用內政部實價登錄批次資料查詢（涵蓋新竹市），以「東大路三段」為關鍵字查得近18個月成交案例7筆（新竹市資料集的行政區欄位記為市層級「新竹市」而非細分「北區」，已改用路段關鍵字比對，7筆地址均落在東大路三段範圍內，地緣一致）。其中2筆為與本案「別墅／全棟出售」型態相近的透天厝整棟交易，列為主要估價依據；其餘5筆為社區華廈分層戶，型態不同，僅作路段行情參考。</p>
+    <div class="table-wrap"><table><thead><tr><th>交易日期</th><th class="num">地址</th><th class="num">型態</th><th class="num">樓層</th><th class="num">面積(坪)</th><th class="num">總價</th><th class="num">單價(元/坪)</th></tr></thead><tbody><tr class="highlight"><td>2026-03-20</td><td class="num">東大路三段291巷9弄12之3號</td><td class="num">透天厝(全棟)</td><td class="num">全/四層</td><td class="num">63.72</td><td class="num">2,026萬</td><td class="num">317,954</td></tr><tr class="highlight"><td>2025-12-06</td><td class="num">東大路三段403巷13號</td><td class="num">透天厝(全棟)</td><td class="num">全/四層</td><td class="num">68.98</td><td class="num">1,750萬</td><td class="num">253,697</td></tr><tr class="dim"><td>2026-03-29</td><td class="num">東大路三段439巷25號七樓之1</td><td class="num">華廈(10層以下有電梯)</td><td class="num">七/八層</td><td class="num">64.81</td><td class="num">1,422萬</td><td class="num">219,411</td></tr><tr class="dim"><td>2026-03-01</td><td class="num">東大路三段381號4樓</td><td class="num">華廈(10層以下有電梯)</td><td class="num">四/八層</td><td class="num">45.67</td><td class="num">835萬</td><td class="num">182,833</td></tr><tr class="dim"><td>2025-12-12</td><td class="num">東大路三段326號三樓之2</td><td class="num">華廈(10層以下有電梯)</td><td class="num">三/八層</td><td class="num">53.27</td><td class="num">1,550萬</td><td class="num">290,971</td></tr><tr class="dim"><td>2025-11-26</td><td class="num">東大路三段326號二樓之15</td><td class="num">華廈(10層以下有電梯)</td><td class="num">二/八層</td><td class="num">54.22</td><td class="num">1,500萬</td><td class="num">276,651</td></tr><tr class="dim"><td>2025-11-18</td><td class="num">東大路三段326號四樓之33</td><td class="num">華廈(10層以下有電梯)</td><td class="num">四/八層</td><td class="num">50.67</td><td class="num">1,640萬</td><td class="num">323,663</td></tr></tbody></table></div><div class="note-block">淺色（highlight）2筆為與本案型態相近的透天厝整棟交易，是主要估價依據；灰底（dim）5筆為華廈分層戶，型態與本案不同，僅供路段行情區間參考，不納入主估價計算。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">四</span><span class="sec-title">市場合理價值估算</span></div>
+    <div class="math">【主要依據：同段透天厝整棟comp】(317,954+253,697)/2 ≈ 28.58萬/坪 × 56.89坪 ≈ 1,626萬<br>【參考：同段全型態均價（含華廈分層戶，7筆）】26.65萬/坪 × 56.89坪 ≈ 1,516萬<br>市場合理價值估算區間：約 <b>1,516萬 ~ 1,626萬</b></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">五</span><span class="sec-title">銀行鑑價（富邦房貸實測）</span></div>
+    <p class="lede">本物件已在screening階段完成富邦快篩，Google Sheet pending_cases 的「銀行鑑價」欄位已有數值，依規則直接沿用，本次不重複查詢。富邦鑑價系統的房屋類型選項沒有「別墅」可對應，快篩當時應是以最接近的類型近似替代，且本案為「全棟4宗合併」的特殊產權結構，銀行自動估價模型未必能精確反映；估值與內政部實價登錄同路段實際成交行情落差達4成以上，建議僅作參考上限，不作為主要估價依據。</p>
+    <div class="infogrid"><div class="infocell"><div class="k">房屋總價初估（沿用快篩結果）</div><div class="v">2,296萬 ~ 2,396萬</div></div><div class="infocell"><div class="k">換算單價</div><div class="v">約40.36萬 ~ 42.11萬/坪</div></div><div class="infocell"><div class="k">與內政部實登comp比較</div><div class="v">高於同路段實際成交均價約40%~57%</div></div><div class="infocell"><div class="k">查詢方式</div><div class="v">沿用screening-runbook快篩階段結果，本次未重新查詢</div></div></div>
+    <div class="note-block">銀行鑑價反映的通常是「正常買賣市場」下的估值上限，本身不含法拍折讓，也不等於法拍屋的合理得標價；本案又因型態特殊（全棟別墅、4宗合併）與實登comp落差偏大，實務上應以第三、四節的實價登錄comp為主要基準，銀行鑑價僅供參考。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">六</span><span class="sec-title">風險因子檢核</span></div>
+    <div class="risk-list"><div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>底價高於同路段實價登錄成交行情，缺乏折讓空間</b><span>3拍底價35.71萬/坪，較東大路三段近18個月實際成交均價（26.65萬~28.58萬/坪）高出約25%~34%；加計不點交6%代標費用後總成本約2,154萬，明顯高於市場估值區間1,516萬~1,626萬，即使以底價得標也可能是溢價進場，而非法拍常見的折價優勢。</span></div></div><div class="risk-item"><div class="risk-badge risk-mid">中</div><div class="risk-body"><b>不點交，且占用狀況未經法院確認</b><span>筆錄載明查封時大門深鎖無人回應，債權人查訪後查報「該屋疑似為實質債務人本人居住，但無法確認實際使用狀況」，法院不為實體判斷；本件非債務人（順和公司）占有使用，拍定後不點交。得標人須自行處理點交、可能的訴訟與搬遷協商，時間與金錢成本無法事先精準估計。</span></div></div><div class="risk-item"><div class="risk-badge risk-mid">中</div><div class="risk-body"><b>4宗合併拍賣，須分別出價、以總價最高者得標</b><span>備註載明本物件由4宗地號/建號合併拍賣，投標人須針對每一宗分別出價，最終以4宗「總價」最高者得標；下標時配比計算若有誤，可能影響整體得標結果，建議投標前先向法院書記官確認各宗底價拆分方式。</span></div></div><div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>無優先承買權疑慮</b><span>公告備註七明確載明「本件為集合式住宅，土地及建物應併同移轉，故土地共有人無優先承買權」，排除常見的第三人優先承買風險。</span></div></div><div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>無違章增建列管風險</b><span>增建坪數欄位為空，公告坪數56.89坪＝主建+附屬+公設坪數，合法產權面積與公告坪數一致，無違章拆除疑慮。</span></div></div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">七</span><span class="sec-title">估價結論與建議</span></div>
+    <div class="scale-wrap"><div class="scale-track" style="height:64px;"><div class="scale-base"></div><div class="scale-band" style="left:42.28%; width:10.72%;"></div><div class="scale-mark dim" style="left:93.02%;"></div><div class="scale-label" style="left:93.02%;"><b>隱含1拍 55.8萬</b>法院最初鑑價（反推）</div><div class="scale-mark dim" style="left:68.73%;"></div><div class="scale-label" style="left:68.73%;"><b>富邦中值 41.2萬</b>銀行鑑價（沿用快篩，可信度較低）</div><div class="scale-mark warn" style="left:59.52%;"></div><div class="scale-label" style="left:59.52%;"><b>底價 35.7萬</b>3拍公告底價／坪</div></div><div class="scale-axis" style="margin-top:58px;"><span>0萬/坪</span><span>市場合理價值區間（東大路三段實際成交）</span><span>60萬/坪</span></div></div>
+    <div class="concl-grid" style="margin-top:28px;">
+      <div class="concl-card primary"><h4>為什麼本拍建議觀望</h4><p>以內政部實價登錄同路段實際成交為準，3拍底價（35.71萬/坪）比市場行情（26.65萬~28.58萬/坪）高出約25%~34%，加計不點交6%代標費用後總成本約2,154萬，明顯高於市場估值區間1,516萬~1,650萬。銀行鑑價雖顯示帳面上仍有薄利（總成本比鑑價低約9%~10%），但銀行系統沒有精確對應本案「別墅全棟／4宗合併」的產權型態，且與實際成交行情落差達4成以上，可信度偏低，不宜作為主要判斷依據。整體而言，本拍缺乏明確的價格優勢，加上不點交的占用不確定性，風險報酬不成正比。</p></div>
+      <div class="concl-card"><h4>後續觀察建議</h4><p>本拍若再流標，將進入應買期後的特拍，特拍底價不適用0.8遞減公式；特拍若仍流標，才會啟動新一輪1拍，屆時底價通常會明顯下修（量級上接近本輪2拍水準，非精確等式），屆時價差有機會轉為真正的折讓空間。同時建議在下一輪公告前，實地或委託代標公司查訪占用現況，確認「疑似債務人本人居住」是否已經釐清，降低不點交後續處理的不確定性；若未來底價貼近市場行情、且占用狀況已釐清，可重新評估進場時機。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>資料擷取：uhomes 法拍屋公告（2026-09-04）、內政部不動產交易實價查詢服務網、富邦房貸房價行情查詢。</span>
+    <span>本報告為初步估價參考，非正式鑑價報告；實際投標前請至臺灣新竹地方法院查詢公告全文，並諮詢地政士／代標專業意見。</span>
+  </footer>
+</div>
