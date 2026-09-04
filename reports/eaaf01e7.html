@@ -1,0 +1,249 @@
+<!doctype html>
+<title>金城三路59號5樓（世紀鑫城世紀區） 法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style> 區塊和下面的元件範例，換成當次物件的內容。
+
+  色彩語意（依結論調整 verdict / round-pill / concl-card.primary 的顏色變數）：
+    --accent（綠）  = 底價低於市場行情、風險可控、整體正向的結論（案1、案6風格）
+    --warn（琥珀）  = 有溢價或風險需要權衡、結論中性偏謹慎（案3、案5、修正後案2/4風格）
+    --bad（紅）     = 底價明顯高於市場行情、或風險嚴重到不建議進場（很少用到，六案中沒有純紅結論，
+                      案2修正前一度誤判用了紅色，後來發現是comp選錯型態，改回warn）
+
+  不要把這份範本當成必須逐字套用的表單——每個案子的風險組成不同（有的沒有違建、有的沒有優先承買權、
+  有的comp資料很薄弱），該省略的區塊就省略，該新增的風險項就新增。
+-->
+<!doctype html>
+<title>【物件簡稱】法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  /* verdict：報告頂端的結論摘要框。border-left 顏色 = accent/warn/bad 三選一，見檔案頂端說明 */
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--warn); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  /* reco-badge：每份報告都要有的明確建議標籤，跟 verdict-label「估算結論」同一行、靠右對齊。
+     reco-buy(accent) = 建議投標／建議N拍進場；reco-wait(warn) = 建議觀望／等下一拍；
+     reco-avoid(bad) = 不建議投標；reco-review(ink-faint邊框) = 已拍定案例的回顧評級，沒有「投不投標」的行動可言 */
+  .reco-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+  .reco-buy { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .reco-wait { background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn); }
+  .reco-avoid { background: var(--bad-soft); color: var(--bad); border: 1px solid var(--bad); }
+  .reco-review { background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--line-strong); }
+  .verdict-price { font-family: var(--font-serif); font-weight: 700; font-size: 24px; color: var(--warn); font-variant-numeric: tabular-nums; }
+  .verdict-price small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; }
+  .verdict-round { display: flex; align-items: flex-start; gap: 10px; }
+  .round-pill { font-family: var(--font-serif); font-weight: 700; font-size: 20px; color: var(--warn); background: var(--warn-soft); border: 1px solid var(--line-strong); border-radius: 6px; padding: 6px 12px; white-space: nowrap; }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 560px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.highlight td { background: var(--accent-soft); font-weight: 600; }
+  tr.dim td { color: var(--ink-faint); }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 640px) { .infogrid { grid-template-columns: repeat(2, 1fr); } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 15px; margin-top: 3px; font-variant-numeric: tabular-nums; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+  .math { font-family: var(--font-mono); font-size: 13px; color: var(--ink); background: var(--surface-2); padding: 10px 14px; border-radius: 4px; margin: 10px 0; overflow-x: auto; }
+
+  /* risk-list：風險檢核清單。risk-high(紅)/risk-mid(琥珀)/risk-low(綠) 三種badge，只用在真正異常的項目——
+     常態性條款（土地不點交、查無海砂屋、欠費自行協商等）一律 risk-low 或乾脆不列，見 references/risk-rules.md */
+  .risk-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .risk-item { background: var(--surface); display: grid; grid-template-columns: 90px 1fr; gap: 14px; padding: 13px 16px; align-items: start; }
+  @media (max-width: 640px) { .risk-item { grid-template-columns: 70px 1fr; } }
+  .risk-badge { font-family: var(--font-mono); font-size: 11px; text-align: center; padding: 3px 0; border-radius: 4px; font-weight: 700; letter-spacing: 0.04em; }
+  .risk-high { background: var(--bad-soft); color: var(--bad); }
+  .risk-mid { background: var(--warn-soft); color: var(--warn); }
+  .risk-low { background: var(--good-soft); color: var(--good); }
+  .risk-body b { display: block; font-size: 14px; margin-bottom: 2px; }
+  .risk-body span { font-size: 13.3px; color: var(--ink-soft); }
+
+  /* pending-box：等使用者補富邦數字時用這個，取代已完成的 infogrid+note-block 銀行鑑價區塊 */
+  .pending-box { background: var(--warn-soft); border: 1px solid var(--line-strong); border-left: 3px solid var(--warn); border-radius: 4px; padding: 14px 18px; font-size: 13.6px; color: var(--ink); }
+
+  /* scale-wrap：價格區間視覺化橫軸，用在結論章節。scale-band 是「市場合理價值區間」的色塊，
+     scale-mark 是單一數字的直線標記（3拍底價、隱含1拍、富邦估值等）*/
+  .scale-wrap { margin: 22px 0 8px; }
+  .scale-track { position: relative; height: 54px; }
+  .scale-base { position: absolute; left: 0; right: 0; top: 24px; height: 6px; background: var(--surface-2); border-radius: 3px; }
+  .scale-band { position: absolute; top: 20px; height: 14px; border-radius: 7px; background: var(--accent-soft); border: 1px solid var(--accent); opacity: 0.9; }
+  .scale-mark { position: absolute; top: 0; width: 2px; height: 27px; background: var(--ink); }
+  .scale-mark.dim { background: var(--ink-faint); }
+  .scale-mark.warn { background: var(--warn); }
+  .scale-mark.bad { background: var(--bad); }
+  .scale-label { position: absolute; top: 30px; font-size: 11.5px; font-family: var(--font-mono); white-space: nowrap; color: var(--ink-soft); transform: translateX(-50%); }
+  .scale-label b { display: block; color: var(--ink); font-size: 12.5px; font-family: var(--font-sans); font-weight: 700; }
+  .scale-axis { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); margin-top: 46px; padding-top: 8px; border-top: 1px dashed var(--line); }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--warn); background: var(--warn-soft); }
+  .concl-card.primary h4 { color: var(--warn); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+<div class="page">
+  <div class="doc-head">
+    <div class="doc-kicker">法拍物件行情估價 · 個案分析</div>
+    <h1 class="doc-title">金城三路59號5樓（世紀鑫城世紀區）</h1>
+    <div class="doc-sub">新竹市東區金城三路59號5樓 · 電梯大樓 · 屋齡9年 · 5樓/共15樓</div>
+    <div class="doc-meta">
+      <span>查詢日期 <b>2026-09-04</b></span>
+      <span>資料來源 <b>uhomes 法拍公告 · 內政部實價登錄</b></span>
+      <span>開標日 <b>2026/09/16 14:30（限通訊投標）</b></span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <div class="verdict-label-row">
+        <div class="verdict-label">估算結論</div>
+        <div class="reco-badge reco-wait">建議觀望</div>
+      </div>
+      <div class="verdict-price">公告底價 3,599.93萬（53.35萬/坪，含車位）</div>
+      <div class="verdict-note">底價落在「比照社區一般住宅行情」與「計入用途限制折讓」兩種情境的交界處——折讓夠不夠，取決於這戶「登記用途為一般辦公室、不得作一般住宅使用」的限制，未來會不會被市場認真定價。這個不確定性沒辦法在本次分析中完全消除，建議先觀望、投標前務必先確認清楚再決定。</div>
+    </div>
+    <div class="verdict-round">
+      <div class="round-pill">限通訊投標</div>
+      <div>
+        <div class="verdict-label">拍次判斷</div>
+        <div style="font-size:14px;">本案是財政部國有財產署「不動產標售」案件，不是法院查封拍賣，公告的「拍次」欄位顯示的是投標方式（通訊投標），不是第幾拍，無法套用法拍常見的「底價÷0.8反推上一拍」公式，也無從得知這是否為首次標售、或先前已流標過重新公告。建議投標前直接洽國產署確認歷次公告紀錄。</div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">一</span><span class="sec-title">物件基本資料</span></div>
+    <div class="infogrid"><div class="infocell"><div class="k">地址</div><div class="v">新竹市東區金城三路59號5樓</div></div><div class="infocell"><div class="k">房屋類型</div><div class="v">電梯大樓（RC結構）</div></div><div class="infocell"><div class="k">房屋用途登記</div><div class="v">一般辦公室（公告明文：不得作一般住宅使用）</div></div><div class="infocell"><div class="k">屋齡</div><div class="v">9年</div></div><div class="infocell"><div class="k">樓層別</div><div class="v">5樓／共15樓</div></div><div class="infocell"><div class="k">公告坪數</div><div class="v">67.47坪（主建33.28＋附屬4.45＋公設15.15＋車位14.59）</div></div><div class="infocell"><div class="k">增建坪數</div><div class="v">無（無違章列管問題）</div></div><div class="infocell"><div class="k">土地坪數</div><div class="v">8.41坪</div></div><div class="infocell"><div class="k">車位屬性</div><div class="v">坡道平面（1個）</div></div><div class="infocell"><div class="k">案號／拍賣單位</div><div class="v">115年度第50批58標／財政部國有財產署</div></div><div class="infocell"><div class="k">拍賣原因</div><div class="v">不動產標售（非法院查封拍賣）</div></div><div class="infocell"><div class="k">點交情形</div><div class="v">點交（按現狀點交，本分署不負瑕疵擔保責任）</div></div><div class="infocell"><div class="k">抵押權</div><div class="v">無抵押權設定</div></div></div>
+    <div class="note-block">筆錄另載明：本案底價含建物價格486.56萬元，扣除建物價格後的金額均屬土地價格；同時搭售金城三路89號店鋪一戶（共有部分光復段7684建號，含地下二層車位編號276、277號），依登記面積一併移轉——得標人實際取得的資產範圍比表面「67.47坪」更大，但因缺乏完整登記謄本，本次分析無法精確拆算這塊面積與價值各自佔比，建議投標前向國產署或地政事務所調閱完整謄本確認。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">二</span><span class="sec-title">拍賣現況與隱含市場基準</span></div>
+    <div class="math">公告底價 3,599.9299萬 ÷ 公告坪數 67.47坪 = 53.35萬/坪（含車位）</div>
+    <div class="note-block">由於拍賣方式是「限通訊投標」而非現場喊價的常規輪次，無法用0.8遞減公式反推先前輪次的底價水準。另外，這是國有財產標售、不是法院委託的司法拍賣，一般法拍慣用的「得標價×1.04（點交）/1.06（不點交）」代標服務費估算框架不完全適用——但仍要提醒：通訊投標須先備妥保證金360萬（底價10%），且下方第五節會說明這戶已被富邦AVM判定「無法比照一般住宅鑑價」，得標後如需融資，多半只能仰賴商用貸款或自備現金，資金門檻本來就高，這筆隱性成本應該在決定要不要投標前先算清楚。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">三</span><span class="sec-title">內政部實價登錄比對</span></div>
+    <p class="lede">內政部實價登錄批次資料（moi_actual_price.py）查詢「新竹市東區金城三路」查無成交紀錄（本案登記用途特殊、加上這類搭配都市計畫限制的物件本來就少，樣本稀薄）。改採591實價登錄的社區頁資料：本案地址所在的「世紀鑫城世紀區」（金城三路19號，共11棟、每棟四戶、總樓15層，與本案總樓層數吻合，可確認是同一開發基地）在591被標示為「住宅大樓」，近2年成交均價67.4萬/坪、歷史累計成交496筆，流通性非常好。但要清楚說明：這些成交案例的物件是「正常登記為住宅」的其他戶別，跟本案「登記為一般辦公室、公告明文不得作住宅使用」的法律性質不同——這些comp只能當作「這棟樓、這個地段的建物本體行情上緣」參考，不能直接視為本案可以對應的同類型成交。</p>
+    <div class="table-wrap"><table><thead><tr><th>交易季度／樓層</th><th class="num">坪數</th><th class="num">成交總價</th><th class="num">成交單價</th><th class="num">備註</th></tr></thead><tbody><tr><td>114-03（12樓）</td><td class="num">46.5坪</td><td class="num">3,400萬</td><td class="num">68.1萬/坪</td><td class="num">近期最高成交</td></tr><tr><td>113-12（11樓）</td><td class="num">43.3坪</td><td class="num">3,168萬</td><td class="num">70.4萬/坪</td><td class="num">近2年區間最高</td></tr><tr><td>114-02（13樓）</td><td class="num">43.1坪</td><td class="num">2,990萬</td><td class="num">66.7萬/坪</td><td class="num"></td></tr><tr><td>113-07（7樓）</td><td class="num">42.9坪</td><td class="num">2,920萬</td><td class="num">65.4萬/坪</td><td class="num"></td></tr><tr><td>113-10（7樓）</td><td class="num">53.4坪</td><td class="num">3,470萬</td><td class="num">62.8萬/坪</td><td class="num"></td></tr><tr><td>112-11（15樓）</td><td class="num">42.8坪</td><td class="num">2,508萬</td><td class="num">55.8萬/坪</td><td class="num">近2年區間最低（不含更早期105年18.1萬/坪異常值，未採計）</td></tr><tr class="highlight"><td>本案公告底價（5樓）</td><td class="num">67.47坪（含車位）</td><td class="num">3,599.93萬</td><td class="num">53.35萬/坪</td><td class="num">登記用途為一般辦公室，法律性質與上列成交戶不同，僅供對照</td></tr></tbody></table></div><div class="note-block">另外，uhomes同頁列出金城三路23號7樓（2,971.24萬／53.67坪≈55.35萬/坪）、25號4樓（2,897.996萬／54.22坪≈53.45萬/坪）、23號9樓（3,041.32萬／53.67坪≈56.67萬/坪）等物件，地址、坪數、單價都跟本案高度相近，研判是同一批（115年度第50批）國產署標售案件——這幾戶的單價都落在53-57萬/坪的窄幅區間，可以佐證本案53.35萬/坪的底價是國產署對這批「限制用途」單位一致採用的估價基準，不是針對本案個別定價偏低或偏高。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">四</span><span class="sec-title">市場合理價值估算</span></div>
+    <div class="math">情境A（比照社區一般住宅行情、忽略用途限制）：近2年成交均價區間55.8–70.4萬/坪（平均約64.9萬/坪），本案5樓樓層低於comp的7–15樓，抓5–8%樓層折價後約59.7–61.7萬/坪，換算67.47坪總價約4,029–4,163萬。<br><br>情境B（計入「不得作一般住宅使用」的買方池窄化／流通性折讓，估15–25%）：以情境A為基礎再打75–85折，約45.6–52.4萬/坪，總價約3,020–3,540萬。<br><br>公告底價3,599.93萬，落在情境B區間上緣、略高於情境B上限一點（+1.7%），但明顯低於情境A（-11%~-14%）。換句話說：如果市場真的會認真反映用途限制（融資受限、只能商用/投資用途、未來轉手一樣窄化），底價大致合理、甚至略偏貴；但如果比照591社區實際交易模式（496筆歷史成交裡，多數買家似乎不太計較registered use的細節），底價則有約一成到一成半的折讓空間。這個分歧沒辦法用現有公開資料完全排除，是本案估價最大的不確定性。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">五</span><span class="sec-title">銀行鑑價（富邦房貸實測）</span></div>
+    <p class="lede">Google Sheet「銀行鑑價」欄位在本次分析前已由富邦快篩流程查過，結果是「無法鑑價」——這不是遺漏計算（例如漏算車位）的不完整結果，而是富邦AVM對這個登記用途做出的明確判斷，本次直接沿用，不重新查詢。</p>
+    <div class="infogrid"><div class="infocell"><div class="k">富邦AVM結果</div><div class="v">無法鑑價</div></div><div class="infocell"><div class="k">原因</div><div class="v">登記用途為一般辦公室，非富邦住宅AVM適用類型</div></div><div class="infocell"><div class="k">資料來源</div><div class="v">screening-runbook 富邦快篩（分析前已完成，本次沿用）</div></div></div>
+    <div class="note-block">這個「無法鑑價」結果本身就是重要訊號，印證了公告筆錄「不得作一般住宅使用」不只是法規文字，而是實際會讓一般住宅貸款／鑑價模型直接拒收這個物件。得標人如需融資，須另尋商用貸款或以自備現金因應，這會直接篩掉大部分只想申請一般房貸的投標人。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">六</span><span class="sec-title">風險因子檢核</span></div>
+    <div class="risk-list"><div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>都市計畫用途限制：不得作一般住宅使用</b><span>公告筆錄明文引述『變更新竹（含香山）都市計畫（貿易二村、貿易八村、金城新村等老舊眷村改建）細部計畫案土地使用分區及都市設計管制要點』及建物登記謄本，本戶主要用途登記為「一般辦公室」，房地坐落科技產業專用區，法律上不允許作一般住宅使用。即使本案所在的「世紀鑫城世紀區」社區在591市場上被當作一般住宅大樓活絡交易（近2年均價67.4萬/坪、496筆成交），本戶的登記用途跟這些正常住宅戶不同，這個限制不會因為得標而消失，未來轉手一樣要面對同樣窄化的買方池。</span></div></div><div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>融資管道受限，須自備大額資金</b><span>富邦AVM已明確判定此登記用途不適用一般住宅鑑價／房貸，得標人幾乎確定無法比照一般住宅申請房貸，須自備現金或另尋條件較不利的商用貸款。通訊投標本身已需先備妥保證金360萬（底價10%），加上後續資金門檻，這會直接篩掉大部分資金能力不足的投標人。</span></div></div><div class="risk-item"><div class="risk-badge risk-mid">中</div><div class="risk-body"><b>搭售店鋪＋車位產權複雜，實際範圍與價值無法精確拆解</b><span>筆錄載明本案含金城三路89號店鋪一戶（共有部分光復段7684建號，含地下二層車位編號276、277號），依登記面積一併移轉。這對得標人是額外資產（正向因素），但因缺乏完整登記謄本，無法在本次分析中精確拆算這塊面積與價值各自佔比，建議投標前向國產署或地政事務所調閱完整謄本確認。</span></div></div><div class="risk-item"><div class="risk-badge risk-mid">中</div><div class="risk-body"><b>拍賣單位為國產署標售，無法判斷是否已流標過</b><span>本案非法院查封拍賣，「拍次」欄位只顯示投標方式（限通訊投標），無法得知這是否為首次標售、或先前已流標重新公告。國產署標售的降價機制與法院0.8遞減公式不必然相同，建議投標前直接洽國產署確認歷次公告紀錄，避免誤判市場對這個底價的接受度。</span></div></div><div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>點交條件正常</b><span>公告載明按現狀點交，本分署不負瑕疵擔保責任，屬國有財產標售的標準揭露文字，性質與一般法拍點交條款相同，不構成額外風險。</span></div></div><div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>無優先承買權、無違章列管問題</b><span>rofr欄位為FALSE、無增建坪數、無抵押權設定，產權結構單純，不影響本案主要風險判斷。</span></div></div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">七</span><span class="sec-title">估價結論與建議</span></div>
+    <div class="scale-wrap"><div class="scale-track" style="height:64px;"><div class="scale-base"></div><div class="scale-band" style="left:1.7%; width:43.3%;"></div><div class="scale-mark dim" style="left:91.3%;"></div><div class="scale-label" style="left:91.3%;"><b>情境A（比照一般住宅）</b>約4,030–4,160萬</div><div class="scale-mark warn" style="left:50.0%;"></div><div class="scale-label" style="left:50.0%;"><b>公告底價</b>3,600萬（53.35萬/坪）</div></div><div class="scale-axis" style="margin-top:58px;"><span>3,000萬</span><span>用途限制會不會被市場認真定價，是本案估值最大變數</span><span>4,200萬</span></div></div>
+    <div class="concl-grid" style="margin-top:28px;">
+      <div class="concl-card primary"><h4>建議觀望：折讓幅度取決於用途限制怎麼被市場定價</h4><p>公告底價53.35萬/坪，相對「假裝這是一般住宅」的情境有一成到一成半的折讓，但相對「認真計入用途限制」的審慎情境，折讓幾乎不存在、甚至略貴一點。富邦AVM直接拒絕鑑價，已經是市場端「不把它當一般住宅看待」的具體證據，這讓審慎情境更有說服力。在這個限制被完全排除或量化之前，不建議把這個案子當成一般法拍的「便宜貨」進場，也還不到「不建議投標」的程度——比較負責任的做法是先把不確定性查清楚，再決定要不要出手。</p></div>
+      <div class="concl-card"><h4>若仍要投標，這樣的買方才適合</h4><p>適合本身就打算長期持有做商用（辦公室出租/自用）、能自備全額現金或已備妥商用貸款、且不指望短期內用一般住宅市場行情脫手的投資型買方。投標前務必：（1）向國產署新竹分署或地政事務所調閱完整登記謄本，確認金城三路89號店鋪＋B2車位276、277號的實際坪數與價值；（2）確認這是否為首次標售或已流標過；（3）如打算實際進駐使用（不論自用或出租），先確認「一般辦公室」登記在實務上能否順利辦理營業登記、水電/稅務是否有額外限制。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>資料擷取：uhomes 法拍屋公告（2026-09-04）、內政部不動產交易實價查詢服務網、富邦房貸房價行情查詢。</span>
+    <span>本報告為初步估價參考，非正式鑑價報告；實際投標前請至財政部國有財產署查詢公告全文，並諮詢地政士／代標專業意見。</span>
+  </footer>
+</div>
