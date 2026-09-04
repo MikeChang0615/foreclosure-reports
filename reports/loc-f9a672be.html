@@ -1,0 +1,147 @@
+<!doctype html>
+<title>新北市新店區禾豐六路100號3樓 地段分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--accent); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .scenario-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .verdict-headline { font-family: var(--font-serif); font-weight: 700; font-size: 22px; color: var(--ink); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+  .verdict-score { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .score-total { font-family: var(--font-serif); font-weight: 700; font-size: 34px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .score-total small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .stars { font-size: 18px; letter-spacing: 2px; color: var(--gold); }
+  .stars .empty { color: var(--line-strong); }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .score-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; margin-bottom: 16px; }
+  .score-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .score-card-title { font-family: var(--font-serif); font-size: 17px; font-weight: 700; }
+  .score-card-verdict { font-size: 13.6px; color: var(--ink-soft); margin: 0 0 14px; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 480px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+  .tag-warn { background: var(--warn-soft); color: var(--warn); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 560px) { .infogrid { grid-template-columns: 1fr; } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 14px; margin-top: 4px; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 760px) { .summary-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+  .summary-cell { background: var(--surface); padding: 16px 14px; text-align: center; }
+  .summary-cell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .summary-cell .stars { display: block; margin-top: 6px; font-size: 16px; }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--accent); background: var(--accent-soft); }
+  .concl-card.primary h4 { color: var(--accent); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+
+  <div class="doc-head"><div class="doc-kicker">不動產地段生活機能分析</div><h1 class="doc-title">新北市新店區禾豐六路100號3樓</h1><div class="doc-sub">大台北華城・石上清泉社區・3樓公寓（3/3，頂樓）・屋齡30年</div><div class="doc-meta"><span>查詢日期 <b>2026-09-04</b></span><span>資料來源 <b>Google 地圖 Static/Directions/Places API・OSM POI 資料庫（新北市新店區）・新北市112學年度國小學區公告（網路交叉比對）・WebSearch</b></span><span>物件來源 <b><a href="https://uhomes.com.tw/foreclosure/detail/13670" target="_blank" rel="noopener">uhomes 法拍屋案件 #13670</a></b></span></div></div>
+  <div class="verdict" style="border-left-color: var(--warn)"><div><div class="verdict-label-row"><div class="verdict-label">分析情境</div><div class="scenario-badge">自住評估</div></div><div class="verdict-headline">隱密山林別墅生活圈，但日常生活機能極度依賴自行開車</div><div class="verdict-note">大台北華城是新店山區的門禁管制社區，環境清幽、社區內自有綠地與步道，但地處偏遠，最近的超商也要開車5分鐘、超市/傳統市場要20分鐘以上車程，沒有捷運可步行抵達，適合重視隱私與自然環境、且家中至少一台車的自住家庭；不適合仰賴步行/大眾運輸的生活型態。</div></div><div class="verdict-score"><div class="verdict-label">綜合評分</div><div class="score-total" style="color: var(--warn)">2.2<small>/ 5</small></div><div class="stars">★★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div></div>
+  <section><div class="sec-head"><span class="sec-num">一</span><span class="sec-title">商圈生活機能</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">1 星｜商圈生活機能</div><div class="stars">★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">社區周邊沒有任何商圈或店家群聚，最近的便利商店也要走40分鐘（開車5分鐘），日常瑣事高度依賴自行開車下山。</p><div class="table-wrap"><table><thead><tr><th>店家/地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>OK超商（灣潭/新烏路一帶）</td><td>便利商店</td><td class="num">步行約40分鐘／開車約5分鐘（直線882m，實際路網2.4km）</td></tr></tbody></table></div><div class="note-block warn">大台北華城是山區門禁社區，周邊沒有店面群聚的商圈或老街，這是這類山區別墅社區的共同特徵，跟市區地段不能用同一把尺比較，但實際生活便利度確實偏低。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">二</span><span class="sec-title">採買（市場/賣場）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">1 星｜採買機能</div><div class="stars">★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">最近的連鎖超市（美廉社）開車約20分鐘、家樂福約22分鐘，皆無法步行抵達；傳統市場同樣要下山採買，日常採買需一次開車買齊。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>美廉社（新店安坑一帶）</td><td>超市</td><td class="num">開車約20分鐘（直線2.2km，實際路網10km）</td></tr><tr><td>家樂福超市（新店安坑一帶）</td><td>大賣場</td><td class="num">開車約22分鐘（直線2.4km，實際路網10.6km）</td></tr></tbody></table></div><div class="note-block warn">OSM 資料庫查無此區傳統市場登記點，即時查證也未發現社區步行範圍內有傳統市場，居民採買需開車前往新店市區。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">三</span><span class="sec-title">學區（小學/國中）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜學區</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">官方學區已確認為直潭國小、文山國中，但距離都遠，需要開車接送或安排交通車，無法步行或騎車通學。</p><div class="table-wrap"><table><thead><tr><th>學校</th><th>類型</th><th class="num">步行距離</th><th>資料確定性</th></tr></thead><tbody><tr><td>直潭國小</td><td>國小</td><td class="num">開車約18分鐘（9.9km，步行不可行）</td><td><span class="tag tag-gold">官方學區公告確認（華城里劃屬直潭國小，依新北市112學年度國小學區一覽表網路交叉比對）</span></td></tr><tr><td>文山國中</td><td>國中</td><td class="num">開車約16分鐘（7.2km，步行不可行）</td><td><span class="tag tag-gold">官方學區公告確認（文山國中學區公告明列包含「華城」里）</span></td></tr></tbody></table></div><div class="note-block">兩校皆非步行可達，屬於「已確認學區但距離遠、需接送」的情況；建議入住前向學校或新店區公所教育課再次確認最新學年度公告，尤其留意是否有交通車或共乘安排。附近另有康橋國際雙語學校（私立）常被房仲文案提及，但那是學費制私校、非本案戶籍對應的公立學區，不能取代上述兩校。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">四</span><span class="sec-title">公共交通</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">1 星｜公共交通</div><div class="stars">★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">沒有捷運可步行抵達，最近的新店站要開車14分鐘；社區備有專屬接駁巴士「華城線」往返新店捷運站，但班次稀疏（平日僅約5個時段），出門仍高度仰賴自行開車。</p><div class="table-wrap"><table><thead><tr><th>站點/路線</th><th>類型</th><th class="num">距離</th></tr></thead><tbody><tr><td>捷運新店站</td><td>捷運</td><td class="num">開車約14分鐘（6.9km，步行約1小時25分不可行）</td></tr><tr><td>華城線社區接駁巴士（石上清泉站）</td><td>公車/接駁巴士</td><td class="num">社區內／步行可達站牌，但平日僅約5班（09:20、11:20、12:30、17:15、18:30），非隨到隨搭</td></tr></tbody></table></div><div class="note-block warn">「華城線」是往返社區與新店捷運站/區公所站的接駁公車，班次密度遠低於市區公車，通勤或臨時外出仍建議自備車輛；另有918、941號公車行經山下路口，但一樣需要開車或騎車先下山接駁。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">五</span><span class="sec-title">公園/休憩</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜公園/休憩</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">社區本身被森林環繞、內建綠地花園與步道，等於出門就是公園等級的休憩空間；但若指公共立案公園，最近的正式公園（二叭子植物園）要開車近30分鐘。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th class="num">步行距離</th><th>備註</th></tr></thead><tbody><tr><td>石上清泉社區內綠地花園／野溪步道</td><td class="num">步行1-3分鐘（社區內）</td><td>社區公共設施含綠地花園、羽球場、籃球場與野溪步道，四周為天然林地，腹地感受寬闊</td></tr><tr><td>二叭子植物園</td><td class="num">開車約27分鐘（12.6km，步行不可行）</td><td>新店知名大型植物園，腹地寬闊，但需開車前往</td></tr></tbody></table></div><div class="note-block">評分主要考量社區自身綠地與周邊天然林相已能滿足日常休憩需求，但這是社區私有設施而非對外開放的公共公園，若重視大型公共公園/河濱腹地，仍需開車前往山下。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">六</span><span class="sec-title">生活環境</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜生活環境</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">棟距開闊、社區被森林環繞、安靜且無明顯嫌惡設施，是這個物件最大的優勢；但座向資料不明、頂樓無電梯，屬於30年老公寓需留意的居住細節。</p><div class="infogrid"><div class="infocell"><div class="k">面前道路路寬</div><div class="v">社區內部為單一環狀聯外道路（依測量成果圖與衛星圖判斷為社區型道路，非市區幹道），路寬未標註確切數字，依地圖估算屬社區巷道等級，非8米以上幹道；未查得官方路寬數據。</div></div><div class="infocell"><div class="k">棟距與視野</div><div class="v">依 Google 衛星圖判斷，石上清泉群聚建築彼此間距寬鬆、四周被森林環繞，鄰棟距離明顯優於一般市區公寓，視野無明顯壓迫感；街景無涵蓋（山區私人社區，Google 街景車未進入），無法以街景進一步核對。</div></div><div class="infocell"><div class="k">座向與採光</div><div class="v">建物測量成果圖未標示指北針/方位角，無法確認實際座向；依地籍位置圖判斷主建物臨社區內道路一側，實際座向請以現場或地政資料為準，不宜臆測是否西曬。</div></div><div class="infocell"><div class="k">嫌惡設施</div><div class="v">500公尺內查無高壓電塔、殯儀館、垃圾焚化廠等嫌惡設施；WebSearch 也未查到本社區土石流、走山、淹水等負面新聞。位於山坡地社區，聯外道路依賴單一環山道路，颱風豪雨時聯外便利性可能受影響，建議留意山坡地社區的一般性風險（非本案專屬負評，未查到具體事故紀錄）。</div></div></div><div class="note-block warn">本物件為3樓（頂樓，3/3），30年公寓型態，依社區公開資訊研判無電梯，上下樓需爬樓梯；頂樓另需留意夏季屋頂日曬蓄熱的老公寓常見問題，建議實地確認是否已做隔熱/防水處理。</div><div class="note-block">社區風評：網路資料顯示大台北華城管理嚴謹（24小時門禁、多道管制哨），環境評價正向，訴求隱私與自然景觀；WebSearch 未查得石上清泉/大台北華城的具體負面新聞或重大爭議事件。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">七</span><span class="sec-title">總評與建議</span></div><div class="summary-grid"><div class="summary-cell"><div class="k">生活機能</div><div class="stars">★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">採買</div><div class="stars">★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">學區</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">交通</div><div class="stars">★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">公園</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">生活環境</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div></div><div class="concl-grid"><div class="concl-card primary"><h4>主要優勢</h4><p>本物件最大優勢在於居住環境本身：位於門禁森嚴、管理良好的大台北華城山區社區，社區綠地、步道等休憩資源就在家門口，棟距開闊、周邊被森林環繞，安靜、隱私性高，也沒有查到任何負面新聞或重大爭議。</p></div><div class="concl-card"><h4>需要留意的地方</h4><p>最大的取捨在於生活機能：商圈、超市/傳統市場、捷運都遠在10-20分鐘車程外，且社區聯外接駁巴士班次稀疏，等於幾乎沒有大眾運輸可用；學區雖已官方確認（直潭國小/文山國中），但同樣需要開車接送。這個物件比較適合本來就習慣自行開車、重視隱私與自然環境勝過生活便利度的自住家庭，若家中沒有交通工具或希望能就近步行採買、通勤，需要審慎評估。</p></div></div></section>
+  
+  <footer><span>資料擷取：Google 地圖 Static/Directions/Places API（2026-09-04）、OSM POI 資料庫（新北市新店區，下載於2026-09-02）、新北市112學年度國小學區一覽表與文山國中學區公告（網路交叉比對）、591/樂居/好房網等社區資料頁、uhomes 法拍屋案件 #13670 公告資料與建物測量成果圖。</span><span>本報告為地段生活機能初步分析，非正式不動產估價；學區請以官方最新公告為準，實際生活機能建議親自走訪確認。</span></footer>
+
+</div>
