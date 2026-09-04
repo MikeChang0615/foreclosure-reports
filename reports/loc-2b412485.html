@@ -1,0 +1,312 @@
+<!doctype html>
+<title>新北市泰山區明志路二段338號 地段分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--warn); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .scenario-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .verdict-headline { font-family: var(--font-serif); font-weight: 700; font-size: 22px; color: var(--ink); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+  .verdict-score { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .score-total { font-family: var(--font-serif); font-weight: 700; font-size: 34px; color: var(--warn); font-variant-numeric: tabular-nums; }
+  .score-total small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .stars { font-size: 18px; letter-spacing: 2px; color: var(--gold); }
+  .stars .empty { color: var(--line-strong); }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .score-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; margin-bottom: 16px; }
+  .score-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .score-card-title { font-family: var(--font-serif); font-size: 17px; font-weight: 700; }
+  .score-card-verdict { font-size: 13.6px; color: var(--ink-soft); margin: 0 0 14px; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 480px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+  .tag-warn { background: var(--warn-soft); color: var(--warn); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 560px) { .infogrid { grid-template-columns: 1fr; } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 14px; margin-top: 4px; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 760px) { .summary-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+  .summary-cell { background: var(--surface); padding: 16px 14px; text-align: center; }
+  .summary-cell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .summary-cell .stars { display: block; margin-top: 6px; font-size: 16px; }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--accent); background: var(--accent-soft); }
+  .concl-card.primary h4 { color: var(--accent); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+
+  <div class="doc-head">
+    <div class="doc-kicker">不動產地段生活機能分析</div>
+    <h1 class="doc-title">新北市泰山區明志路二段338號</h1>
+    <div class="doc-sub">5樓公寓（5+頂加/5）・屋齡44年・鄰近明志國小</div>
+    <div class="doc-meta">
+      <span>查詢日期 <b>2026-09-04</b></span>
+      <span>資料來源 <b>Google 地圖 Static API・新北市114學年度學區公告・OSM POI 資料庫</b></span>
+      <span>物件來源 <b><a href="https://uhomes.com.tw/foreclosure/detail/14481" target="_blank" rel="noopener">uhomes 法拍屋案件 #14481</a></b></span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <div class="verdict-label-row">
+        <div class="verdict-label">分析情境</div>
+        <div class="scenario-badge">自住評估</div>
+      </div>
+      <div class="verdict-headline">生活機能與學區具備基本水準，捷運較遠但公車密集，老屋頂加需留意</div>
+      <div class="verdict-note">自住家庭最在意的學區與日常採買機能都不差——明志國小官方學區內、步行僅2分鐘，全聯超市6分鐘可達；主要短板是捷運站步行超過20分鐘、以及屋齡44年＋頂樓加蓋的老屋條件，評估時建議把這兩項的實際影響納入考量。</div>
+    </div>
+    <div class="verdict-score">
+      <div class="verdict-label">綜合評分</div>
+      <div class="score-total">3.8<small>/ 5</small></div>
+      <div class="stars">★★★★<span class="empty">☆</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">一</span><span class="sec-title">商圈生活機能</span></div>
+    <div class="score-card">
+      <div class="score-card-head">
+        <div class="score-card-title">5 星｜商圈生活機能</div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <p class="score-card-verdict">明志路二段是泰山區縱貫主幹道（107縣道），沿路店家綿延不絕；物件所在路段便利商店、藥局、早餐店步行1-3分鐘內可達，日常瑣事就近可解決。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>店家/地點</th><th>類型</th><th class="num">步行距離</th></tr></thead>
+          <tbody>
+            <tr><td>萊爾富（泰山泰富店）</td><td>便利商店</td><td class="num">約1分鐘</td></tr>
+            <tr><td>7-Eleven</td><td>便利商店</td><td class="num">約1分鐘</td></tr>
+            <tr><td>全家便利商店</td><td>便利商店</td><td class="num">約3分鐘</td></tr>
+            <tr><td>美康藥局（善耕店，明志路二段362號）</td><td>藥局</td><td class="num">約1-2分鐘</td></tr>
+            <tr><td>好味點早餐店</td><td>餐飲</td><td class="num">約2-3分鐘</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">二</span><span class="sec-title">採買（市場/賣場）</span></div>
+    <div class="score-card">
+      <div class="score-card-head">
+        <div class="score-card-title">4 星｜採買機能</div>
+        <div class="stars">★★★★<span class="empty">☆</span></div>
+      </div>
+      <p class="score-card-verdict">全聯超市步行約6分鐘可達、生鮮日用品便利；家樂福超市稍遠但仍在合理步行範圍。缺點是附近沒有走得到的傳統市場，最近的福泰街傳統市場需步行約26分鐘（1.8公里），日常買菜較依賴超市或需騎車/開車前往。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>地點</th><th>類型</th><th class="num">步行距離</th></tr></thead>
+          <tbody>
+            <tr><td>全聯福利中心</td><td>超市</td><td class="num">約6分鐘</td></tr>
+            <tr><td>家樂福超市</td><td>大賣場</td><td class="num">約9分鐘</td></tr>
+            <tr><td>福泰街傳統市場</td><td>傳統市場</td><td class="num">約26分鐘（1.8公里）</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note-block">傳統市場距離較遠、非步行生活圈內，此項評分主要依超市便利度判斷。</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">三</span><span class="sec-title">學區（小學/國中）</span></div>
+    <div class="score-card">
+      <div class="score-card-head">
+        <div class="score-card-title">4 星｜學區</div>
+        <div class="stars">★★★★<span class="empty">☆</span></div>
+      </div>
+      <p class="score-card-verdict">已透過新北市政府教育局114學年度官方學區公告確認：物件所在「泰友里」完整屬於明志國小、義學國中的基本學區（非自由學區），確定性高；明志國小更是步行僅2分鐘的距離。校譽網路上查無特別評價（不代表不好，只是沒有額外加分資訊），故評4星而非5星。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>學校</th><th>類型</th><th class="num">步行距離</th><th>資料確定性</th></tr></thead>
+          <tbody>
+            <tr><td>明志國小</td><td>國小</td><td class="num">約2分鐘</td><td><span class="tag tag-gold">官方學區確認（基本學區）</span></td></tr>
+            <tr><td>義學國中</td><td>國中</td><td class="num">約15分鐘</td><td><span class="tag tag-gold">官方學區確認（基本學區）</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note-block">依新北市114學年度國小/國中學區一覽表核對，物件地址所屬「泰友里」在明志國小、義學國中兩份公告表中皆列為基本學區（無鄰別限制），資料確定性高；惟公告可能逐年微調，實際入學仍建議以入學當學年度最新公告及戶籍地為準。</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">四</span><span class="sec-title">公共交通</span></div>
+    <div class="score-card">
+      <div class="score-card-head">
+        <div class="score-card-title">3 星｜公共交通</div>
+        <div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div>
+      </div>
+      <p class="score-card-verdict">最近的捷運環狀線泰山貴和站步行約22分鐘（1.6公里），單看捷運距離偏遠；但物件緊鄰明志路二段本身就是公車幹道，門口即有多達10條路線經過，日常通勤仍可倚重公車，故綜合評為3星而非單純以捷運距離評的1-2星。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>站點/路線</th><th>類型</th><th class="num">距離</th></tr></thead>
+          <tbody>
+            <tr><td>泰山貴和站（捷運環狀線）</td><td>捷運</td><td class="num">約22分鐘步行</td></tr>
+            <tr><td>明志路二段沿線公車站（578、637、638、805、880、758、638副、797、801、579等）</td><td>公車</td><td class="num">約1-2分鐘步行</td></tr>
+            <tr><td>五股交流道（國道1號）</td><td>國道交流道</td><td class="num">約19分鐘車程</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note-block">泰山區屬新北近郊地帶，日常若需快速聯外，開車上國道1號仍是常見選擇，五股交流道車程約19分鐘（7.4公里），提供給有開車需求的使用者參考。</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">五</span><span class="sec-title">公園/休憩</span></div>
+    <div class="score-card">
+      <div class="score-card-head">
+        <div class="score-card-title">4 星｜公園/休憩</div>
+        <div class="stars">★★★★<span class="empty">☆</span></div>
+      </div>
+      <p class="score-card-verdict">步行5-6分鐘範圍內有多個綠地選擇，以濱水線狀綠廊與社區型兒童公園為主，腹地中等，日常散步、遛小孩尚稱方便。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>地點</th><th class="num">步行距離</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>應化大排生態園區</td><td class="num">約4分鐘</td><td>沿排水溝渠的線狀生態綠廊</td></tr>
+            <tr><td>貴子兒童公園</td><td class="num">約6分鐘</td><td>社區型兒童公園</td></tr>
+            <tr><td>義學坑自然公園</td><td class="num">約6分鐘</td><td>鄰近山坡的自然公園</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">六</span><span class="sec-title">生活環境</span></div>
+    <div class="score-card">
+      <div class="score-card-head">
+        <div class="score-card-title">3 星｜生活環境</div>
+        <div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div>
+      </div>
+      <p class="score-card-verdict">前臨明志路二段、正對明志國小操場與行道樹，前側視野開闊無壓迫；但後側與鄰棟緊鄰、棟距較近，加上屋齡44年、頂樓另有加蓋（頂加，可能涉及違建認定），整體評為3星。</p>
+      <div class="infogrid">
+        <div class="infocell"><div class="k">面前道路路寬</div><div class="v">明志路二段（107縣道），依衛星圖目測約6-8米雙向車道，非寬闊幹道但也非窄巷</div></div>
+        <div class="infocell"><div class="k">棟距與視野</div><div class="v">前側面對明志國小操場與行道樹，開闊無壓迫；後側與鄰棟緊鄰，棟距較近、光線與視野受限</div></div>
+        <div class="infocell"><div class="k">座向與採光</div><div class="v">依衛星圖道路走向與建物配置推估，前棟（面路側）約朝東（ENE），非典型西曬方位；權狀測量成果圖上的位置圖方位標示已模糊難辨，無法用官方圖面二次確認</div></div>
+        <div class="infocell"><div class="k">嫌惡設施</div><div class="v">500公尺範圍內未見明顯嫌惡設施（無變電所、加油站、資源回收場、殯儀館），周邊以住宅與明志國小校地為主</div></div>
+      </div>
+      <div class="note-block">路寬、棟距、座向均為依 Google 衛星圖與街景（Static API）推估，非現場測量或權狀確認，僅供參考；街景在此地點的最近全景剛好落在明志國小操場內，拍不到建物正面街景，判斷主要依衛星圖角度進行。另外，本物件筆錄記載「5＋頂加/5」，頂樓加蓋部分在台灣多數情況屬未合法登記的增建，實際坪數、安全與未來處分皆可能受影響，建議自住評估時將此列為需要現場查證的重點項目。</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">七</span><span class="sec-title">總評與建議</span></div>
+
+    <div class="summary-grid">
+      <div class="summary-cell"><div class="k">生活機能</div><div class="stars">★★★★★</div></div>
+      <div class="summary-cell"><div class="k">採買</div><div class="stars">★★★★<span class="empty">☆</span></div></div>
+      <div class="summary-cell"><div class="k">學區</div><div class="stars">★★★★<span class="empty">☆</span></div></div>
+      <div class="summary-cell"><div class="k">交通</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div>
+      <div class="summary-cell"><div class="k">公園</div><div class="stars">★★★★<span class="empty">☆</span></div></div>
+      <div class="summary-cell"><div class="k">生活環境</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div>
+    </div>
+
+    <div class="concl-grid">
+      <div class="concl-card primary"><h4>主要優勢</h4><p>明志國小官方學區內、步行僅2分鐘，對有學齡小孩的自住家庭是明顯加分；日常生活機能（便利商店、藥局、超市）步行皆可解決，明志路二段沿線公車選擇多，彌補捷運較遠的不便。</p></div>
+      <div class="concl-card"><h4>需要留意的地方</h4><p>捷運站步行超過20分鐘，仰賴軌道運輸通勤者需另評估；建物屋齡44年、頂樓有加蓋（頂加），路寬與座向皆為地圖推估非官方確認，這幾點都建議實地會勘、並向不動產或法律專業人士確認頂加合法性後再做投標/購買決策。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>資料擷取：Google 地圖 Static API（2026-09-04）、新北市政府教育局114學年度國小/國中學區一覽表、OpenStreetMap POI 資料庫。</span>
+    <span>本報告為地段生活機能初步分析，非正式不動產估價；學區請以官方最新公告為準，實際生活機能與建物現況建議親自走訪確認。</span>
+  </footer>
+
+</div>
