@@ -1,0 +1,249 @@
+<!doctype html>
+<title>瑞芳相思嶺未保存平房（合法面積等同0，屋況破舊，優先承買程序複雜） 法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style> 區塊和下面的元件範例，換成當次物件的內容。
+
+  色彩語意（依結論調整 verdict / round-pill / concl-card.primary 的顏色變數）：
+    --accent（綠）  = 底價低於市場行情、風險可控、整體正向的結論（案1、案6風格）
+    --warn（琥珀）  = 有溢價或風險需要權衡、結論中性偏謹慎（案3、案5、修正後案2/4風格）
+    --bad（紅）     = 底價明顯高於市場行情、或風險嚴重到不建議進場（很少用到，六案中沒有純紅結論，
+                      案2修正前一度誤判用了紅色，後來發現是comp選錯型態，改回warn）
+
+  不要把這份範本當成必須逐字套用的表單——每個案子的風險組成不同（有的沒有違建、有的沒有優先承買權、
+  有的comp資料很薄弱），該省略的區塊就省略，該新增的風險項就新增。
+-->
+<!doctype html>
+<title>【物件簡稱】法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  /* verdict：報告頂端的結論摘要框。border-left 顏色 = accent/warn/bad 三選一，見檔案頂端說明 */
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--warn); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  /* reco-badge：每份報告都要有的明確建議標籤，跟 verdict-label「估算結論」同一行、靠右對齊。
+     reco-buy(accent) = 建議投標／建議N拍進場；reco-wait(warn) = 建議觀望／等下一拍；
+     reco-avoid(bad) = 不建議投標；reco-review(ink-faint邊框) = 已拍定案例的回顧評級，沒有「投不投標」的行動可言 */
+  .reco-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+  .reco-buy { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .reco-wait { background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn); }
+  .reco-avoid { background: var(--bad-soft); color: var(--bad); border: 1px solid var(--bad); }
+  .reco-review { background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--line-strong); }
+  .verdict-price { font-family: var(--font-serif); font-weight: 700; font-size: 24px; color: var(--warn); font-variant-numeric: tabular-nums; }
+  .verdict-price small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; }
+  .verdict-round { display: flex; align-items: flex-start; gap: 10px; }
+  .round-pill { font-family: var(--font-serif); font-weight: 700; font-size: 20px; color: var(--warn); background: var(--warn-soft); border: 1px solid var(--line-strong); border-radius: 6px; padding: 6px 12px; white-space: nowrap; }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 560px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.highlight td { background: var(--accent-soft); font-weight: 600; }
+  tr.dim td { color: var(--ink-faint); }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 640px) { .infogrid { grid-template-columns: repeat(2, 1fr); } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 15px; margin-top: 3px; font-variant-numeric: tabular-nums; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+  .math { font-family: var(--font-mono); font-size: 13px; color: var(--ink); background: var(--surface-2); padding: 10px 14px; border-radius: 4px; margin: 10px 0; overflow-x: auto; }
+
+  /* risk-list：風險檢核清單。risk-high(紅)/risk-mid(琥珀)/risk-low(綠) 三種badge，只用在真正異常的項目——
+     常態性條款（土地不點交、查無海砂屋、欠費自行協商等）一律 risk-low 或乾脆不列，見 references/risk-rules.md */
+  .risk-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .risk-item { background: var(--surface); display: grid; grid-template-columns: 90px 1fr; gap: 14px; padding: 13px 16px; align-items: start; }
+  @media (max-width: 640px) { .risk-item { grid-template-columns: 70px 1fr; } }
+  .risk-badge { font-family: var(--font-mono); font-size: 11px; text-align: center; padding: 3px 0; border-radius: 4px; font-weight: 700; letter-spacing: 0.04em; }
+  .risk-high { background: var(--bad-soft); color: var(--bad); }
+  .risk-mid { background: var(--warn-soft); color: var(--warn); }
+  .risk-low { background: var(--good-soft); color: var(--good); }
+  .risk-body b { display: block; font-size: 14px; margin-bottom: 2px; }
+  .risk-body span { font-size: 13.3px; color: var(--ink-soft); }
+
+  /* pending-box：等使用者補富邦數字時用這個，取代已完成的 infogrid+note-block 銀行鑑價區塊 */
+  .pending-box { background: var(--warn-soft); border: 1px solid var(--line-strong); border-left: 3px solid var(--warn); border-radius: 4px; padding: 14px 18px; font-size: 13.6px; color: var(--ink); }
+
+  /* scale-wrap：價格區間視覺化橫軸，用在結論章節。scale-band 是「市場合理價值區間」的色塊，
+     scale-mark 是單一數字的直線標記（3拍底價、隱含1拍、富邦估值等）*/
+  .scale-wrap { margin: 22px 0 8px; }
+  .scale-track { position: relative; height: 54px; }
+  .scale-base { position: absolute; left: 0; right: 0; top: 24px; height: 6px; background: var(--surface-2); border-radius: 3px; }
+  .scale-band { position: absolute; top: 20px; height: 14px; border-radius: 7px; background: var(--accent-soft); border: 1px solid var(--accent); opacity: 0.9; }
+  .scale-mark { position: absolute; top: 0; width: 2px; height: 27px; background: var(--ink); }
+  .scale-mark.dim { background: var(--ink-faint); }
+  .scale-mark.warn { background: var(--warn); }
+  .scale-mark.bad { background: var(--bad); }
+  .scale-label { position: absolute; top: 30px; font-size: 11.5px; font-family: var(--font-mono); white-space: nowrap; color: var(--ink-soft); transform: translateX(-50%); }
+  .scale-label b { display: block; color: var(--ink); font-size: 12.5px; font-family: var(--font-sans); font-weight: 700; }
+  .scale-axis { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); margin-top: 46px; padding-top: 8px; border-top: 1px dashed var(--line); }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--warn); background: var(--warn-soft); }
+  .concl-card.primary h4 { color: var(--warn); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+<div class="page">
+  <div class="doc-head">
+    <div class="doc-kicker">法拍物件行情估價 · 個案分析</div>
+    <h1 class="doc-title">瑞芳相思嶺未保存平房（合法面積等同0，屋況破舊，優先承買程序複雜）</h1>
+    <div class="doc-sub">新北市瑞芳區逢甲路329號(未保存)</div>
+    <div class="doc-meta">
+      <span>查詢日期 <b>2026-09-04</b></span>
+      <span>資料來源 <b>uhomes 法拍公告 · 內政部實價登錄</b></span>
+      <span>開標日 <b>2026/09/15 14:30</b></span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <div class="verdict-label-row">
+        <div class="verdict-label">估算結論</div>
+        <div class="reco-badge reco-avoid">不建議投標</div>
+      </div>
+      <div class="verdict-price">銀行AVM不適用（全部坪數均為未辦保存登記增建，合法面積=0，不含座落土地）</div>
+      <div class="verdict-note">本案全部坪數皆為未辦保存登記的增建（合法面積等同0），且不含座落土地（僅拍賣建物應有部分），占用土地之使用權源不明；鑑價報告記載房屋現況破舊漏水，若非整修難以正常使用，室內凌亂，房屋側邊部分為木造；本件優先承買權層級複雜（共有人優先承買權＋土地法104條建物所有權人優先承買權），公告明確提醒「期間可能耗時尚久」，多重結構性風險疊加。</div>
+    </div>
+    <div class="verdict-round">
+      <div class="round-pill">特拍</div>
+      <div>
+        <div class="verdict-label">拍次判斷</div>
+        <div style="font-size:14px;">特拍不適用0.8反推公式，本案的結構性問題不會因流標折讓而改善。</div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">一</span><span class="sec-title">物件基本資料</span></div>
+    <div class="infogrid"><div class="infocell"><div class="k">地址</div><div class="v">新北市瑞芳區逢甲路329號(未保存)（近台鐵瑞芳車站、瑞芳高工）</div></div><div class="infocell"><div class="k">房屋類型</div><div class="v">其他（全棟未保存登記）</div></div><div class="infocell"><div class="k">屋齡</div><div class="v">0年（未辦保存登記）</div></div><div class="infocell"><div class="k">樓層別</div><div class="v">全棟 / 1</div></div><div class="infocell"><div class="k">公告坪數</div><div class="v">19.01坪</div></div><div class="infocell"><div class="k">合法可比面積</div><div class="v">0坪（整棟為未辦保存登記增建）</div></div><div class="infocell"><div class="k">土地</div><div class="v">不含座落土地，占用權源不明</div></div><div class="infocell"><div class="k">點交情形</div><div class="v">不點交（占有權源不明，且為應有部分）</div></div><div class="infocell"><div class="k">拍賣原因</div><div class="v">清償票款</div></div><div class="infocell"><div class="k">案號</div><div class="v">114年度司執字第43376號甲標</div></div></div>
+    <div class="note-block">本案不適用一般的合法面積扣除增建算法——整棟建物皆未辦保存登記，法律上沒有合法部分，估值基礎是0。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">二</span><span class="sec-title">拍賣現況與隱含市場基準</span></div>
+    <div class="math">本件拍賣債務人之不動產應有部分，尚待各層級優先承買權人放棄後方能確定拍定，程序耗時，本案的結構性問題不會因流標折讓而改善。</div>
+    <div class="note-block">使用情形：房屋已無門鎖，有水電，全間有滲漏水情形，堆滿雜物，據鄰居稱至少3年無人居住；鑑價報告稱房屋現況破舊漏水，若非整修難以正常使用，室內凌亂，房屋側邊部分為木造；建物佔用他人土地，占用權源不明；共有人間是否確有分管約定不明；共有人有優先承買權，僅得就其共有之標的主張，且優先承買主張不得對抗其他具物權性質的優先承買權；建物所有權人如符合土地法104條、107條、民法426條之2、460條之1規定則有優先於土地共有人的優先承買權；拍定人須待全體共有人及建物所有權人經通知而不行使優先承買權後，方得確定拍定，期間可能耗時尚久。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">三</span><span class="sec-title">內政部實價登錄比對</span></div>
+    <p class="lede">整棟未辦保存登記、不含座落土地的特殊建物，不適合套用一般comp估價方法，本次未查詢。</p>
+    <div class="table-wrap"><table><thead><tr><th>成交日期</th><th class="num">地址</th><th class="num">類型</th><th class="num">樓層</th><th class="num">坪數</th><th class="num">總價(萬)</th><th class="num">單價(萬/坪)</th></tr></thead><tbody></tbody></table></div><div class="note-block">整棟未保存登記且不含座落土地，不適合套用一般comp估價方法。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">四</span><span class="sec-title">市場合理價值估算</span></div>
+    <div class="math">無法給出有意義的市場合理價值區間，此類「零產權＋不含土地＋屋況破舊＋優先承買程序複雜」的建物，價值僅反映短期使用權/拆遷前殘值，85.1萬的底價風險極高。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">五</span><span class="sec-title">銀行鑑價（富邦房貸實測）</span></div>
+    <p class="lede">銀行鑑價工具（富邦）完全不適用於這種無合法登記、不含座落土地的建物。</p>
+    <div class="infogrid"><div class="infocell"><div class="k">查詢結果</div><div class="v">查無資料</div></div><div class="infocell"><div class="k">原因</div><div class="v">全部坪數均為未辦保存登記之增建，無主建/附屬/公設坪數，合法面積=0，且不含座落土地，土地使用權源不明，僅拍賣應有部分</div></div></div>
+    <div class="note-block">銀行AVM工具完全不適用，誠實說明，不勉強估算。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">六</span><span class="sec-title">風險因子檢核</span></div>
+    <div class="risk-list"><div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>整棟未辦保存登記，無法過戶登記＋拆除風險</b><span>拍定人不得持權利移轉證書辦理所有權移轉登記，且該建物日後可能有遭主管機關或被他人訴請拆除之虞。</span></div></div><div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>不含座落土地，占用權源不明，有被訴請拆除風險</b><span>拍賣標的不含座落土地，建物占用他人土地之使用權源不明，拍定人須自行承受被訴請拆屋還地的風險。</span></div></div><div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>多重層級優先承買權，程序公告明確提醒「耗時尚久」</b><span>共有人優先承買權與土地法104條建物所有權人優先承買權可能疊加，拍定人須待全體優先承買權人放棄後才能確定拍定，時程極不確定。</span></div></div><div class="risk-item"><div class="risk-badge risk-mid">中</div><div class="risk-body"><b>屋況破舊漏水，據鑑價報告若非整修難以正常使用</b><span>3年無人居住，滲漏水嚴重，修繕成本可能接近重建等級。</span></div></div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">七</span><span class="sec-title">估價結論與建議</span></div>
+    <div class="scale-wrap"><div class="scale-track" style="height:64px;"><div class="scale-base"></div><div class="scale-mark " style="left:50.0%;"></div><div class="scale-label" style="left:50.0%;"><b>底價</b> 85萬</div><div class="scale-mark warn" style="left:60.0%;"></div><div class="scale-label" style="left:60.0%;"><b>總成本(含代標服務費)</b> 90萬</div></div><div class="scale-axis" style="margin-top:58px;"><span>－</span><span>缺乏可靠估值區間，comp/銀行AVM工具不適用</span><span>－</span></div></div>
+    <div class="concl-grid" style="margin-top:28px;">
+      <div class="concl-card primary"><h4>為什麼不建議投標</h4><p>整棟建物零合法產權、不含座落土地、屋況破舊難以正常使用，加上多層級優先承買權程序公告明確提醒耗時尚久，85.1萬的底價買到的是一個法律地位與時程都極不確定的資產，不建議一般投資人承接。</p></div>
+      <div class="concl-card"><h4>後續建議</h4><p>若對這類特殊資產有豐富的違建與土地糾紛處理經驗，且能承受長期不確定的優先承買程序，建議先向地政機關查明分管情形與優先承買權人身分後再評估；一般投資人不建議考慮本案。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>資料擷取：uhomes 法拍屋公告（2026-09-04）、內政部不動產交易實價查詢服務網、富邦房貸房價行情查詢。</span>
+    <span>本報告為初步估價參考，非正式鑑價報告；實際投標前請至臺灣基隆地方法院查詢公告全文，並諮詢地政士／代標專業意見。</span>
+  </footer>
+</div>
