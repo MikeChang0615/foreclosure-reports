@@ -1,0 +1,147 @@
+<!doctype html>
+<title>新竹市東區金城三路59號5樓 地段分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--accent); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .scenario-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .verdict-headline { font-family: var(--font-serif); font-weight: 700; font-size: 22px; color: var(--ink); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+  .verdict-score { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .score-total { font-family: var(--font-serif); font-weight: 700; font-size: 34px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .score-total small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .stars { font-size: 18px; letter-spacing: 2px; color: var(--gold); }
+  .stars .empty { color: var(--line-strong); }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .score-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; margin-bottom: 16px; }
+  .score-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .score-card-title { font-family: var(--font-serif); font-size: 17px; font-weight: 700; }
+  .score-card-verdict { font-size: 13.6px; color: var(--ink-soft); margin: 0 0 14px; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 480px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+  .tag-warn { background: var(--warn-soft); color: var(--warn); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 560px) { .infogrid { grid-template-columns: 1fr; } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 14px; margin-top: 4px; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 760px) { .summary-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+  .summary-cell { background: var(--surface); padding: 16px 14px; text-align: center; }
+  .summary-cell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .summary-cell .stars { display: block; margin-top: 6px; font-size: 16px; }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--accent); background: var(--accent-soft); }
+  .concl-card.primary h4 { color: var(--accent); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+
+  <div class="doc-head"><div class="doc-kicker">不動產地段生活機能分析</div><h1 class="doc-title">新竹市東區金城三路59號5樓</h1><div class="doc-sub">電梯大樓「世紀鑫城世紀區」・屋齡9年・登記用途一般辦公室</div><div class="doc-meta"><span>查詢日期 <b>2026-09-04</b></span><span>資料來源 <b>Google 地圖 Static/Places/Directions API・新竹市政府教育處114學年度國小學區劃分表／115學年度國中學區劃分表・uhomes 法拍屋案件資料</b></span><span>物件來源 <b><a href="https://uhomes.com.tw/foreclosure/detail/14050" target="_blank" rel="noopener">uhomes 法拍屋案件 #14050</a></b></span></div></div>
+  <div class="verdict"><div><div class="verdict-label-row"><div class="verdict-label">分析情境</div><div class="scenario-badge">自住評估</div></div><div class="verdict-headline">生活機能與公園資源密集的竹科生活圈精華地段</div><div class="verdict-note">六項地段條件多數表現優異，唯本物件登記用途為一般辦公室，依都市計畫規定不得作一般住宅使用，此為使用資格限制、非地段本身缺陷，投標前務必自行確認用途限制對實際使用的影響。</div></div><div class="verdict-score"><div class="verdict-label">綜合評分</div><div class="score-total">4.5<small>/ 5</small></div><div class="stars">★★★★<span style="position:relative;display:inline-block"><span class="empty">☆</span><span style="position:absolute;left:0;top:0;width:50%;overflow:hidden">★</span></span></div></div></div>
+  <section><div class="sec-head"><span class="sec-num">一</span><span class="sec-title">商圈生活機能</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">5 星｜商圈生活機能</div><div class="stars">★★★★★</div></div><p class="score-card-verdict">基地緊鄰建功特區中央廣場，超商與美食選擇密集，日常瑣事都在5分鐘內解決</p><div class="table-wrap"><table><thead><tr><th>店家/地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>全家便利商店 新竹將軍店</td><td>超商</td><td class="num">約1分鐘（21m）</td></tr><tr><td>7-ELEVEN 金鑫門市</td><td>超商</td><td class="num">約2分鐘（132m）</td></tr><tr><td>7-Eleven（建功二路）</td><td>超商</td><td class="num">約3分鐘（248m）</td></tr><tr><td>竹兒杏一美食廣場</td><td>美食街</td><td class="num">約4分鐘</td></tr></tbody></table></div><div class="note-block">建功特區為新竹市規劃完善的住宅特區，周邊街廓寬敞、有中央圓環廣場與公共藝術造景，生活氛圍偏靜謐社區型，非傳統老街商圈型態，便利商店密度是判斷日常機能的主要依據</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">二</span><span class="sec-title">採買（市場/賣場）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">5 星｜採買機能</div><div class="stars">★★★★★</div></div><p class="score-card-verdict">傳統市場步行2分鐘即達，加上10分鐘內有連鎖超市，生鮮與日常採買都很方便</p><div class="table-wrap"><table><thead><tr><th>地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>黃昏市場（金城一路35巷）</td><td>傳統市場</td><td class="num">約2分鐘（157m）</td></tr><tr><td>全聯 PX mart 龍山店</td><td>超市</td><td class="num">約10分鐘（796m）</td></tr><tr><td>楓康超市 新竹建中店</td><td>超市</td><td class="num">約14分鐘（1.1km）</td></tr><tr><td>Costco 新竹店</td><td>大賣場</td><td class="num">約13分鐘步行／開車約5分鐘（1.0km）</td></tr></tbody></table></div></div></section>
+  <section><div class="sec-head"><span class="sec-num">三</span><span class="sec-title">學區（小學/國中）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜學區</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">建功里全部里鄰劃一學區，無單雙號或共同學區疑慮，兩校皆步行可達</p><div class="table-wrap"><table><thead><tr><th>學校</th><th>類型</th><th class="num">步行距離</th><th>資料確定性</th></tr></thead><tbody><tr><td>建功國小</td><td>國小</td><td class="num">約10分鐘（820m）</td><td><span class="tag tag-gold">官方學區確認（建功里全部里鄰皆屬建功國小學區，114學年度學區劃分表）</span></td></tr><tr><td>建功高中國中部</td><td>國中</td><td class="num">約5分鐘（415m）</td><td><span class="tag tag-gold">官方學區確認（建功里全部里鄰皆屬建功高中國中部學區，115學年度學區劃分表）</span></td></tr></tbody></table></div><div class="note-block">已查證新竹市政府教育處114學年度國小學區劃分表、115學年度國中學區劃分表正式公告（非房仲文案臆測），建功里標註為「全部里鄰」，代表整個里都劃一學區，不受門牌單雙號影響</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">四</span><span class="sec-title">公共交通</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜公共交通</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">新竹市無捷運/輕軌，但公車站牌就在巷口、客運站步行2分鐘，開車7分鐘可上國道1號，是典型竹科通勤生活圈</p><div class="table-wrap"><table><thead><tr><th>站點/路線</th><th>類型</th><th class="num">距離</th></tr></thead><tbody><tr><td>金城一路／建功公園公車站</td><td>公車</td><td class="num">約1-2分鐘（約100-160m）</td></tr><tr><td>和欣客運新竹站</td><td>國道客運</td><td class="num">約2分鐘（159m）</td></tr><tr><td>台鐵新竹車站</td><td>台鐵</td><td class="num">直線約3.3km，搭公車約19分鐘可達</td></tr><tr><td>國道1號新竹交流道</td><td>國道交流道</td><td class="num">開車約7分鐘（2.7km）</td></tr></tbody></table></div><div class="note-block">新竹市尚無軌道運輸系統，通勤主要依賴公車、自駕與國道客運；Google 路線規劃顯示搭公車至新竹車站約19分鐘（含步行接駁），開車7分鐘可上國道1號新竹交流道，屬於典型的竹科生活圈通勤模式</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">五</span><span class="sec-title">公園/休憩</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">5 星｜公園/休憩</div><div class="stars">★★★★★</div></div><p class="score-card-verdict">步行2分鐘內有三處公園／運動設施可選，休憩資源密度高</p><div class="table-wrap"><table><thead><tr><th>地點</th><th class="num">步行距離</th><th>備註</th></tr></thead><tbody><tr><td>建功公園</td><td class="num">約1-2分鐘（117m）</td><td>社區型公園，緊鄰基地</td></tr><tr><td>戰車公園</td><td class="num">約2分鐘（147m）</td><td>特色主題公園，有裝甲車輛裝置景觀</td></tr><tr><td>將軍村籃球場</td><td class="num">約2分鐘（162m）</td><td>運動休閒設施</td></tr><tr><td>仁德公園</td><td class="num">約7分鐘（555m）</td><td>腹地較大之區域型公園</td></tr></tbody></table></div></div></section>
+  <section><div class="sec-head"><span class="sec-num">六</span><span class="sec-title">生活環境</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜生活環境</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">路寬與棟距條件佳，但座向無法從既有資料確認，加上社區風評顯示入住率尚未滿載，整體仍屬中上</p><div class="infogrid"><div class="infocell"><div class="k">面前道路路寬</div><div class="v">建物基地為三角街廓，臨金城三路與金城一路皆為20米市區主要道路，路寬條件優異（依國有財產署標售公告建物配置圖標註）</div></div><div class="infocell"><div class="k">棟距與視野</div><div class="v">基地面向建功特區中央圓環廣場與隆恩圳綠帶開放空間，棟距開闊、無明顯壓迫感（依衛星圖與街景圖判讀，該路口為開放式廣場空間，非窄巷型基地）</div></div><div class="infocell"><div class="k">座向與採光</div><div class="v">建物配置圖未標示指北針，僅能確認臨路側為金城三路（基地西南側邊），實際座向與是否西曬無法從既有資料判定，建議以現場或建物權狀測量成果圖為準</div></div><div class="infocell"><div class="k">嫌惡設施</div><div class="v">方圓500公尺內查無高壓電塔、變電所、殯儀館、垃圾焚化廠等明顯嫌惡設施；最近的中油光明加油站約380公尺，非緊鄰</div></div></div><div class="note-block">路寬、棟距依國有財產署標售公告建物配置圖及 Google 地圖衛星圖／街景圖判讀，配置圖未標示方位，座向僅供參考，非現場實測</div><div class="note-block warn">社區「世紀鑫城世紀區」為608戶大型社區（原軍眷村都更改建案，部分戶別現由國防部及多個中央機關作為辦公廳舍使用），設24小時警衛櫃檯、水池造景、兒童遊戲室、永大品牌電梯；Mobile01看屋分享指出社區整體入住率偏低、地下室部分車位（屬國防部持分）尚未開放使用，此為買方個人觀察、非官方數據，僅供參考</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">七</span><span class="sec-title">總評與建議</span></div><div class="summary-grid"><div class="summary-cell"><div class="k">生活機能</div><div class="stars">★★★★★</div></div><div class="summary-cell"><div class="k">採買</div><div class="stars">★★★★★</div></div><div class="summary-cell"><div class="k">學區</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">交通</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">公園</div><div class="stars">★★★★★</div></div><div class="summary-cell"><div class="k">生活環境</div><div class="stars">★★★★<span class="empty">☆</span></div></div></div><div class="concl-grid"><div class="concl-card primary"><h4>主要優勢</h4><p>生活機能與公園綠地資源密集，傳統市場、超商、公園步行都在2-3分鐘內，是竹科生活圈少見的高便利度社區，學區也已官方確認、無單雙號疑慮。</p></div><div class="concl-card"><h4>需要留意的地方</h4><p>新竹市無軌道運輸，出門仍以公車/自駕/客運為主；建物座向缺乏依據無法確認、需現場核實；本物件登記用途為一般辦公室，依『變更新竹（含香山）都市計畫（貿易二村、貿易八村、金城新村等老舊眷村改建）細部計畫案土地使用分區及都市設計管制要點』及建物登記謄本記載，無容許作一般住宅使用，這點不影響地段本身的生活機能評分，但攸關實際使用資格，投標前務必自行確認。</p></div></div></section>
+  
+  <footer><span>資料擷取：Google 地圖 Static/Places/Directions API（2026-09-04 查詢）、新竹市政府教育處114學年度國小學區劃分表／115學年度國中學區劃分表（113.12／114.12 發布）、uhomes 法拍屋案件 #14050 公告資料、Mobile01 社區討論交叉比對。</span><span>本報告為地段生活機能初步分析，非正式不動產估價；學區請以官方最新公告為準，實際生活機能建議親自走訪確認。</span></footer>
+
+</div>
