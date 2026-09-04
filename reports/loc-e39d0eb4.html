@@ -1,0 +1,147 @@
+<!doctype html>
+<title>桃園市大溪區員東路56巷51號 地段分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--accent); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .scenario-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .verdict-headline { font-family: var(--font-serif); font-weight: 700; font-size: 22px; color: var(--ink); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+  .verdict-score { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .score-total { font-family: var(--font-serif); font-weight: 700; font-size: 34px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .score-total small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .stars { font-size: 18px; letter-spacing: 2px; color: var(--gold); }
+  .stars .empty { color: var(--line-strong); }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .score-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; margin-bottom: 16px; }
+  .score-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .score-card-title { font-family: var(--font-serif); font-size: 17px; font-weight: 700; }
+  .score-card-verdict { font-size: 13.6px; color: var(--ink-soft); margin: 0 0 14px; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 480px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+  .tag-warn { background: var(--warn-soft); color: var(--warn); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 560px) { .infogrid { grid-template-columns: 1fr; } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 14px; margin-top: 4px; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 760px) { .summary-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+  .summary-cell { background: var(--surface); padding: 16px 14px; text-align: center; }
+  .summary-cell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .summary-cell .stars { display: block; margin-top: 6px; font-size: 16px; }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--accent); background: var(--accent-soft); }
+  .concl-card.primary h4 { color: var(--accent); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+
+  <div class="doc-head"><div class="doc-kicker">不動產地段生活機能分析</div><h1 class="doc-title">桃園市大溪區員東路56巷51號</h1><div class="doc-sub">獨棟兩層樓房（未辦保存登記建物）・全棟2層・員林里</div><div class="doc-meta"><span>查詢日期 <b>2026-09-04</b></span><span>資料來源 <b>Google 地圖 Static/Directions API・OSM POI 資料庫（大溪區）・桃園市政府教育局113學年度學區公告・建物測量成果圖</b></span><span>物件來源 <b><a href="https://uhomes.com.tw/foreclosure/detail/14351" target="_blank" rel="noopener">uhomes 法拍屋案件 #14351</a></b></span></div></div>
+  <div class="verdict" style="border-left-color: var(--warn)"><div><div class="verdict-label-row"><div class="verdict-label">分析情境</div><div class="scenario-badge">自住評估</div></div><div class="verdict-headline">大溪郊區透天聚落，日常機能靠在地小型商家與自駕/國道支撐，學區確定但生活環境需現場確認</div><div class="verdict-note">本物件位於大溪員林里的透天聚落，非市中心蛋黃區，六項評分以「郊區聚落」的合理基準衡量，不與市區大樓相比。屋況為未辦保存登記增建物，相關產權/點交風險請參考另一份法拍屋行情估價報告，本報告僅聚焦地段生活機能本身。</div></div><div class="verdict-score"><div class="verdict-label">綜合評分</div><div class="score-total" style="color: var(--warn)">3.2<small>/ 5</small></div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div></div>
+  <section><div class="sec-head"><span class="sec-num">一</span><span class="sec-title">商圈生活機能</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜商圈生活機能</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">步行5-8分鐘內有3家超商可用，但無明顯商圈或老街，餐飲選擇有限；大溪老街本身距離約2.8公里、需步行42分鐘或開車9分鐘，不算生活圈內。</p><div class="table-wrap"><table><thead><tr><th>店家/地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>OK超商</td><td>便利商店</td><td class="num">約4分鐘（280公尺）</td></tr><tr><td>萊爾富</td><td>便利商店</td><td class="num">約4-5分鐘（約300公尺，直線距離）</td></tr><tr><td>全家便利商店</td><td>便利商店</td><td class="num">約7-8分鐘（約510公尺，直線距離）</td></tr><tr><td>詹大姐小吃店</td><td>小吃／餐飲</td><td class="num">鄰近員林路二段，步行約5-8分鐘（直線距離推估）</td></tr><tr><td>大溪老街</td><td>商圈／觀光老街</td><td class="num">步行42分鐘（2.8公里）／開車9分鐘（3.8公里），非步行生活圈</td></tr></tbody></table></div><div class="note-block">本區屬大溪郊區透天聚落型態，本來就比市區蛋黃區稀疏，評分已以同型態地區的合理基準衡量，不是跟市中心比較。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">二</span><span class="sec-title">採買（市場/賣場）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜採買機能</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">最近的連鎖超市步行約5-6分鐘即達，日常採買方便；但傳統市場（大溪公有零售市場）距離約4公里、需開車10分鐘，且本區沒有大型量販店（家樂福/大潤發），需驅車前往八德或桃園市區。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>自由聯盟生鮮超市 員樹林店</td><td>連鎖超市</td><td class="num">約5-6分鐘（400公尺）</td></tr><tr><td>大溪公有零售市場</td><td>傳統市場</td><td class="num">開車約10分鐘（4.0公里），步行過遠不建議</td></tr><tr><td>量販店（家樂福/大潤發等）</td><td>大賣場</td><td class="num">大溪區內查無據點，需開車至八德/桃園市區</td></tr></tbody></table></div><div class="note-block">傳統市場與大型量販店都需要開車，生鮮/日用品的即時採買主要仰賴步行可達的超市與超商。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">三</span><span class="sec-title">學區（小學/國中）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜學區</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">已用桃園市政府教育局113學年度官方學區公告確認：員林里全里劃分給員樹林國小與仁和國中，無單雙號或鄰別分流疑義，確定性高。國小步行約6分鐘可達，國中則約23分鐘，屬於需要接送/校車的距離。</p><div class="table-wrap"><table><thead><tr><th>學校</th><th>類型</th><th class="num">步行距離</th><th>資料確定性</th></tr></thead><tbody><tr><td>員樹林國小</td><td>國小</td><td class="num">約6分鐘（450公尺）</td><td><span class="tag tag-gold">官方學區公告確認（員林里全里）</span></td></tr><tr><td>仁和國中</td><td>國中</td><td class="num">約23分鐘（1.7公里），建議騎車/接送</td><td><span class="tag tag-gold">官方學區公告確認（員林里全里）</span></td></tr></tbody></table></div><div class="note-block">資料來源：桃園市政府教育局公告「大溪區113學年度國民小學/國民中學學區一覽表」，員林里在兩份表格中皆未列出鄰別或門牌單雙號的例外，屬於全里單一學區，確定性高。</div><div class="note-block">仁和國中步行23分鐘偏遠，日常上下學建議以自行車、校車或家長接送為主，不建議純步行通勤。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">四</span><span class="sec-title">公共交通</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜公共交通</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">大溪區無捷運/輕軌/火車站，最近的公車站「員樹林」步行約6分鐘可達，有路線可通往八德、龍潭、桃園客運總站方向，但屬於郊區支線班次，密度不算高。另一方面，距離國道3號大溪交流道僅約3分鐘車程（1.1公里），對自駕通勤者相當方便。</p><div class="table-wrap"><table><thead><tr><th>站點/路線</th><th>類型</th><th class="num">距離</th></tr></thead><tbody><tr><td>員樹林站</td><td>公車站</td><td class="num">約6分鐘（450公尺）</td></tr><tr><td>國道3號 大溪交流道</td><td>國道交流道</td><td class="num">開車約3分鐘（1.1公里）</td></tr><tr><td>捷運/輕軌/火車站</td><td>軌道運輸</td><td class="num">本區無軌道運輸站點</td></tr></tbody></table></div><div class="note-block">本區出門高度仰賴自駕，公車可作為輔助（往八德/龍潭/桃園方向），但班次密度屬於郊區支線水準，通勤尖峰時段建議先查詢即時班表。國道交流道極近是明顯加分項，自駕族群移動便利度高。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">五</span><span class="sec-title">公園/休憩</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜公園/休憩</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">最近的兩座公園（勤奮公園、大溪運動公園）步行時間都在13-15分鐘左右，介於「尚可」與「稍遠」之間；大溪運動公園腹地較大、屬於運動休憩型公園，但距離較邊緣，非日常隨走隨到的等級。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th class="num">步行距離</th><th>備註</th></tr></thead><tbody><tr><td>勤奮公園</td><td class="num">約13分鐘（1.0公里）</td><td>社區型公園</td></tr><tr><td>大溪運動公園</td><td class="num">約15分鐘（1.0公里）</td><td>腹地較大的運動公園，設有運動場地</td></tr><tr><td>中正嶺公園</td><td class="num">約16分鐘（987公尺，直線距離，僅供參考）</td><td>未實測步行路徑</td></tr></tbody></table></div></div></section>
+  <section><div class="sec-head"><span class="sec-num">六</span><span class="sec-title">生活環境</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">2 星｜生活環境</div><div class="stars">★★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">依官方建物測量成果圖與街景/衛星圖判斷：物件面前為員東路56巷內的窄巷，無人行道，僅容單向車輛與機車通行；建物與鄰棟為連棟式村莊建物型態，棟距極為緊密，視野與採光受限；平面圖未標示指北針，無法確認精確座向，也無法判斷是否有西曬疑慮，需現場確認。方圓500公尺內未查到高壓電塔、焚化爐、殯儀館等明顯嫌惡設施（最近的資源回收場約7.8公里外）。</p><div class="infogrid"><div class="infocell"><div class="k">面前道路路寬</div><div class="v">員東路56巷（巷內窄巷，依街景目測寬度約3-4米，無人行道，僅容單向車輛/機車通行；巷口接員林路二段為一般鋪裝道路，有人行道）— 依地圖估算，非現場測量</div></div><div class="infocell"><div class="k">棟距與視野</div><div class="v">連棟式村莊建物，左側緊鄰鐵皮頂鄰棟建物，棟距極小，視野與採光受鄰棟影響，屬於典型透天聚落緊密配置 — 依街景與衛星圖研判</div></div><div class="infocell"><div class="k">座向與採光</div><div class="v">建物測量成果圖（113年3月測量）未標示指北針，僅能確認建物臨員東路56巷，無法確認precise座向；街景研判正立面朝向巷內方向，實際座向與是否西曬請以現場指南針確認為準</div></div><div class="infocell"><div class="k">嫌惡設施</div><div class="v">方圓500公尺內未查到高壓電塔、變電所、焚化爐、殯儀館等明顯嫌惡設施；周邊為農業區與村莊聚落混合型態（含部分倉庫/農業設施），最近的資源回收場約7.8公里外，非鄰近疑慮</div></div></div><div class="note-block warn">生活環境項目資料來源以官方建物測量成果圖（113年3月18日測量，臺灣桃園地方法院113年度司執字第111651號）搭配 Google 地圖街景/衛星圖研判為主，非現場實勘，座向與西曬判斷務必以現場確認為準。</div><div class="note-block">本建物為未辦保存登記增建物（暫編872建號），坐落於一般農業區甲種建築用地，本節僅評估物理居住環境（路寬/棟距/座向/嫌惡設施），產權與點交相關風險屬於法拍屋行情估價報告的範圍，請一併參考。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">七</span><span class="sec-title">總評與建議</span></div><div class="summary-grid"><div class="summary-cell"><div class="k">生活機能</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">採買</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">學區</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">交通</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">公園</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">生活環境</div><div class="stars">★★<span class="empty">☆</span><span class="empty">☆</span><span class="empty">☆</span></div></div></div><div class="concl-grid"><div class="concl-card primary"><h4>主要優勢</h4><p>學區資料明確且步行可達（員樹林國小6分鐘），日常超商與超市機能尚可（超市步行5-6分鐘），加上國道3號大溪交流道車程僅3分鐘，對於習慣自駕、重視上學近便的自住家庭是相對務實的選擇。</p></div><div class="concl-card"><h4>需要留意的地方</h4><p>本物件生活環境評分偏低：面前巷弄狹窄無人行道、與鄰棟棟距緊密、座向與西曬皆無法從資料確認，建議務必現場勘查採光與棟距實況。此外傳統市場、量販店、大溪老街商圈都需開車前往，日常生活高度仰賴自駕，公車班次也屬郊區支線水準，較不適合沒有代步工具的住戶。</p></div></div></section>
+  
+  <footer><span>資料擷取：Google 地圖 Static/Directions API（2026-09-04）、OSM POI 資料庫（桃園市大溪區，下載於2026-09-02）、桃園市政府教育局「大溪區113學年度國民小學/國民中學學區一覽表」、法院建物測量成果圖（114年溪測建字第000130號）。</span><span>本報告為地段生活機能初步分析，非正式不動產估價；學區請以官方最新公告為準，實際生活機能建議親自走訪確認。</span></footer>
+
+</div>
