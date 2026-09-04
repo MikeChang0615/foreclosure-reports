@@ -1,0 +1,249 @@
+<!doctype html>
+<title>中興路1436巷17號（新屋區台安宮占用案） 法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style> 區塊和下面的元件範例，換成當次物件的內容。
+
+  色彩語意（依結論調整 verdict / round-pill / concl-card.primary 的顏色變數）：
+    --accent（綠）  = 底價低於市場行情、風險可控、整體正向的結論（案1、案6風格）
+    --warn（琥珀）  = 有溢價或風險需要權衡、結論中性偏謹慎（案3、案5、修正後案2/4風格）
+    --bad（紅）     = 底價明顯高於市場行情、或風險嚴重到不建議進場（很少用到，六案中沒有純紅結論，
+                      案2修正前一度誤判用了紅色，後來發現是comp選錯型態，改回warn）
+
+  不要把這份範本當成必須逐字套用的表單——每個案子的風險組成不同（有的沒有違建、有的沒有優先承買權、
+  有的comp資料很薄弱），該省略的區塊就省略，該新增的風險項就新增。
+-->
+<!doctype html>
+<title>【物件簡稱】法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  /* verdict：報告頂端的結論摘要框。border-left 顏色 = accent/warn/bad 三選一，見檔案頂端說明 */
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--warn); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  /* reco-badge：每份報告都要有的明確建議標籤，跟 verdict-label「估算結論」同一行、靠右對齊。
+     reco-buy(accent) = 建議投標／建議N拍進場；reco-wait(warn) = 建議觀望／等下一拍；
+     reco-avoid(bad) = 不建議投標；reco-review(ink-faint邊框) = 已拍定案例的回顧評級，沒有「投不投標」的行動可言 */
+  .reco-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+  .reco-buy { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .reco-wait { background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn); }
+  .reco-avoid { background: var(--bad-soft); color: var(--bad); border: 1px solid var(--bad); }
+  .reco-review { background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--line-strong); }
+  .verdict-price { font-family: var(--font-serif); font-weight: 700; font-size: 24px; color: var(--warn); font-variant-numeric: tabular-nums; }
+  .verdict-price small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; }
+  .verdict-round { display: flex; align-items: flex-start; gap: 10px; }
+  .round-pill { font-family: var(--font-serif); font-weight: 700; font-size: 20px; color: var(--warn); background: var(--warn-soft); border: 1px solid var(--line-strong); border-radius: 6px; padding: 6px 12px; white-space: nowrap; }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 560px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.highlight td { background: var(--accent-soft); font-weight: 600; }
+  tr.dim td { color: var(--ink-faint); }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 640px) { .infogrid { grid-template-columns: repeat(2, 1fr); } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 15px; margin-top: 3px; font-variant-numeric: tabular-nums; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+  .math { font-family: var(--font-mono); font-size: 13px; color: var(--ink); background: var(--surface-2); padding: 10px 14px; border-radius: 4px; margin: 10px 0; overflow-x: auto; }
+
+  /* risk-list：風險檢核清單。risk-high(紅)/risk-mid(琥珀)/risk-low(綠) 三種badge，只用在真正異常的項目——
+     常態性條款（土地不點交、查無海砂屋、欠費自行協商等）一律 risk-low 或乾脆不列，見 references/risk-rules.md */
+  .risk-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .risk-item { background: var(--surface); display: grid; grid-template-columns: 90px 1fr; gap: 14px; padding: 13px 16px; align-items: start; }
+  @media (max-width: 640px) { .risk-item { grid-template-columns: 70px 1fr; } }
+  .risk-badge { font-family: var(--font-mono); font-size: 11px; text-align: center; padding: 3px 0; border-radius: 4px; font-weight: 700; letter-spacing: 0.04em; }
+  .risk-high { background: var(--bad-soft); color: var(--bad); }
+  .risk-mid { background: var(--warn-soft); color: var(--warn); }
+  .risk-low { background: var(--good-soft); color: var(--good); }
+  .risk-body b { display: block; font-size: 14px; margin-bottom: 2px; }
+  .risk-body span { font-size: 13.3px; color: var(--ink-soft); }
+
+  /* pending-box：等使用者補富邦數字時用這個，取代已完成的 infogrid+note-block 銀行鑑價區塊 */
+  .pending-box { background: var(--warn-soft); border: 1px solid var(--line-strong); border-left: 3px solid var(--warn); border-radius: 4px; padding: 14px 18px; font-size: 13.6px; color: var(--ink); }
+
+  /* scale-wrap：價格區間視覺化橫軸，用在結論章節。scale-band 是「市場合理價值區間」的色塊，
+     scale-mark 是單一數字的直線標記（3拍底價、隱含1拍、富邦估值等）*/
+  .scale-wrap { margin: 22px 0 8px; }
+  .scale-track { position: relative; height: 54px; }
+  .scale-base { position: absolute; left: 0; right: 0; top: 24px; height: 6px; background: var(--surface-2); border-radius: 3px; }
+  .scale-band { position: absolute; top: 20px; height: 14px; border-radius: 7px; background: var(--accent-soft); border: 1px solid var(--accent); opacity: 0.9; }
+  .scale-mark { position: absolute; top: 0; width: 2px; height: 27px; background: var(--ink); }
+  .scale-mark.dim { background: var(--ink-faint); }
+  .scale-mark.warn { background: var(--warn); }
+  .scale-mark.bad { background: var(--bad); }
+  .scale-label { position: absolute; top: 30px; font-size: 11.5px; font-family: var(--font-mono); white-space: nowrap; color: var(--ink-soft); transform: translateX(-50%); }
+  .scale-label b { display: block; color: var(--ink); font-size: 12.5px; font-family: var(--font-sans); font-weight: 700; }
+  .scale-axis { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); margin-top: 46px; padding-top: 8px; border-top: 1px dashed var(--line); }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--warn); background: var(--warn-soft); }
+  .concl-card.primary h4 { color: var(--warn); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+<div class="page">
+  <div class="doc-head">
+    <div class="doc-kicker">法拍物件行情估價 · 個案分析</div>
+    <h1 class="doc-title">中興路1436巷17號（新屋區台安宮占用案）</h1>
+    <div class="doc-sub">桃園市新屋區中興路1436巷17號｜臺灣桃園地方法院 113年度司執字第145810號</div>
+    <div class="doc-meta">
+      <span>查詢日期 <b>2026-09-04</b></span>
+      <span>資料來源 <b>uhomes 法拍公告 · 內政部實價登錄</b></span>
+      <span>開標日 <b>2026/10/01 10:30</b></span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <div class="verdict-label-row">
+        <div class="verdict-label">估算結論</div>
+        <div class="reco-badge reco-avoid">不建議投標</div>
+      </div>
+      <div class="verdict-price">不建議投標——底價 1,629.8萬（公告坪數單價19.14萬/坪，若換算合法坪數則為33.46萬/坪）</div>
+      <div class="verdict-note">以合法坪數（不含未辦保存登記增建）換算，底價單價33.46萬/坪已高於周邊全棟透天厝comp中位數23.7萬/坪約41%，價格本身已無折讓空間；再加上台安宮土地占用及可能主張優先承買權、增建無法登記且自負拆除風險、不點交至2028年初等具體風險，風險與價格雙重不利。</div>
+    </div>
+    <div class="verdict-round">
+      <div class="round-pill">1拍</div>
+      <div>
+        <div class="verdict-label">拍次判斷</div>
+        <div style="font-size:14px;">本案為1拍，公告底價即為法院原始鑑價，尚未經流標折讓，不適用0.8反推公式。</div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">一</span><span class="sec-title">物件基本資料</span></div>
+    <div class="infogrid"><div class="infocell"><div class="k">地址</div><div class="v">桃園市新屋區中興路1436巷17號</div></div><div class="infocell"><div class="k">案號</div><div class="v">113年度司執字第145810號</div></div><div class="infocell"><div class="k">拍賣單位</div><div class="v">臺灣桃園地方法院</div></div><div class="infocell"><div class="k">房屋類型（登記）</div><div class="v">其他（房屋用途登記集合住宅，結構鋼骨造）</div></div><div class="infocell"><div class="k">樓層別</div><div class="v">全棟／地上2層</div></div><div class="infocell"><div class="k">屋齡</div><div class="v">5年</div></div><div class="infocell"><div class="k">公告坪數</div><div class="v">85.11坪（主建47.96＋附屬0.75＋增建36.40）</div></div><div class="infocell"><div class="k">合法坪數（不含增建）</div><div class="v">48.71坪</div></div><div class="infocell"><div class="k">土地坪數</div><div class="v">80.86坪</div></div><div class="infocell"><div class="k">車位</div><div class="v">無車位資料</div></div><div class="infocell"><div class="k">拍賣原因</div><div class="v">給付票款</div></div><div class="infocell"><div class="k">點交情形</div><div class="v">不點交（現況出租第三人，租期至117/1/1即2028/1/1止）</div></div><div class="infocell"><div class="k">保證金</div><div class="v">326萬</div></div></div>
+    <div class="note-block">本件為「7宗合併拍賣」（5筆土地＋2筆建物），投標人須依7個標的分別出價，以總價最高者得標，公告底價1,629.8萬元為7宗合計金額，本報告以uhomes顯示的整體案件為分析單位。101建號另查有未辦保存登記增建，經測量暫編為171建號（36.40坪），現由台安宮林姓負責人及其家人承租居住使用。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">二</span><span class="sec-title">拍賣現況與隱含市場基準</span></div>
+    <div class="math">16,298,000元 ÷ 公告坪數85.11坪 ＝ 每坪 <b>19.14萬</b>（含增建混合單價）<br>16,298,000元 ÷ 合法坪數48.71坪（增建36.40坪視為資產價值0） ＝ 每坪 <b>33.46萬</b>（真實可比單價）</div>
+    <div class="note-block">本案為1拍，無前一拍底價可反推比對。表面上以公告坪數計算的每坪19.14萬看起來不貴，但其中36.40坪（占公告坪數43%）是未辦保存登記的增建，法拍慣例上這塊面積的資產價值應視為0並列風險項，不能直接拿來攤平單價。改以合法坪數重新反推後，每坪單價其實高達33.46萬，已經超過周邊行情，底價換算後的真實貴賤程度和表面數字完全相反。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">三</span><span class="sec-title">內政部實價登錄比對</span></div>
+    <p class="lede">桃園市新屋區屬郊區型態，物件多為透天厝，comp來源改用內政部實價登錄批次資料（`moi_actual_price.py`），篩出新屋區近18個月、規模相近（40-130坪）的全棟透天厝成交案例共44筆，中位數23.7萬/坪、平均22.6萬/坪。需注意：本案登記房屋類型為「其他」（結構鋼骨造），並非典型透天厝，且土地80.86坪相對合法建物48.71坪比例明顯偏高（約1.66:1），與一般透天厝案例地坪建坪比例不完全相同，比對僅供方向性參考，不能直接視為同型態comp。</p>
+    <div class="table-wrap"><table><thead><tr><th>交易年月</th><th class="num">地址</th><th class="num">坪數</th><th class="num">單價(萬/坪)</th></tr></thead><tbody><tr><td>2026-04</td><td class="num">三民路二段82巷180弄196號</td><td class="num">95.14坪</td><td class="num">26.8</td></tr><tr><td>2025-11</td><td class="num">文大路532號</td><td class="num">84.66坪</td><td class="num">31.9</td></tr><tr class="highlight"><td>2026-03</td><td class="num">中興路310巷591弄39號</td><td class="num">84.30坪</td><td class="num">23.7</td></tr><tr><td>2026-03</td><td class="num">三民路二段82巷180弄176號</td><td class="num">81.82坪</td><td class="num">24.3</td></tr><tr><td>2026-03</td><td class="num">三民路二段82巷180弄166號</td><td class="num">77.88坪</td><td class="num">22.8</td></tr><tr><td>2026-02</td><td class="num">東興路一段976巷30號</td><td class="num">57.13坪</td><td class="num">26.3</td></tr><tr><td>2026-01</td><td class="num">新文路19巷9號</td><td class="num">53.86坪</td><td class="num">24.1</td></tr><tr><td>2026-04</td><td class="num">國校路322號</td><td class="num">46.90坪</td><td class="num">24.7</td></tr><tr class="dim"><td>2026-05</td><td class="num">東福路二段859巷42弄7號</td><td class="num">50.75坪</td><td class="num">9.0</td></tr><tr class="dim"><td>2026-02</td><td class="num">田中路125巷11弄9號</td><td class="num">48.53坪</td><td class="num">9.4</td></tr></tbody></table></div><div class="note-block">中位數23.7萬/坪、平均22.6萬/坪（樣本44筆，40-130坪全棟透天厝，18個月內）。highlight列的中興路310巷同路段案例最具參考性。表中2筆單價明顯偏低（約9萬/坪）者，備註本身即註記「其他增建」，可見市場對未辦保存登記增建面積確實會顯著折價，佐證本案36.40坪增建應視為風險項、資產價值打折的合理性。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">四</span><span class="sec-title">市場合理價值估算</span></div>
+    <div class="math">市場估值（公告坪數基礎）＝ 85.11坪 × 23.7萬/坪 ≈ <b>2,017萬</b><br>市場估值（合法坪數基礎，增建視為0）＝ 48.71坪 × 23.7萬/坪 ≈ <b>1,155萬</b><br>得標總成本（不點交，代標/服務費估6%）＝ 1,629.8萬 × 1.06 ≈ <b>1,727.6萬</b><br>對照市場總成本（一般交易服務費1-2%，僅供對照）：公告坪數基礎 2,017萬×1.01~1.02 ≈ 2,037~2,057萬；合法坪數基礎 1,155萬×1.01~1.02 ≈ 1,166~1,178萬<br>名目價差：以公告坪數基礎看，尚有約310~330萬（15~16%）名目空間；但以合法坪數基礎看，總成本1,727.6萬已經<b>超過</b>市場估值1,166~1,178萬約550~560萬——換句話說，一旦把增建面積的資產價值歸零（符合公告揭露的實際法律狀態），這筆交易在價格上已經沒有優勢，反而是倒貼。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">五</span><span class="sec-title">銀行鑑價（富邦房貸實測）</span></div>
+    <p class="lede">富邦房貸線上估價僅適用標準住宅型態AVM模型（公寓／電梯大廈／套房／透天厝）。本案房屋類型登記為「其他」，非富邦AVM標準類型，快篩階段已查證確認無法產出估價數字，本次沿用快篩結果，不再重複查詢。</p>
+    <div class="infogrid"><div class="infocell"><div class="k">銀行鑑價結果</div><div class="v">無法準確鑑價</div></div><div class="infocell"><div class="k">原因</div><div class="v">房屋類型登記為「其他」，非富邦住宅AVM標準類型</div></div><div class="infocell"><div class="k">快篩附帶風險提醒</div><div class="v">土地由台安宮占用部分未鑑界；171建號增建未辦保存登記有拆除風險；建物現出租第三人至117/1/1止拍定後不點交；土地應有部分他共有人無優先承買權惟台安宮如符合土地法104條有優先承買權</div></div></div>
+    <div class="note-block">以上快篩階段的風險提醒與本報告第六節逐字查證公告全文後的結論一致，可交叉驗證快篩判斷正確，本案富邦與comp兩個估價工具在此類型物件上都有侷限，主要仍須倚重公告全文的風險判讀與comp的方向性參考。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">六</span><span class="sec-title">風險因子檢核</span></div>
+    <div class="risk-list"><div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>台安宮占用部分土地，非本件拍賣範圍</b><span>27-9、27-39、27-54地號上有宮廟台安宮占用，經調查使用土地權源為租賃關係。台安宮非本件拍賣範圍，得標人須另行處理與該宮廟坐落土地之法律關係，法院明確表示不代為處理，實務上可能演變為長期協商甚至訴訟。</span></div></div><div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>台安宮可能主張優先承買權，產權移轉時間不確定</b><span>公告載明：土地應有部分之其他共有人原則上無優先承買權，但台安宮如符合土地法第104條、民法第426條之2規定並提出證明資料，仍有優先承買權。若拍定後對此發生爭執，須由主張優先承買權之人另行訴訟解決，且須待訴訟確定後法院才會核發權利移轉證書——最壞情況下得標人可能要等訴訟終結才能真正取得清楚產權，時間可能拖延數年。本件同時是「7宗合併拍賣」（5筆土地＋2筆建物），標的與利害關係人結構本就比一般單一土地+建物案件複雜，會進一步拉長交易確定所需的時間。</span></div></div><div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>171建號增建未辦保存登記，無法登記且自負拆除風險</b><span>101建號查有增擴建，經測量暫編為171建號（36.40坪，占公告坪數43%），屬未辦保存登記建物。拍定人就此部分無法憑法院核發之權利移轉證書辦理所有權登記，且應自負被拆除之風險，不得異議。</span></div></div><div class="risk-item"><div class="risk-badge risk-mid">中</div><div class="risk-body"><b>不點交，現況出租至117年1月1日（2028/1/1）</b><span>標的物現出租予第三人（台安宮林姓負責人及其家人）占有使用，租賃期間至117年1月1日止，拍定後不點交。以2026/10/1開標日估算，得標後約需再等待1年3個月左右才可能取得實際使用權，且屆期能否順利點交仍待另行處理，資金將在此期間被積壓。</span></div></div><div class="risk-item"><div class="risk-badge risk-mid">中</div><div class="risk-body"><b>土地未經鑑界，實際範圍與占用情形不明</b><span>本件土地未經鑑界，確切位置及有無建物占用等情形應買人須自行向地政機關查證；27-39地號其中一小部分並突出為道路地。拍定後不得以面積或占用情形與公告不符為由要求減價或撤銷拍定，買受人須自行負擔鑑界費用。</span></div></div><div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>土地屬法定空地，受套繪管制限制</b><span>27-9、27-39、27-54地號領有桃園市政府建築管理處核發之使用執照，該基地範圍除依建蔽率配置建築外，餘均屬法定空地，受套繪管制，未來單獨開發或增建的彈性受限。</span></div></div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">七</span><span class="sec-title">估價結論與建議</span></div>
+    <div class="scale-wrap"><div class="scale-track" style="height:64px;"><div class="scale-base"></div><div class="scale-mark dim" style="left:0%;"></div><div class="scale-label" style="left:0%;"><b>合法坪數估值 1,155萬</b>增建歸零之保守下限</div><div class="scale-mark bad" style="left:55%;"></div><div class="scale-label" style="left:55%;"><b>底價 1,629.8萬</b>公告底價</div><div class="scale-mark warn" style="left:66%;"></div><div class="scale-label" style="left:66%;"><b>總成本估算 1,727.6萬</b>含不點交代標服務費6%</div><div class="scale-mark " style="left:100%;"></div><div class="scale-label" style="left:100%;"><b>市場估值 2,017萬</b>comp中位數×公告坪數</div></div><div class="scale-axis" style="margin-top:58px;"><span>低：合法坪數基礎 1,155萬</span><span>價格／成本對照區間</span><span>高：市場行情基礎 2,017萬</span></div></div>
+    <div class="concl-grid" style="margin-top:28px;">
+      <div class="concl-card primary"><h4>為什麼不建議投標</h4><p>底價換算合法坪數單價33.46萬/坪，較周邊全棟透天厝comp中位數23.7萬/坪高出約41%——一旦把未辦保存登記的36.40坪增建依法拍慣例視為資產價值0，這個底價本身已經沒有折讓空間，甚至偏貴。即使樂觀假設增建部分仍保有等比例市場價值（以公告坪數計算單價19.14萬/坪，較comp中位數低19%），這個帳面折讓也很可能被具體風險吃光：增建自負拆除風險、台安宮可能主張優先承買權導致訴訟延宕過戶（最壞情況拖延數年）、以及不點交至2028年初的資金積壓成本。價格沒有明顯優勢，風險又高度集中且具體，因此不建議投標。</p></div>
+      <div class="concl-card"><h4>若仍考慮投標，務必先做的三件事</h4><p>(1) 投標前委託律師或地政士，向法院或台安宮方查證優先承買權是否成立，評估訴訟拖延過戶的實際機率與時間；(2) 現場會勘並向地政機關申請土地鑑界，確認171建號增建與台安宮使用範圍的實際位置，評估自行拆除或協商保留的成本；(3) 把資金規劃拉長到2028年之後（不點交期間無法使用或處分），並將訴訟/拆除等潛在額外支出實際從出價空間中扣除，而不是只看名目底價與comp的表面價差。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>資料擷取：uhomes 法拍屋公告（2026-09-04）、內政部不動產交易實價查詢服務網、富邦房貸房價行情查詢。</span>
+    <span>本報告為初步估價參考，非正式鑑價報告；實際投標前請至臺灣桃園地方法院查詢公告全文，並諮詢地政士／代標專業意見。</span>
+  </footer>
+</div>
