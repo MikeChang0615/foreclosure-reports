@@ -1,0 +1,147 @@
+<!doctype html>
+<title>宜蘭縣宜蘭市延平路41之14號 地段分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--accent); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .scenario-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .verdict-headline { font-family: var(--font-serif); font-weight: 700; font-size: 22px; color: var(--ink); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+  .verdict-score { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .score-total { font-family: var(--font-serif); font-weight: 700; font-size: 34px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .score-total small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .stars { font-size: 18px; letter-spacing: 2px; color: var(--gold); }
+  .stars .empty { color: var(--line-strong); }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .score-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; margin-bottom: 16px; }
+  .score-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .score-card-title { font-family: var(--font-serif); font-size: 17px; font-weight: 700; }
+  .score-card-verdict { font-size: 13.6px; color: var(--ink-soft); margin: 0 0 14px; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 480px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+  .tag-warn { background: var(--warn-soft); color: var(--warn); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 560px) { .infogrid { grid-template-columns: 1fr; } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 14px; margin-top: 4px; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 760px) { .summary-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+  .summary-cell { background: var(--surface); padding: 16px 14px; text-align: center; }
+  .summary-cell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .summary-cell .stars { display: block; margin-top: 6px; font-size: 16px; }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--accent); background: var(--accent-soft); }
+  .concl-card.primary h4 { color: var(--accent); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+
+  <div class="doc-head"><div class="doc-kicker">不動產地段生活機能分析</div><h1 class="doc-title">宜蘭縣宜蘭市延平路41之14號</h1><div class="doc-sub">透天厝（全棟3層）・屋齡47年・宜蘭高商旁</div><div class="doc-meta"><span>查詢日期 <b>2026-09-04</b></span><span>資料來源 <b>uhomes 法拍屋案件資料・Google 地圖（定位/路線規劃/街景/衛星圖）・OSM POI 資料庫（宜蘭縣宜蘭市）・宜蘭縣115學年度國民中小學學區劃分一覽表・宜蘭地政建物測量成果圖</b></span><span>物件來源 <b><a href="https://uhomes.com.tw/foreclosure/detail/13559" target="_blank" rel="noopener">uhomes 法拍屋案件 #13559</a></b></span></div></div>
+  <div class="verdict" style="border-left-color: var(--warn)"><div><div class="verdict-label-row"><div class="verdict-label">分析情境</div><div class="scenario-badge">自住評估</div></div><div class="verdict-headline">生活機能與學區條件穩健，公共交通與屋齡是主要留意點</div><div class="verdict-note">本案位於宜蘭市延平路（191乙縣道）沿街街屋，超商、超市步行1-2分鐘可達，官方學區確認為黎明國小與中華國中，屬生活機能穩健的自住選擇；缺點是傳統市場較遠、無捷運僅能仰賴火車與公車，加上屋齡47年、座向無法從地圖百分之百確認，建議自住前實地確認採光與交通動線是否符合需求。</div></div><div class="verdict-score"><div class="verdict-label">綜合評分</div><div class="score-total" style="color: var(--warn)">3.6<small>/ 5</small></div><div class="stars">★★★<span style="position:relative;display:inline-block"><span class="empty">☆</span><span style="position:absolute;left:0;top:0;width:50%;overflow:hidden">★</span></span><span class="empty">☆</span></div></div></div>
+  <section><div class="sec-head"><span class="sec-num">一</span><span class="sec-title">商圈生活機能</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜商圈生活機能</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">沿街生活機能齊全，超商步行1-2分鐘可達，但沒有緊鄰的知名商圈/老街。</p><div class="table-wrap"><table><thead><tr><th>店家/地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>7-Eleven</td><td>便利商店</td><td class="num">約1分鐘（67公尺）</td></tr><tr><td>全家便利商店</td><td>便利商店</td><td class="num">約2分鐘（169公尺）</td></tr><tr><td>東成藥局</td><td>藥局</td><td class="num">約10分鐘（700公尺）</td></tr><tr><td>宜蘭東港路郵局</td><td>郵局</td><td class="num">約11分鐘（800公尺）</td></tr></tbody></table></div><div class="note-block">宜蘭最知名的東門觀光夜市步行約17分鐘（1.2公里），不算緊鄰，日常生活機能主要靠延平路沿街店家與超商支撐，不是靠商圈聚集效應。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">二</span><span class="sec-title">採買（市場/賣場）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜採買機能</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">超市步行2分鐘即達，但傳統市場距離較遠，生鮮採買以超市為主。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>美廉社</td><td>超市</td><td class="num">約2分鐘（108公尺）</td></tr><tr><td>全聯福利中心</td><td>超市</td><td class="num">約9分鐘（713公尺）</td></tr><tr><td>第二(南館)公有零售市場</td><td>傳統市場</td><td class="num">約28分鐘（2.0公里）</td></tr></tbody></table></div><div class="note-block warn">宜蘭市的傳統市場（南館/北館市場）集中在光復路／火車站周邊，距離本案約2公里，用走的不方便，需要傳統市場採買生鮮建議開車或騎車前往；日常包裝食品、部分生鮮則美廉社、全聯即可就近解決。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">三</span><span class="sec-title">學區（小學/國中）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜學區</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">已透過官方學區公告確認對應國小、國中，步行皆在15分鐘內。</p><div class="table-wrap"><table><thead><tr><th>學校</th><th>類型</th><th class="num">步行距離</th><th>資料確定性</th></tr></thead><tbody><tr><td>黎明國小</td><td>國小</td><td class="num">約12分鐘（850公尺）</td><td><span class="tag tag-gold">官方學區公告確認（延平里，1、2鄰除外）</span></td></tr><tr><td>中華國中</td><td>國中</td><td class="num">約14分鐘（1.0公里）</td><td><span class="tag tag-gold">官方學區公告確認（延平里，1、2鄰除外）</span></td></tr></tbody></table></div><div class="note-block warn">依115學年度宜蘭縣國中小學區劃分一覽表，延平里除1、2鄰外皆為黎明國小／中華國中學區；若物件實際座落延平里1、2鄰範圍，則為黎明國小／中華國中與壯圍國小／壯圍國中之共同學區（可擇一），建議向宜蘭市戶政事務所確認實際鄰別以完全排除疑慮。兩校規模穩定、無負面評價，中華國中桌球隊、國樂團在全縣賽事表現不錯。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">四</span><span class="sec-title">公共交通</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3.5 星｜公共交通</div><div class="stars">★★★<span style="position:relative;display:inline-block"><span class="empty">☆</span><span style="position:absolute;left:0;top:0;width:50%;overflow:hidden">★</span></span><span class="empty">☆</span></div></div><p class="score-card-verdict">無捷運/輕軌，火車站步行16分鐘略遠，但延平路本身是公車行經的縣道幹道。</p><div class="table-wrap"><table><thead><tr><th>站點/路線</th><th>類型</th><th class="num">距離</th></tr></thead><tbody><tr><td>延平路公車站</td><td>公車</td><td class="num">緊鄰基地</td></tr><tr><td>宜蘭火車站（台鐵）</td><td>火車站</td><td class="num">約16分鐘（1.1公里）</td></tr></tbody></table></div><div class="note-block">宜蘭市區沒有捷運/輕軌，火車站步行16分鐘已略超過「10-15分鐘」的門檻，但延平路（191乙縣道）本身有公車站牌行經，出門不必完全仰賴走到火車站，因此在基礎星等上小幅加分。整體仍建議自住評估以火車＋公車＋自駕混合通勤思考，不要預期軌道交通的方便程度。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">五</span><span class="sec-title">公園/休憩</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜公園/休憩</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">最近的公園需步行10分鐘以上，屬中小型社區公園，知名大型公園稍遠。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th class="num">步行距離</th><th>備註</th></tr></thead><tbody><tr><td>新東社區公園</td><td class="num">約11分鐘（800公尺）</td><td>中小型社區公園</td></tr><tr><td>宜蘭市綠色生態公園</td><td class="num">約10分鐘（779公尺，直線距離）</td><td>腹地較大的生態公園</td></tr><tr><td>幾米公園／丟丟噹森林</td><td class="num">約14-15分鐘（約1.1公里）</td><td>宜蘭知名主題公園，腹地寬闊，但距離稍遠</td></tr></tbody></table></div></div></section>
+  <section><div class="sec-head"><span class="sec-num">六</span><span class="sec-title">生活環境</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜生活環境</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">臨主要道路的連棟老街屋，路寬尚可但屬聯外幹道車流較多，座向無法百分之百確認。</p><div class="infogrid"><div class="infocell"><div class="k">面前道路路寬</div><div class="v">面前為延平路（省道台7丙、縣道191乙），路幅目測約8-10公尺，雙向通行並有路邊停車，不是窄巷，但屬聯外交通幹道，車流量會比一般社區巷弄高。</div></div><div class="infocell"><div class="k">棟距與視野</div><div class="v">建物為連棟街屋型透天厝，退縮距離趨近於0、直接臨路；對面為類似的2-3層老式街屋，沒有明顯超高建築壓迫視野，但屬密集老市區街廓，開闊感有限。</div></div><div class="infocell"><div class="k">座向與採光</div><div class="v">依 Google 街景鏡頭拍攝角度粗估，建物座向大致朝北（面延平路方向），但地圖資料無法確認精確指北針方位，加上該路段略有彎曲，實際座向仍建議以現場或權狀為準；建物為長條型街屋，主要開窗面朝道路而非獨立西向立面，直接西曬疑慮相對較低，但仍建議現場確認。</div></div><div class="infocell"><div class="k">嫌惡設施</div><div class="v">基地周邊500公尺內未發現高壓電塔、殯儀館、垃圾焚化廠等明顯嫌惡設施；最近的宜蘭變電所約800公尺（步行11分鐘），在合理距離外，影響有限但仍值得留意。</div></div></div><div class="note-block">路寬、棟距、座向為依 Google 地圖衛星圖、街景服務，以及宜蘭地政建物測量成果圖（門牌41-14號，已確認為本案基地）綜合估算，非現場實測，僅供參考，實際請以現場勘查或權狀資料為準。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">七</span><span class="sec-title">總評與建議</span></div><div class="summary-grid"><div class="summary-cell"><div class="k">生活機能</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">採買</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">學區</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">交通</div><div class="stars">★★★<span style="position:relative;display:inline-block"><span class="empty">☆</span><span style="position:absolute;left:0;top:0;width:50%;overflow:hidden">★</span></span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">公園</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">生活環境</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div></div><div class="concl-grid"><div class="concl-card primary"><h4>主要優勢</h4><p>生活機能與學區是本案最大優勢——7-11、全家、美廉社步行2分鐘內可達，官方學區確認為黎明國小（12分）與中華國中（14分），對有小孩的自住家庭是加分項。</p></div><div class="concl-card"><h4>需要留意的地方</h4><p>傳統市場距離約2公里需開車，公共交通僅能仰賴火車（16分鐘）與公車、無捷運，加上屋齡47年、建物座向無法從地圖百分之百確認，建議自住前實地走訪確認採光與生活動線是否符合需求。</p></div></div></section>
+  
+  <footer><span>資料擷取：Google 地圖（定位、路線規劃、街景、衛星圖，2026-09-04）・OSM POI 資料庫「宜蘭縣宜蘭市.json」（下載於2026-09-02）・宜蘭縣115學年度國民中學/國民小學學區劃分一覽表（114.9.22 府教學字第1140164629號函修正）・宜蘭地政建物測量成果圖（uhomes法拍屋案件#13559附件）。</span><span>本報告為地段生活機能初步分析，非正式不動產估價；學區請以官方最新公告為準，實際生活機能建議親自走訪確認。</span></footer>
+
+</div>
