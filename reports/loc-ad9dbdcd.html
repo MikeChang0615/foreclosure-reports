@@ -1,0 +1,147 @@
+<!doctype html>
+<title>新竹市北區東大路三段338之26號 地段分析</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--accent); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .scenario-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .verdict-headline { font-family: var(--font-serif); font-weight: 700; font-size: 22px; color: var(--ink); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+  .verdict-score { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .score-total { font-family: var(--font-serif); font-weight: 700; font-size: 34px; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .score-total small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .stars { font-size: 18px; letter-spacing: 2px; color: var(--gold); }
+  .stars .empty { color: var(--line-strong); }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .score-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px 22px; margin-bottom: 16px; }
+  .score-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+  .score-card-title { font-family: var(--font-serif); font-size: 17px; font-weight: 700; }
+  .score-card-verdict { font-size: 13.6px; color: var(--ink-soft); margin: 0 0 14px; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 480px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+  .tag-warn { background: var(--warn-soft); color: var(--warn); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 560px) { .infogrid { grid-template-columns: 1fr; } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 14px; margin-top: 4px; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+
+  .summary-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 760px) { .summary-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .summary-grid { grid-template-columns: repeat(2, 1fr); } }
+  .summary-cell { background: var(--surface); padding: 16px 14px; text-align: center; }
+  .summary-cell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .summary-cell .stars { display: block; margin-top: 6px; font-size: 16px; }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--accent); background: var(--accent-soft); }
+  .concl-card.primary h4 { color: var(--accent); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+
+  <div class="doc-head"><div class="doc-kicker">不動產地段生活機能分析</div><h1 class="doc-title">新竹市北區東大路三段338之26號</h1><div class="doc-sub">別墅（全棟/4層）・屋齡2年・東大豐象社區・4宗合併拍賣</div><div class="doc-meta"><span>查詢日期 <b>2026-09-04</b></span><span>資料來源 <b>Google 地圖 Static API（衛星圖／街景）・OSM POI 資料庫（新竹市北區）・新竹市114學年度國中小學區劃分表（教育處）・地籍位置圖（uhomes建物平面圖）</b></span><span>物件來源 <b><a href="https://uhomes.com.tw/foreclosure/detail/13815" target="_blank" rel="noopener">uhomes 法拍屋案件 #13815</a></b></span></div></div>
+  <div class="verdict" style="border-left-color: var(--warn)"><div><div class="verdict-label-row"><div class="verdict-label">分析情境</div><div class="scenario-badge">自住評估</div></div><div class="verdict-headline">沿海郊區全新別墅社區，生活機能陽春但幹線公車與國小學區近，棟距/座向需現場確認</div><div class="verdict-note">以自住評估來看，本案最大優勢是屋齡新（2年）、南寮國小步行11分鐘、公車幹線就在家門口；最需要留意的是日常採買及餐飲選擇偏少（屬郊區透天聚落正常密度），以及棟距、座向、面前道路寬度目前只能依地籍圖／衛星圖概略研判，建議實地確認。</div></div><div class="verdict-score"><div class="verdict-label">綜合評分</div><div class="score-total" style="color: var(--warn)">3.5<small>/ 5</small></div><div class="stars">★★★<span style="position:relative;display:inline-block"><span class="empty">☆</span><span style="position:absolute;left:0;top:0;width:50%;overflow:hidden">★</span></span><span class="empty">☆</span></div></div></div>
+  <section><div class="sec-head"><span class="sec-num">一</span><span class="sec-title">商圈生活機能</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜商圈生活機能</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">無特定商圈老街，屬郊區透天聚落沿線的基本生活機能，步行範圍內選擇不算多。</p><div class="table-wrap"><table><thead><tr><th>店家/地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>OK超商</td><td>便利商店</td><td class="num">步行約6分鐘（475公尺）</td></tr><tr><td>愛兒悅義式餐廳</td><td>餐飲（評分4.6，704則評論）</td><td class="num">東大路三段222號，步行範圍內</td></tr><tr><td>上糠榔一帶零星店家</td><td>沿東大路三段的日常小店</td><td class="num">步行5-10分鐘範圍</td></tr></tbody></table></div><div class="note-block">本區屬新竹市北區南寮沿海郊區的透天/別墅聚落型態，評分基準以同型態地區互相比較，不與市中心蛋黃區比較密度。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">二</span><span class="sec-title">採買（市場/賣場）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜採買機能</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">最近的超市為小型店（美廉社），距離稍遠；傳統市場則要走30分鐘以上，日常採買仍建議騎車/開車。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th>類型</th><th class="num">步行距離</th></tr></thead><tbody><tr><td>美廉社</td><td>超市（小型店）</td><td class="num">步行約14分鐘（約1公里）</td></tr><tr><td>士林市場</td><td>傳統市場</td><td class="num">步行約34分鐘（2.5公里），騎車約8-9分鐘</td></tr><tr><td>全聯福利中心</td><td>連鎖超市</td><td class="num">約2.5公里，步行不便，建議開車</td></tr></tbody></table></div><div class="note-block">本區未查得比美廉社更近的連鎖超市，也未查得比士林市場更近的傳統市場；生鮮/日用品選擇偏少是這一帶的共同特徵，非本物件獨有。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">三</span><span class="sec-title">學區（小學/國中）</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜學區</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">官方學區已100%確認（康樂里全部里鄰皆屬同一學區，無分流疑慮）：國小步行11分鐘算方便，國中33分鐘較遠需接送或搭公車。</p><div class="table-wrap"><table><thead><tr><th>學校</th><th>類型</th><th class="num">步行距離</th><th>資料確定性</th></tr></thead><tbody><tr><td>南寮國小</td><td>國小</td><td class="num">步行約11分鐘（800公尺）</td><td><span class="tag tag-gold">官方學區公告確認（康樂里全部里鄰）</span></td></tr><tr><td>南華國中</td><td>國中</td><td class="num">步行約33分鐘（2.4公里），建議騎車/公車/接送</td><td><span class="tag tag-gold">官方學區公告確認（康樂里全部里鄰）</span></td></tr></tbody></table></div><div class="note-block">查證依據：新竹市政府教育處《新竹市各國民小學114學年度學區劃分表》《新竹市各國民中學114學年度學區劃分表》（113.12發布），康樂里在兩份公告中都是南寮國小/南華國中的「全部里鄰」，不是部分里鄰或共同學區，確定性高。物件公告文案寫「近南寮國小」，經官方學區公告核對後確認一致，並非只是行銷話術。</div><div class="note-block">南寮國小、南華國中口碑資料查無特別正負評價（非額滿或明星學校，也無負面爭議紀錄），屬校譽普通。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">四</span><span class="sec-title">公共交通</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜公共交通</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">沒有捷運/輕軌/一般通勤火車站，但家門口就是新竹市公車幹線「藍線」站牌，尖峰班次尚稱密集，另有快速道路交流道車程約9分鐘。</p><div class="table-wrap"><table><thead><tr><th>站點/路線</th><th>類型</th><th class="num">距離</th></tr></thead><tbody><tr><td>上糠榔（公車站）</td><td>公車（幹線藍線，南寮-竹東，直達新竹火車站）</td><td class="num">步行約1分鐘（72公尺）</td></tr><tr><td>新竹火車站</td><td>台鐵（一般通勤鐵路）</td><td class="num">約4.5公里，須轉乘公車或開車，非步行可達</td></tr><tr><td>台68線快速道路 南寮端交流道</td><td>國道/快速道路交流道</td><td class="num">車程約9分鐘（2.6公里）</td></tr></tbody></table></div><div class="note-block warn">地圖上查到「槺榔驛」「佑聖宮站」兩個標示為「捷運/火車站」類型的地點，經查證實際是觀光懷舊小火車（麋鹿小火車）景點，假日觀光用途，並非日常通勤軌道運輸，因此不計入本項評分依據，僅供參考。</div><div class="note-block">新竹市公車藍線（原1路+15路整合）行駛於122縣道（東大路、光復路），尖峰時段5-10分鐘一班、離峰15-20分鐘一班，可直達新竹火車站/竹東，是這一帶最主要的對外交通方式。</div><div class="note-block">本區屬新竹市郊區（近南寮），日常通勤高度仰賴公車或自駕，台68線交流道車程約9分鐘可快速接上快速道路前往新竹科學園區/市區，對開車通勤的住戶是實質加分。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">五</span><span class="sec-title">公園/休憩</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">4 星｜公園/休憩</div><div class="stars">★★★★<span class="empty">☆</span></div></div><p class="score-card-verdict">步行6分鐘可達康樂公園，評價不錯（4.1分/224則評論），屬社區型公園，另有中清公園可選。</p><div class="table-wrap"><table><thead><tr><th>地點</th><th class="num">步行距離</th><th>備註</th></tr></thead><tbody><tr><td>康樂公園</td><td class="num">步行約6分鐘（400公尺）</td><td>社區型公園，Google評分4.1（224則評論），腹地尚可</td></tr><tr><td>中清公園</td><td class="num">約949公尺（直線距離，未實測步行）</td><td>社區型公園，作為備選</td></tr></tbody></table></div></div></section>
+  <section><div class="sec-head"><span class="sec-num">六</span><span class="sec-title">生活環境</span></div><div class="score-card"><div class="score-card-head"><div class="score-card-title">3 星｜生活環境</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><p class="score-card-verdict">全新2年別墅是明顯加分，嫌惡設施查核也乾淨；但棟距、座向、實際面前道路寬度目前都只能概略研判，屬於「查得到方向、確認不到細節」的狀態，建議實地會勘。</p><div class="infogrid"><div class="infocell"><div class="k">面前道路路寬</div><div class="v">本戶地號172-28位於「東大豐象」社區內側集群，依地籍位置圖判讀並非直接面臨東大路三段主幹道（122縣道），前方應為社區內部通道；主幹道本身路寬尚可（雙向多線道），但內部通道實際路寬需以現場為準，本次僅能概略判讀。</div></div><div class="infocell"><div class="k">棟距與視野</div><div class="v">從衛星圖看，這一整片別墅/透天聚落的棟距偏密集，是透天式社區常見的配置方式；本案為2026年前後落成的全新規劃案，理論上應有基本消防棟距標準，但實際視野壓迫感需現場確認。</div></div><div class="infocell"><div class="k">座向與採光</div><div class="v">地籍位置圖上有標示北方方位，但圖面僅為地籍分割線，未標示建物本體座向或開窗方向，無法從此圖精確判讀座向；街景圖拍到的是車庫捲門立面，同樣無法確認朝向。座向與是否西曬本次無法確認，建議現場或依權狀測量成果圖核實，不要僅憑本報告推估。</div></div><div class="infocell"><div class="k">嫌惡設施</div><div class="v">以物件座標為中心搜尋變電所、殯儀館、資源回收場、加油站等常見嫌惡設施，500公尺範圍內查無上述設施。</div></div></div><div class="note-block warn">生活環境這一項的路寬/棟距/座向皆依地籍圖及 Google 地圖衛星圖概略研判，不是現場測量或建物權狀資料，僅供初步參考。</div></div></section>
+  <section><div class="sec-head"><span class="sec-num">七</span><span class="sec-title">總評與建議</span></div><div class="summary-grid"><div class="summary-cell"><div class="k">生活機能</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">採買</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">學區</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">交通</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">公園</div><div class="stars">★★★★<span class="empty">☆</span></div></div><div class="summary-cell"><div class="k">生活環境</div><div class="stars">★★★<span class="empty">☆</span><span class="empty">☆</span></div></div></div><div class="concl-grid"><div class="concl-card primary"><h4>主要優勢</h4><p>以自住角度看，本案最大優勢是屋齡新（僅2年）、國小學區近且官方確認、公車幹線站牌就在家門口，開車族也有快速道路交流道加持，通勤新竹科學園區/市區算方便。</p></div><div class="concl-card"><h4>需要留意的地方</h4><p>生活機能偏陽春（超商為主，超市/傳統市場都要一段距離）、國中要走33分鐘需代步，加上棟距/座向/面前道路寬度目前只能依圖概略研判，建議實地確認採光、通風與鄰棟視野再做最終判斷。</p></div></div></section>
+  
+  <footer><span>資料擷取：Google 地圖 Static API 衛星圖／街景（2026-09-04）・OSM POI 資料庫 新竹市北區（下載於2026-09-02）・新竹市政府教育處114學年度國中/國小學區劃分表（113.12發布）・uhomes 法拍屋案件頁面文字資料與建物平面圖／地籍位置圖・WebSearch 交叉比對（新竹市公車藍線、南寮國小/南華國中資訊、東大豐象社區資訊）。</span><span>本報告為地段生活機能初步分析，非正式不動產估價；學區請以官方最新公告為準，實際生活機能建議親自走訪確認。</span></footer>
+
+</div>
