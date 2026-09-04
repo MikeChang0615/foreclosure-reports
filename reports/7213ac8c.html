@@ -1,0 +1,249 @@
+<!doctype html>
+<title>宜蘭市延平路透天厝（特拍） 法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style> 區塊和下面的元件範例，換成當次物件的內容。
+
+  色彩語意（依結論調整 verdict / round-pill / concl-card.primary 的顏色變數）：
+    --accent（綠）  = 底價低於市場行情、風險可控、整體正向的結論（案1、案6風格）
+    --warn（琥珀）  = 有溢價或風險需要權衡、結論中性偏謹慎（案3、案5、修正後案2/4風格）
+    --bad（紅）     = 底價明顯高於市場行情、或風險嚴重到不建議進場（很少用到，六案中沒有純紅結論，
+                      案2修正前一度誤判用了紅色，後來發現是comp選錯型態，改回warn）
+
+  不要把這份範本當成必須逐字套用的表單——每個案子的風險組成不同（有的沒有違建、有的沒有優先承買權、
+  有的comp資料很薄弱），該省略的區塊就省略，該新增的風險項就新增。
+-->
+<!doctype html>
+<title>【物件簡稱】法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  /* verdict：報告頂端的結論摘要框。border-left 顏色 = accent/warn/bad 三選一，見檔案頂端說明 */
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--warn); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  /* reco-badge：每份報告都要有的明確建議標籤，跟 verdict-label「估算結論」同一行、靠右對齊。
+     reco-buy(accent) = 建議投標／建議N拍進場；reco-wait(warn) = 建議觀望／等下一拍；
+     reco-avoid(bad) = 不建議投標；reco-review(ink-faint邊框) = 已拍定案例的回顧評級，沒有「投不投標」的行動可言 */
+  .reco-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+  .reco-buy { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .reco-wait { background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn); }
+  .reco-avoid { background: var(--bad-soft); color: var(--bad); border: 1px solid var(--bad); }
+  .reco-review { background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--line-strong); }
+  .verdict-price { font-family: var(--font-serif); font-weight: 700; font-size: 24px; color: var(--warn); font-variant-numeric: tabular-nums; }
+  .verdict-price small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; }
+  .verdict-round { display: flex; align-items: flex-start; gap: 10px; }
+  .round-pill { font-family: var(--font-serif); font-weight: 700; font-size: 20px; color: var(--warn); background: var(--warn-soft); border: 1px solid var(--line-strong); border-radius: 6px; padding: 6px 12px; white-space: nowrap; }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 560px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.highlight td { background: var(--accent-soft); font-weight: 600; }
+  tr.dim td { color: var(--ink-faint); }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 640px) { .infogrid { grid-template-columns: repeat(2, 1fr); } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 15px; margin-top: 3px; font-variant-numeric: tabular-nums; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+  .math { font-family: var(--font-mono); font-size: 13px; color: var(--ink); background: var(--surface-2); padding: 10px 14px; border-radius: 4px; margin: 10px 0; overflow-x: auto; }
+
+  /* risk-list：風險檢核清單。risk-high(紅)/risk-mid(琥珀)/risk-low(綠) 三種badge，只用在真正異常的項目——
+     常態性條款（土地不點交、查無海砂屋、欠費自行協商等）一律 risk-low 或乾脆不列，見 references/risk-rules.md */
+  .risk-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .risk-item { background: var(--surface); display: grid; grid-template-columns: 90px 1fr; gap: 14px; padding: 13px 16px; align-items: start; }
+  @media (max-width: 640px) { .risk-item { grid-template-columns: 70px 1fr; } }
+  .risk-badge { font-family: var(--font-mono); font-size: 11px; text-align: center; padding: 3px 0; border-radius: 4px; font-weight: 700; letter-spacing: 0.04em; }
+  .risk-high { background: var(--bad-soft); color: var(--bad); }
+  .risk-mid { background: var(--warn-soft); color: var(--warn); }
+  .risk-low { background: var(--good-soft); color: var(--good); }
+  .risk-body b { display: block; font-size: 14px; margin-bottom: 2px; }
+  .risk-body span { font-size: 13.3px; color: var(--ink-soft); }
+
+  /* pending-box：等使用者補富邦數字時用這個，取代已完成的 infogrid+note-block 銀行鑑價區塊 */
+  .pending-box { background: var(--warn-soft); border: 1px solid var(--line-strong); border-left: 3px solid var(--warn); border-radius: 4px; padding: 14px 18px; font-size: 13.6px; color: var(--ink); }
+
+  /* scale-wrap：價格區間視覺化橫軸，用在結論章節。scale-band 是「市場合理價值區間」的色塊，
+     scale-mark 是單一數字的直線標記（3拍底價、隱含1拍、富邦估值等）*/
+  .scale-wrap { margin: 22px 0 8px; }
+  .scale-track { position: relative; height: 54px; }
+  .scale-base { position: absolute; left: 0; right: 0; top: 24px; height: 6px; background: var(--surface-2); border-radius: 3px; }
+  .scale-band { position: absolute; top: 20px; height: 14px; border-radius: 7px; background: var(--accent-soft); border: 1px solid var(--accent); opacity: 0.9; }
+  .scale-mark { position: absolute; top: 0; width: 2px; height: 27px; background: var(--ink); }
+  .scale-mark.dim { background: var(--ink-faint); }
+  .scale-mark.warn { background: var(--warn); }
+  .scale-mark.bad { background: var(--bad); }
+  .scale-label { position: absolute; top: 30px; font-size: 11.5px; font-family: var(--font-mono); white-space: nowrap; color: var(--ink-soft); transform: translateX(-50%); }
+  .scale-label b { display: block; color: var(--ink); font-size: 12.5px; font-family: var(--font-sans); font-weight: 700; }
+  .scale-axis { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); margin-top: 46px; padding-top: 8px; border-top: 1px dashed var(--line); }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--warn); background: var(--warn-soft); }
+  .concl-card.primary h4 { color: var(--warn); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+<div class="page">
+  <div class="doc-head">
+    <div class="doc-kicker">法拍物件行情估價 · 個案分析</div>
+    <h1 class="doc-title">宜蘭市延平路透天厝（特拍）</h1>
+    <div class="doc-sub">宜蘭縣宜蘭市延平路41之14號｜透天厝（全棟/3層，RC加強磚造）｜屋齡47年</div>
+    <div class="doc-meta">
+      <span>查詢日期 <b>2026-09-04</b></span>
+      <span>資料來源 <b>uhomes 法拍公告 · 內政部實價登錄</b></span>
+      <span>開標日 <b>2026/09/08 10:00</b></span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <div class="verdict-label-row">
+        <div class="verdict-label">估算結論</div>
+        <div class="reco-badge reco-wait">建議觀望</div>
+      </div>
+      <div class="verdict-price">銀行鑑價806~848萬｜實登comp估值約1,059萬（合法面積基準）</div>
+      <div class="verdict-note">公告底價820.9萬已貼近銀行鑑價上緣，加計不點交服務費後總成本已無明顯安全邊際；即使採較樂觀的實價登錄comp估值仍有約18%價差，但這個空間可能被兩項獨立的拆除風險吃掉，建議觀望或大幅折讓後再考慮進場。</div>
+    </div>
+    <div class="verdict-round">
+      <div class="round-pill">特拍（第4拍）</div>
+      <div>
+        <div class="verdict-label">拍次判斷</div>
+        <div style="font-size:14px;">已歷經1拍→2拍→3拍流標，經應買期無人承受後進入特拍，底價由法院重新估定，不適用0.8反推公式。若本次特拍再流標，將啟動新一輪重新從1拍開始，新1拍底價通常會比第一輪1拍低、量級上接近第一輪2拍水準，值得留意下一輪動態。</div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">一</span><span class="sec-title">物件基本資料</span></div>
+    <div class="infogrid"><div class="infocell"><div class="k">地址</div><div class="v">宜蘭縣宜蘭市延平路41之14號</div></div><div class="infocell"><div class="k">房屋類型</div><div class="v">透天厝（RC加強磚造）</div></div><div class="infocell"><div class="k">樓層別</div><div class="v">全棟/3層</div></div><div class="infocell"><div class="k">屋齡</div><div class="v">47年</div></div><div class="infocell"><div class="k">公告坪數</div><div class="v">65.41坪</div></div><div class="infocell"><div class="k">合法坪數（主建）</div><div class="v">38.46坪</div></div><div class="infocell"><div class="k">增建坪數（未辦保存登記）</div><div class="v">26.95坪（估值以0計入）</div></div><div class="infocell"><div class="k">土地坪數</div><div class="v">27.50坪</div></div><div class="infocell"><div class="k">車位</div><div class="v">無</div></div><div class="infocell"><div class="k">點交情形</div><div class="v">不點交（現況有人居住使用）</div></div><div class="infocell"><div class="k">拍賣原因</div><div class="v">給付票款</div></div><div class="infocell"><div class="k">案號</div><div class="v">114年度司執字第18767號</div></div></div>
+    <div class="note-block">公告坪數65.41坪＝主建38.46坪＋增建26.95坪，沒有附屬／公設／其他坪數。增建部分（占總坪數41.2%）係未辦理建築物所有權第一次登記之不動產，本報告全數列為風險、估值以0計入，只用合法的38.46坪主建面積去對照市場行情。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">二</span><span class="sec-title">拍賣現況與隱含市場基準</span></div>
+    <div class="math">公告底價 820.9萬 ÷ 65.41坪（含增建）＝ 每坪單價 12.55萬（法院公告數字，含未登記面積）<br>公告底價 820.9萬 ÷ 38.46坪（僅合法主建）＝ 每坪單價 21.35萬（本報告採用此基準比對市場行情）<br>拍次：特拍 — 不適用「底價÷0.8」反推公式</div>
+    <div class="note-block">特拍是3拍流標、經應買期無人承受後才進入的第4拍，底價由法院重新估定，跟前3拍的0.8遞減公式無關，不能反推隱含1拍。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">三</span><span class="sec-title">內政部實價登錄比對</span></div>
+    <p class="lede">宜蘭縣在內政部實價登錄批次資料涵蓋範圍內，先查「延平路＋宜蘭市」僅2筆、且只有1筆型態相符（透天厝，另1筆為華廈不列入比對）。樣本數過少，擴大到宜蘭市全區「全棟/三層」的透天厝成交案例，找到4筆同樓層結構的可比案例做平均。</p>
+    <div class="table-wrap"><table><thead><tr><th>交易日期／地址</th><th class="num">型態／樓層</th><th class="num">坪數</th><th class="num">總價</th><th class="num">單價（元/坪）</th></tr></thead><tbody><tr class="dim"><td>2026-05-12｜延平路60巷50弄7號</td><td class="num">透天厝／全棟4層</td><td class="num">54.56坪</td><td class="num">1,135萬</td><td class="num">208,028</td></tr><tr class="dim"><td>2026-03-14｜延平路56巷9之1號7樓</td><td class="num">華廈／7層</td><td class="num">27.54坪</td><td class="num">580萬</td><td class="num">210,603</td></tr><tr class="highlight"><td>2026-05-12｜中山路五段46巷21弄30號</td><td class="num">透天厝／全棟3層</td><td class="num">49.69坪</td><td class="num">1,470萬</td><td class="num">295,835</td></tr><tr class="highlight"><td>2026-05-03｜延平一路206巷47弄20號</td><td class="num">透天厝／全棟3層</td><td class="num">58.51坪</td><td class="num">1,520萬</td><td class="num">259,785</td></tr><tr class="highlight"><td>2026-05-02｜北津路5巷10弄10號</td><td class="num">透天厝／全棟3層</td><td class="num">57.87坪</td><td class="num">1,450萬</td><td class="num">250,562</td></tr><tr class="highlight"><td>2026-04-23｜復興路三段98號</td><td class="num">透天厝／全棟3層</td><td class="num">71.44坪</td><td class="num">2,110萬</td><td class="num">295,353</td></tr></tbody></table></div><div class="note-block">灰底2筆為樓層數或型態不符（僅供參考，未列入平均）；標色4筆為「全棟/三層」透天厝、與本案樓層結構一致，列入平均計算，平均單價約275,384元/坪（約27.54萬/坪）。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">四</span><span class="sec-title">市場合理價值估算</span></div>
+    <div class="math">comp平均單價 27.54萬/坪 × 合法主建面積 38.46坪 ≈ 1,059萬（增建26.95坪不具法律效力，估值以0計入）<br>若以公告總坪數65.41坪（含增建）計算則達約1,802萬，但因增建及其中一部建物涉及土地使用權不明的雙重拆除風險，本報告不採用此上限數字，僅供對照。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">五</span><span class="sec-title">銀行鑑價（富邦房貸實測）</span></div>
+    <p class="lede">依 screening-runbook 快篩階段已查得富邦銀行鑑價，本次沿用、不重複查詢（本案無車位屬性，不需要驗證含車位判斷）。</p>
+    <div class="infogrid"><div class="infocell"><div class="k">房屋總價初估</div><div class="v">806~848萬</div></div><div class="infocell"><div class="k">中值</div><div class="v">約827萬</div></div><div class="infocell"><div class="k">換算單價（以合法坪數38.46坪計）</div><div class="v">約20.96~22.05萬/坪，中值21.5萬/坪</div></div><div class="infocell"><div class="k">資料來源</div><div class="v">快篩階段富邦API結果（沿用）</div></div></div>
+    <div class="note-block">富邦估價中值（827萬）與法院公告底價（820.9萬）幾乎重疊——代表這個已經跑到第4拍（特拍）的底價，本質上已經沒有比銀行鑑價更低的折讓空間了。與內政部comp平均估值（約1,059萬，合法面積基準）相比落差約22%，兩者何者更貼近實際成交價存在不確定性，但至少銀行這端已經沒有明顯安全邊際。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">六</span><span class="sec-title">風險因子檢核</span></div>
+    <div class="risk-list"><div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>26.95坪增建未辦保存登記（占公告坪數41%），拍定後不能過戶、不能減價或撤標</b><span>公告筆錄明載：「本標內暫編1706號之建物，係未辦理建築物所有權第一次登記之不動產，拍定後拍定人不能持權利移轉證書辦理所有權移轉登記，亦不得以面積不符，請求減少價金，或撤銷拍定；且若該建物經建築主管機關認定為違章建築，拍定人應自行承擔受拆除之危險。」買方付的錢裡有四成坪數完全沒有法律保障，隨時可能被拆，事後也不能因此要求減價或撤標。本次估價已把這部分坪數的價值列為0。</span></div></div><div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>另一部建物座落於使用權屬不明的土地上，同樣有拆除風險</b><span>公告筆錄明載：「本標暫編1706號建物有一部座落同段43地號土地上，使用權屬不明，恐有受拆除之風險，佔用責任由拍定人自行處理。」這是跟上面增建風險各自獨立的第二個拆除風險來源（一個是建物未登記，一個是土地使用權不明），兩者疊加代表這棟房子有相當比例的面積隨時可能面臨拆除爭議，責任全部由拍定人自行承擔。</span></div></div><div class="risk-item"><div class="risk-badge risk-mid">中</div><div class="risk-body"><b>不點交，現況有人居住使用（含神明牌位）</b><span>公告說明目前由債務人之父母居住使用，建物一樓有神明桌及牌位。不點交代表拍定後可能需要走點交訴訟程序才能實際取得使用權，涉及神明牌位的遷移實務上常有額外協調與時間成本，總投標成本評估時應把這部分預留一定彈性（本報告以1.06倍服務費估算基本成本，實際協商/搬遷費用可能視個案再增加）。</span></div></div><div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>3宗不動產合併拍賣，須分別出價且總價達底價才能得標</b><span>公告備註：「上開不動產3宗合併拍賣，請投標人分別出價」「拍賣最低價額合計新台幣8,209,000元，以總價最高者得標」。投標時不能只填一個總價，需針對各標的分別估價出價，操作上比一般單一標的複雜，建議投標前諮詢代標／地政士協助確認分標細節，避免因填標錯誤導致廢標。</span></div></div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">七</span><span class="sec-title">估價結論與建議</span></div>
+    <div class="scale-wrap"><div class="scale-track" style="height:64px;"><div class="scale-base"></div><div class="scale-band" style="left:23.56%; width:9.33%;"></div><div class="scale-mark " style="left:26.87%;"></div><div class="scale-label" style="left:26.87%;"><b>底價</b> 820.9萬</div><div class="scale-mark warn" style="left:37.81%;"></div><div class="scale-label" style="left:37.81%;"><b>預估總成本</b> 約870萬（底價×1.06不點交服務費）</div><div class="scale-mark dim" style="left:79.78%;"></div><div class="scale-label" style="left:79.78%;"><b>comp估值</b> 約1,059萬（合法面積基準）</div></div><div class="scale-axis" style="margin-top:58px;"><span>700萬</span><span>銀行鑑價區間（806~848萬）</span><span>1,150萬</span></div></div>
+    <div class="concl-grid" style="margin-top:28px;">
+      <div class="concl-card primary"><h4>銀行鑑價已跟底價重疊，特拍已無明顯折讓空間</h4><p>特拍底價820.9萬，扣掉不點交服務費（約1.06倍）後總成本約870萬，已經超過富邦估價上緣848萬。若以銀行鑑價為準，這筆交易在價格面幾乎沒有餘裕；即使採用較樂觀的實價登錄comp估值（約1,059萬），扣除總成本後仍有約190萬（約18%）的價差空間，但這個空間建立在「增建部分不會被拆」的假設上，一旦假設不成立，空間會大幅縮水甚至轉為虧損。</p></div>
+      <div class="concl-card"><h4>兩項獨立的拆除風險疊加在同一物件，才是決定要不要進場的關鍵</h4><p>公告白紙黑字寫明兩個獨立、具體載明後果的拆除風險來源：（1）26.95坪（占總坪數41%）增建未辦保存登記，拍定後不能過戶該部分、不能因面積不符減價或撤標，若被認定違建須自行承擔拆除風險；（2）另有一部建物座落在使用權屬不明的土地上，同樣有拆除風險，責任全部由拍定人承擔。這不是常態性條款，是本案特有的重大不確定性，建議只有充分理解並能承受這類風險的買方才考慮投標，且出價應在目前底價基礎上再打入更深的風險折讓，而不是只看眼前的價差空間做決定。若這次特拍流標，下一輪重新從1拍開始的新底價通常會更低，也是可以觀望等待的選項。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>資料擷取：uhomes 法拍屋公告（2026-09-04）、內政部不動產交易實價查詢服務網、富邦房貸房價行情查詢。</span>
+    <span>本報告為初步估價參考，非正式鑑價報告；實際投標前請至臺灣宜蘭地方法院查詢公告全文，並諮詢地政士／代標專業意見。</span>
+  </footer>
+</div>
