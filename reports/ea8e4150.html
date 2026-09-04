@@ -1,0 +1,249 @@
+<!doctype html>
+<title>柴橋路59巷70號9樓（煙波儷舍大樓） 法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style> 區塊和下面的元件範例，換成當次物件的內容。
+
+  色彩語意（依結論調整 verdict / round-pill / concl-card.primary 的顏色變數）：
+    --accent（綠）  = 底價低於市場行情、風險可控、整體正向的結論（案1、案6風格）
+    --warn（琥珀）  = 有溢價或風險需要權衡、結論中性偏謹慎（案3、案5、修正後案2/4風格）
+    --bad（紅）     = 底價明顯高於市場行情、或風險嚴重到不建議進場（很少用到，六案中沒有純紅結論，
+                      案2修正前一度誤判用了紅色，後來發現是comp選錯型態，改回warn）
+
+  不要把這份範本當成必須逐字套用的表單——每個案子的風險組成不同（有的沒有違建、有的沒有優先承買權、
+  有的comp資料很薄弱），該省略的區塊就省略，該新增的風險項就新增。
+-->
+<!doctype html>
+<title>【物件簡稱】法拍估價</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --bg: #eef1f0;
+    --surface: #ffffff;
+    --surface-2: #e6ebe9;
+    --ink: #17242b;
+    --ink-soft: #52646b;
+    --ink-faint: #7c8c91;
+    --line: #d6dfdd;
+    --line-strong: #b9c6c3;
+    --accent: #0f6e5c;
+    --accent-soft: #e3efec;
+    --gold: #93692a;
+    --gold-soft: #f3ead9;
+    --good: #2e7d4f;
+    --good-soft: #e5f1e9;
+    --warn: #a3721f;
+    --warn-soft: #f6ecda;
+    --bad: #a5393a;
+    --bad-soft: #f5e5e3;
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+      --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+      --line: #2b3639; --line-strong: #3b4a4d;
+      --accent: #4fa88f; --accent-soft: #1c2e29;
+      --gold: #d6ad6b; --gold-soft: #2b2418;
+      --good: #6cbf8d; --good-soft: #1b2b21;
+      --warn: #d9ab5a; --warn-soft: #2c2416;
+      --bad: #e08282; --bad-soft: #2e1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12181a; --surface: #1a2225; --surface-2: #212b2e;
+    --ink: #e7edea; --ink-soft: #a9b8b4; --ink-faint: #7c8c91;
+    --line: #2b3639; --line-strong: #3b4a4d;
+    --accent: #4fa88f; --accent-soft: #1c2e29;
+    --gold: #d6ad6b; --gold-soft: #2b2418;
+    --good: #6cbf8d; --good-soft: #1b2b21;
+    --warn: #d9ab5a; --warn-soft: #2c2416;
+    --bad: #e08282; --bad-soft: #2e1c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-sans);
+    line-height: 1.7; font-size: 15.5px; -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 900px; margin: 0 auto; padding: 48px 24px 96px; }
+
+  .doc-head { display: flex; flex-direction: column; gap: 6px; padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+  .doc-kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .doc-title { font-family: var(--font-serif); font-weight: 700; font-size: clamp(26px, 4vw, 34px); text-wrap: balance; margin: 2px 0 4px; }
+  .doc-sub { color: var(--ink-soft); font-size: 14.5px; }
+  .doc-meta { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-soft); }
+  .doc-meta b { color: var(--ink); font-weight: 600; }
+
+  /* verdict：報告頂端的結論摘要框。border-left 顏色 = accent/warn/bad 三選一，見檔案頂端說明 */
+  .verdict {
+    margin-top: 28px; background: var(--surface); border: 1px solid var(--line-strong);
+    border-left: 4px solid var(--warn); border-radius: 6px; padding: 24px 26px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px;
+  }
+  @media (max-width: 640px) { .verdict { grid-template-columns: 1fr; } }
+  .verdict-label { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+  .verdict-label-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  /* reco-badge：每份報告都要有的明確建議標籤，跟 verdict-label「估算結論」同一行、靠右對齊。
+     reco-buy(accent) = 建議投標／建議N拍進場；reco-wait(warn) = 建議觀望／等下一拍；
+     reco-avoid(bad) = 不建議投標；reco-review(ink-faint邊框) = 已拍定案例的回顧評級，沒有「投不投標」的行動可言 */
+  .reco-badge { display: inline-block; font-family: var(--font-serif); font-weight: 700; font-size: 13.5px; padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
+  .reco-buy { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+  .reco-wait { background: var(--warn-soft); color: var(--warn); border: 1px solid var(--warn); }
+  .reco-avoid { background: var(--bad-soft); color: var(--bad); border: 1px solid var(--bad); }
+  .reco-review { background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--line-strong); }
+  .verdict-price { font-family: var(--font-serif); font-weight: 700; font-size: 24px; color: var(--warn); font-variant-numeric: tabular-nums; }
+  .verdict-price small { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink-soft); }
+  .verdict-note { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; }
+  .verdict-round { display: flex; align-items: flex-start; gap: 10px; }
+  .round-pill { font-family: var(--font-serif); font-weight: 700; font-size: 20px; color: var(--warn); background: var(--warn-soft); border: 1px solid var(--line-strong); border-radius: 6px; padding: 6px 12px; white-space: nowrap; }
+
+  section { margin-top: 46px; }
+  .sec-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid var(--line-strong); padding-bottom: 10px; margin-bottom: 18px; }
+  .sec-num { font-family: var(--font-serif); font-size: 15px; color: var(--accent); font-weight: 700; }
+  .sec-title { font-family: var(--font-serif); font-size: 21px; font-weight: 700; text-wrap: balance; }
+  p { margin: 0 0 12px; }
+  .lede { color: var(--ink-soft); font-size: 14.5px; max-width: 62ch; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.8px; min-width: 560px; }
+  thead th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); background: var(--surface-2); padding: 10px 12px; border-bottom: 1px solid var(--line-strong); white-space: nowrap; }
+  tbody td { padding: 10px 12px; border-bottom: 1px solid var(--line); color: var(--ink); background: var(--surface); white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.highlight td { background: var(--accent-soft); font-weight: 600; }
+  tr.dim td { color: var(--ink-faint); }
+  .tag { display: inline-block; font-size: 11px; padding: 2px 7px; border-radius: 4px; font-family: var(--font-mono); }
+  .tag-gold { background: var(--gold-soft); color: var(--gold); }
+
+  .infogrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  @media (max-width: 640px) { .infogrid { grid-template-columns: repeat(2, 1fr); } }
+  .infocell { background: var(--surface); padding: 14px 16px; }
+  .infocell .k { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .05em; }
+  .infocell .v { font-size: 15px; margin-top: 3px; font-variant-numeric: tabular-nums; }
+
+  .note-block { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--ink-faint); border-radius: 4px; padding: 14px 18px; font-size: 13.8px; color: var(--ink-soft); margin: 16px 0; }
+  .note-block b { color: var(--ink); }
+  .note-block.warn { border-left-color: var(--warn); background: var(--warn-soft); }
+  .math { font-family: var(--font-mono); font-size: 13px; color: var(--ink); background: var(--surface-2); padding: 10px 14px; border-radius: 4px; margin: 10px 0; overflow-x: auto; }
+
+  /* risk-list：風險檢核清單。risk-high(紅)/risk-mid(琥珀)/risk-low(綠) 三種badge，只用在真正異常的項目——
+     常態性條款（土地不點交、查無海砂屋、欠費自行協商等）一律 risk-low 或乾脆不列，見 references/risk-rules.md */
+  .risk-list { display: flex; flex-direction: column; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .risk-item { background: var(--surface); display: grid; grid-template-columns: 90px 1fr; gap: 14px; padding: 13px 16px; align-items: start; }
+  @media (max-width: 640px) { .risk-item { grid-template-columns: 70px 1fr; } }
+  .risk-badge { font-family: var(--font-mono); font-size: 11px; text-align: center; padding: 3px 0; border-radius: 4px; font-weight: 700; letter-spacing: 0.04em; }
+  .risk-high { background: var(--bad-soft); color: var(--bad); }
+  .risk-mid { background: var(--warn-soft); color: var(--warn); }
+  .risk-low { background: var(--good-soft); color: var(--good); }
+  .risk-body b { display: block; font-size: 14px; margin-bottom: 2px; }
+  .risk-body span { font-size: 13.3px; color: var(--ink-soft); }
+
+  /* pending-box：等使用者補富邦數字時用這個，取代已完成的 infogrid+note-block 銀行鑑價區塊 */
+  .pending-box { background: var(--warn-soft); border: 1px solid var(--line-strong); border-left: 3px solid var(--warn); border-radius: 4px; padding: 14px 18px; font-size: 13.6px; color: var(--ink); }
+
+  /* scale-wrap：價格區間視覺化橫軸，用在結論章節。scale-band 是「市場合理價值區間」的色塊，
+     scale-mark 是單一數字的直線標記（3拍底價、隱含1拍、富邦估值等）*/
+  .scale-wrap { margin: 22px 0 8px; }
+  .scale-track { position: relative; height: 54px; }
+  .scale-base { position: absolute; left: 0; right: 0; top: 24px; height: 6px; background: var(--surface-2); border-radius: 3px; }
+  .scale-band { position: absolute; top: 20px; height: 14px; border-radius: 7px; background: var(--accent-soft); border: 1px solid var(--accent); opacity: 0.9; }
+  .scale-mark { position: absolute; top: 0; width: 2px; height: 27px; background: var(--ink); }
+  .scale-mark.dim { background: var(--ink-faint); }
+  .scale-mark.warn { background: var(--warn); }
+  .scale-mark.bad { background: var(--bad); }
+  .scale-label { position: absolute; top: 30px; font-size: 11.5px; font-family: var(--font-mono); white-space: nowrap; color: var(--ink-soft); transform: translateX(-50%); }
+  .scale-label b { display: block; color: var(--ink); font-size: 12.5px; font-family: var(--font-sans); font-weight: 700; }
+  .scale-axis { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); margin-top: 46px; padding-top: 8px; border-top: 1px dashed var(--line); }
+
+  .concl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .concl-grid { grid-template-columns: 1fr; } }
+  .concl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+  .concl-card h4 { font-family: var(--font-serif); font-size: 15.5px; margin: 0 0 8px; }
+  .concl-card p { font-size: 13.6px; color: var(--ink-soft); margin: 0; }
+  .concl-card.primary { border-color: var(--warn); background: var(--warn-soft); }
+  .concl-card.primary h4 { color: var(--warn); }
+
+  footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12px; color: var(--ink-faint); display: flex; flex-direction: column; gap: 6px; }
+  a { color: var(--accent); }
+</style>
+<div class="page">
+  <div class="doc-head">
+    <div class="doc-kicker">法拍物件行情估價 · 個案分析</div>
+    <h1 class="doc-title">柴橋路59巷70號9樓（煙波儷舍大樓）</h1>
+    <div class="doc-sub">新竹市東區柴橋路59巷70號9樓・煙波儷舍大樓</div>
+    <div class="doc-meta">
+      <span>查詢日期 <b>2026-09-04</b></span>
+      <span>資料來源 <b>uhomes 法拍公告 · 內政部實價登錄</b></span>
+      <span>開標日 <b>2026/09/22 14:30</b></span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div>
+      <div class="verdict-label-row">
+        <div class="verdict-label">估算結論</div>
+        <div class="reco-badge reco-wait">建議等3拍再進場</div>
+      </div>
+      <div class="verdict-price">2拍成本已貼平甚至超出市場行情，預估3拍底價約906萬才有margin</div>
+      <div class="verdict-note">2拍底價1,132.64萬×1.06（不點交代標費）＝總成本約1,200.6萬，已超過comp估算的市場合理價值中值（約1,080萬）；若流標進入3拍（預估底價約906萬），總成本約960.5萬，才對市場價值區間留有約11~17%的緩衝空間，但仍須另外預留點交訴訟與車位協商的不確定成本。</div>
+    </div>
+    <div class="verdict-round">
+      <div class="round-pill">2拍</div>
+      <div>
+        <div class="verdict-label">拍次判斷</div>
+        <div style="font-size:14px;">現為2拍待標中。反推隱含1拍底價＝1,132.64萬÷0.8≈1,415.8萬，已高於下方comp估算的市場合理價值區間，顯示法院原始鑑價本身就偏高於周邊實際成交行情；2拍下修20%後的底價已相當貼近市場中值，法拍應有的風險折讓在這一輪尚未真正反映在價格上。</div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">一</span><span class="sec-title">物件基本資料</span></div>
+    <div class="infogrid"><div class="infocell"><div class="k">地址</div><div class="v">新竹市東區柴橋路59巷70號9樓</div></div><div class="infocell"><div class="k">所在社區</div><div class="v">煙波儷舍大樓（屋齡31年，住宅大樓型態）</div></div><div class="infocell"><div class="k">房屋類型／結構</div><div class="v">電梯大樓／RC</div></div><div class="infocell"><div class="k">屋齡</div><div class="v">31年</div></div><div class="infocell"><div class="k">樓層別</div><div class="v">9樓／11樓</div></div><div class="infocell"><div class="k">房屋用途</div><div class="v">住家用</div></div><div class="infocell"><div class="k">公告坪數</div><div class="v">40.60坪</div></div><div class="infocell"><div class="k">主建／附屬／公設坪數</div><div class="v">24.51／4.28／11.81坪（合計40.60坪，無增建、無其他坪數）</div></div><div class="infocell"><div class="k">土地坪數</div><div class="v">13.95坪</div></div><div class="infocell"><div class="k">車位</div><div class="v">坡道機械1位（B1-168號，惟謄本未登記，權屬待釐清）</div></div><div class="infocell"><div class="k">拍賣範圍</div><div class="v">全部（7宗土地／建號合併拍賣，須分別出價，總價最高者得標）</div></div><div class="infocell"><div class="k">拍賣原因</div><div class="v">清償債務(不動產)</div></div><div class="infocell"><div class="k">案號</div><div class="v">115年度司執字第1331號</div></div><div class="infocell"><div class="k">拍賣法院</div><div class="v">臺灣新竹地方法院</div></div><div class="infocell"><div class="k">點交情形</div><div class="v">不點交（393建號主建物現由債務人之母親居住占用；其餘6宗土地／建號屬應有部分共有）</div></div></div>
+    <div class="note-block">公告坪數＝主建24.51＋附屬4.28＋公設11.81＝40.60坪，與法院公告坪數完全一致，代表本案沒有未登記增建／違章面積問題，合法可比面積直接採用40.60坪，不需另外拆分違建風險。本件較特殊之處在於「拍賣範圍」：法院將393建號主建物與周邊364、368、384、396、421地號土地（應有部分）及49建號警衛室共7宗標的合併拍賣，投標人須逐宗個別出價、以總價最高者得標——這在權利內容上等同於一般電梯大樓單位「連同土地持分」的正常產權結構，並非額外多出的產權，但公告把法律上的宗數拆得比一般市場買賣揭露得更細，投標前務必逐一核對7宗標的清單。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">二</span><span class="sec-title">拍賣現況與隱含市場基準</span></div>
+    <div class="math">2拍公告底價　1,132.64萬（單價27.89萬/坪，含全部7宗合併標的）<br>隱含1拍底價　= 1,132.64萬 ÷ 0.8 ≈ <b>1,415.8萬</b><br>對照第四節市場合理價值中值（約1,080萬）：隱含1拍已高出市場行情約31%，2拍下修後的1,132.64萬則已相當貼近市場區間上緣，尚未反映法拍應有的風險折讓。</div>
+    <div class="note-block">白話解讀：這個物件不是「1拍流標是因為條件差」，而是法院最初的鑑定價格本身就設得比周邊實際成交行情高出三成左右；2拍打8折之後，數字才落回接近市場行情的水準——換句話說，目前的底價只是「打折打回市價」，還沒有真正打進法拍該有的風險折讓區間。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">三</span><span class="sec-title">內政部實價登錄比對</span></div>
+    <p class="lede">以591「煙波儷舍大樓」社區頁（新竹市東區柴橋路59巷，屋齡31年，住宅大樓）近2年84筆成交明細為主要comp來源，並與內政部實價登錄批次資料交叉核對（同一筆115-01交易兩邊資料一致，可互相驗證）。社區整體均價31.1萬/坪涵蓋各種坪數房型混合計算，本案物件屬40坪級大坪數房型，實際成交單價明顯低於社區整體均價，篩選同坪數級距（40坪上下、4房格局）的comp才有參考意義，其中一筆更與本案同一門牌（柴橋路59巷70號），可信度最高。</p>
+    <div class="table-wrap"><table><thead><tr><th>成交年月</th><th class="num">樓層</th><th class="num">坪數</th><th class="num">總價</th><th class="num">單價</th><th class="num">門牌</th></tr></thead><tbody><tr class="dim"><td>115-01（2026/01）</td><td class="num">8樓／11樓</td><td class="num">31.6坪</td><td class="num">916萬</td><td class="num">28.9萬/坪</td><td class="num">柴橋路59巷89號</td></tr><tr class="dim"><td>113-09（2024/09）</td><td class="num">10樓／11樓</td><td class="num">22.5坪</td><td class="num">938萬</td><td class="num">36.3萬/坪</td><td class="num">柴橋路59巷60號</td></tr><tr><td>113-08（2024/08）</td><td class="num">4樓／11樓</td><td class="num">31.6坪</td><td class="num">1,043萬</td><td class="num">33.0萬/坪</td><td class="num">柴橋路59巷79號</td></tr><tr><td>113-07（2024/07）</td><td class="num">2樓／11樓</td><td class="num">40.5坪</td><td class="num">1,050萬</td><td class="num">25.9萬/坪</td><td class="num">柴橋路59巷85號</td></tr><tr class="highlight"><td>112-04（2023/04）</td><td class="num">7樓／11樓</td><td class="num">40.6坪</td><td class="num">1,160萬</td><td class="num">28.6萬/坪</td><td class="num">柴橋路59巷70號（與本案同門牌）</td></tr><tr><td>111-11（2022/11）</td><td class="num">6樓／11樓</td><td class="num">40.5坪</td><td class="num">920萬</td><td class="num">22.7萬/坪</td><td class="num">柴橋路59巷85號</td></tr></tbody></table></div><div class="note-block">灰底兩筆（115-01、113-09）為小坪數（22~32坪）成交，僅供近期行情走勢參考；同坪數級距（40坪上下）的三筆comp單價落在22.7～28.6萬/坪，其中112-04不僅坪數（40.6坪）與本案（40.60坪）幾乎相同，門牌更完全一致（柴橋路59巷70號），只差在樓層（7樓 vs 本案9樓），是本案最直接的參照案例。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">四</span><span class="sec-title">市場合理價值估算</span></div>
+    <div class="math">同坪數級距comp單價區間　22.7 ～ 28.6萬/坪（三筆平均約25.7萬/坪）<br>本案位於9樓（次高樓層，優於comp中2、6、7樓），酌予區間中段略偏上估算：約25 ～ 28萬/坪<br>市場合理總價　= 40.60坪 × 25～28萬/坪 　≈ <b>1,015萬 ～ 1,137萬</b>（中值約1,080萬）</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">五</span><span class="sec-title">銀行鑑價（富邦房貸實測）</span></div>
+    <p class="lede">銀行鑑價已於快篩階段查得（Google Sheet `銀行鑑價` 欄位已有值：1,334~1,404萬），本次分析直接沿用，未重複操作富邦試算。</p>
+    <div class="infogrid"><div class="infocell"><div class="k">鑑價區間</div><div class="v">1,334萬 ～ 1,404萬</div></div><div class="infocell"><div class="k">資料來源</div><div class="v">富邦房貸線上試算（快篩階段已查，本次沿用）</div></div><div class="infocell"><div class="k">查詢基礎</div><div class="v">房屋坪數40.60坪／屋齡31年／9樓/11樓／新竹市東區</div></div></div>
+    <div class="note-block">銀行鑑價中值（約1,369萬）較第四節comp估算的市場合理價值中值（約1,080萬）高出約27%，落差略大。銀行線上估價系統多以支援貸款額度為導向，估值傾向從寬；本報告仍以591同社區、同坪數級距的實際成交comp（尤其112-04同門牌案例）作為市場合理價值的主要依據，銀行鑑價僅列為輔助參考。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">六</span><span class="sec-title">風險因子檢核</span></div>
+    <div class="risk-list"><div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>主建物現由第三人實際居住，點交需自行協商或涉訟</b><span>筆錄載明393建號主建物（本案主體）現由債務人之母親一人居住使用——占用人並非債務人本人，法院查封時債務人也不在場。本件明確不點交，拍定後買方須自行與現占用人協商遷讓或提起訴訟取得實際占有，時程與成本都無法事先估計，是本案最主要的實質風險。</span></div></div><div class="risk-item"><div class="risk-badge risk-high">高</div><div class="risk-body"><b>機械車位未登記於謄本，權屬與使用權待釐清</b><span>393建物謄本並未記載車位，但現況有一機械停車位（地下一樓168號）。公告明白提示：該車位是否確實配附本戶、位置編號、使用權歸屬均不明，拍定後可能須與管委會、現有車位住戶協商甚至訴訟釐清，法院不代為處理。若協商不成，得標人可能買到房子卻無合法車位使用權。</span></div></div><div class="risk-item"><div class="risk-badge risk-mid">中</div><div class="risk-body"><b>421地號土地持分具其他區分所有權人之優先承買權</b><span>備註第九點載明，債務人所有421地號土地1萬分之66部分，依民法物權編施行法第8條之5第3項，該公寓大廈其他建物所有權人若無該基地持分或持分不足，於其建物面積比例範圍內具優先承買權。其餘6宗（364、368、384、396地號＋49建號警衛室）則已明確排除共有人優先承買權（備註第八點），本項風險僅限421地號這一宗、範圍有限，但仍存在拍定後被優先承買人主張搶先承買的可能。</span></div></div><div class="risk-item"><div class="risk-badge risk-low">低</div><div class="risk-body"><b>7宗土地／建物合併拍賣，須依規定逐宗出價</b><span>本件393建號主建物與6宗土地／建號共7宗合併拍賣，投標人須就每宗個別出價、以總價最高者得標，投標程序較一般單一標的複雜，出價方式若有誤可能導致廢標，投標前務必詳讀公告與投標須知逐一核對。</span></div></div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">七</span><span class="sec-title">估價結論與建議</span></div>
+    <div class="scale-wrap"><div class="scale-track" style="height:64px;"><div class="scale-base"></div><div class="scale-band" style="left:31.4%; width:17.1%;"></div><div class="scale-mark dim" style="left:15.1%;"></div><div class="scale-label" style="left:15.1%;"><b>預估3拍底價</b>約906萬</div><div class="scale-mark " style="left:47.5%;"></div><div class="scale-label" style="left:47.5%;"><b>2拍底價（現況）</b>1,132.64萬</div><div class="scale-mark warn" style="left:81.3%;"></div><div class="scale-label" style="left:81.3%;"><b>銀行鑑價中值</b>1,369萬</div><div class="scale-mark dim" style="left:88.0%;"></div><div class="scale-label" style="left:88.0%;"><b>隱含1拍底價</b>1,415.8萬</div></div><div class="scale-axis" style="margin-top:58px;"><span>800萬</span><span>市場合理價值區間（約1,015~1,137萬）</span><span>1,500萬</span></div></div>
+    <div class="concl-grid" style="margin-top:28px;">
+      <div class="concl-card primary"><h4>建議等3拍再進場，且進場前務必抓好點交／車位的協商緩衝成本</h4><p>2拍底價1,132.64萬乘上不點交代標費率1.06，總成本約1,200.6萬，已超過comp估算的市場合理價值（約1,015~1,137萬），現階段沒有正的獲利空間。若本輪再度流標、進入3拍（預估底價約906萬），總成本約960.5萬，較市場價值區間留有約11~17%的緩衝，這才是相對合理的進場點。但無論哪一輪進場，393建物現況由第三人居住、機械車位權屬不明這兩項風險都不會因為降價而消失，買方必須先評估自己是否能承擔訴訟／協商的時間與費用，再決定是否要等待這個物件，而不是只看價格數字打折了多少。</p></div>
+      <div class="concl-card"><h4>421地號優先承買權是本案獨有、範圍有限的變數</h4><p>跟大部分法拍案「土地不點交是常態」不同，本案421地號因具體法條（民法物權編施行法第8條之5）而存在真實的優先承買權，拍定後有被其他區分所有權人搶先承買的可能，但僅限這一宗土地、不影響其餘6宗標的與主建物本身；投標前建議另行向地政機關確認421地號現況及其他所有權人的土地持分狀態，降低這項不確定性。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>資料擷取：uhomes 法拍屋公告（2026-09-04）、內政部不動產交易實價查詢服務網、富邦房貸房價行情查詢。</span>
+    <span>本報告為初步估價參考，非正式鑑價報告；實際投標前請至臺灣新竹地方法院查詢公告全文，並諮詢地政士／代標專業意見。</span>
+  </footer>
+</div>
